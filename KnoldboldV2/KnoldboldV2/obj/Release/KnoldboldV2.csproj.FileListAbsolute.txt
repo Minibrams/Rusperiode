@@ -1,0 +1,5 @@
+c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\bin\Release\KnoldboldV2.exe.config
+c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\bin\Release\KnoldboldV2.exe
+c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\bin\Release\KnoldboldV2.pdb
+c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\obj\Release\KnoldboldV2.exe
+c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\obj\Release\KnoldboldV2.pdb
