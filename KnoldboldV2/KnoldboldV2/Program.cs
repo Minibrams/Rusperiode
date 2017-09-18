@@ -12,14 +12,16 @@ namespace KnoldboldV2
         static List<Team> Teams = new List<Team>();
         static List<Field> Fields = new List<Field>();
         static List<Match> Matches = new List<Match>(); /* just for doublechecking */
-        static void Main(string[] args)
-        {
+
+        static string extendedASCII = "iso-8859-1";
+
+        static void Main(string[] args) {
             Start();
         }
 
         public static void LoadTeams(string path) {
             try {
-                string[] raw = File.ReadAllLines(path);
+                string[] raw = File.ReadAllLines(path, Encoding.GetEncoding(extendedASCII));
                 foreach (var line in raw) {
                     if (string.IsNullOrEmpty(line))
                         continue;
@@ -45,11 +47,11 @@ namespace KnoldboldV2
         }
 
         private static void ExportGameplan() {
-            UserPrompt("Spilplan klar! Tryk 'ENTER' for at eksportere spilplanen til \"plan.txt\"");
+            UserPrompt("Spilplan klar! Tryk 'ENTER' for at eksportere spilplanen til \"Bane #.txt\"");
             while (Console.ReadKey().Key != ConsoleKey.Enter) { }
-            StringBuilder str = new StringBuilder();
-            Fields.ForEach(f => str.AppendLine(f.ToString()));
-            File.WriteAllText(Directory.GetCurrentDirectory() + "\\plan.txt", str.ToString());
+            Fields.ForEach(f => File.WriteAllText(
+                Directory.GetCurrentDirectory() + $"\\{f.Name}.txt", 
+                f.ToString()));
         }
 
         private static void UserPrompt(string prompt) {

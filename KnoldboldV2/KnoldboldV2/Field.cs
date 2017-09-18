@@ -11,31 +11,42 @@ namespace KnoldboldV2
         public List<Tuple<Match, Match>> Rounds = new List<Tuple<Match, Match>>();
         public List<Field> AllFields; 
         public string Name;
+
+        private string Space = "    ";
         public Field(string name) {
             Name = name;
         }
 
-        public override string ToString()
-        {
+        public override string ToString() {
             StringBuilder str = new StringBuilder();
-            str.AppendLine(Name + ":");
+            str.AppendLine(Name);
             str.AppendLine();
             foreach (var round in Rounds) {
                 int roundNum = Rounds.IndexOf(round);
                 var m1 = round.Item1;
                 var m2 = round.Item2;
-                str.AppendLine($"Runde {roundNum + 1}: ");
-                str.AppendLine($"{m1}      &&      {m2}");
-                str.AppendLine($"       {m1.T1} skal til {NextField(m1.T1, roundNum)} næste gang");
-                str.AppendLine($"       {m1.T2} skal til {NextField(m1.T2, roundNum)} næste gang");
-                str.AppendLine($"       {m2.T1} skal til {NextField(m2.T1, roundNum)} næste gang");
-                str.AppendLine($"       {m2.T2} skal til {NextField(m2.T2, roundNum)} næste gang");
+                str.Append($"Runde {roundNum + 1}  -");
+                str.AppendLine(Space + $"{m1}      &&      {m2}");
+                str.AppendLine();
+                str.AppendLine(FormatNextField(m1.T1, roundNum));
+                str.AppendLine(FormatNextField(m1.T2, roundNum));
+                str.AppendLine(FormatNextField(m2.T1, roundNum));
+                str.AppendLine(FormatNextField(m2.T2, roundNum));
 
+                str.AppendLine();
                 str.AppendLine();
             }
 
             str.AppendLine();
             return str.ToString();
+        }
+
+        private string FormatNextField(Team team, int round) {
+            if (team.Name == "DUMMY-MATCH") {
+                return "";
+            } else {
+                return Space + $"{team} skal til {NextField(team, round)} næste gang.";
+            }
         }
 
         private string NextField(Team t, int round) {
