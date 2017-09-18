@@ -8,6 +8,20 @@ namespace KnoldboldV2
 {
     class GamePlanner
     {
+        /*
+         * Deler holdene op i to rækker; øvre og nedre:
+         *      1  2  3  4
+         *      8  7  6  5
+         * 
+         * Modstående hold (1 og 8, 2 og 7, osv.) spiller
+         * mod hinanden. Efter hver kamp roterer rækkerne
+         * med uret - hold 1 bliver altid stående:
+         * 
+         * Efter første kamp:
+         *
+         *      1  8  2  3
+         *      7  6  5  4
+         */
         private List<Team> upper = new List<Team>();
         private List<Team> lower = new List<Team>();
 

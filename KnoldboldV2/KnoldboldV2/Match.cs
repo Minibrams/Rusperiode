@@ -24,6 +24,7 @@ namespace KnoldboldV2
             return $"\"{T1}\" VS. \"{T2}\"";
         }
 
+        /* Not really an Equals()... */
         public bool Matches(Match other) {
             return (T1 == other.T1 && T2 == other.T2 ||
                     T1 == other.T2 && T2 == other.T1);
