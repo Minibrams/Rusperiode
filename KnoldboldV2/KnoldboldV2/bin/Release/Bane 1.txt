@@ -1,0 +1,83 @@
+Bane 1
+
+Runde 1  -    "Lone Homes" VS. "DUMMY-HOLD - tag en pause"      &&      "Pirates XXX" VS. "Kurts disciple"
+
+    Lone Homes skal til Bane 1 næste gang.
+    DUMMY-HOLD - tag en pause skal til Bane 1 næste gang.
+    Pirates XXX skal til Bane 1 næste gang.
+    Kurts disciple skal til Bane 2 næste gang.
+
+
+Runde 2  -    "Pirates XXX" VS. "Lone Homes"      &&      "Kejser Kurts Kalifat" VS. "DUMMY-HOLD - tag en pause"
+
+    Pirates XXX skal til Bane 1 næste gang.
+    Lone Homes skal til Bane 1 næste gang.
+    Kejser Kurts Kalifat skal til Bane 1 næste gang.
+    DUMMY-HOLD - tag en pause skal til Bane 2 næste gang.
+
+
+Runde 3  -    "Kejser Kurts Kalifat" VS. "Pirates XXX"      &&      "Vinderdruerne" VS. "Lone Homes"
+
+    Kejser Kurts Kalifat skal til Bane 1 næste gang.
+    Pirates XXX skal til Bane 1 næste gang.
+    Vinderdruerne skal til Bane 1 næste gang.
+    Lone Homes skal til Bane 2 næste gang.
+
+
+Runde 4  -    "Vinderdruerne" VS. "Kejser Kurts Kalifat"      &&      "De Sataniske Munke" VS. "Pirates XXX"
+
+    Vinderdruerne skal til Bane 1 næste gang.
+    Kejser Kurts Kalifat skal til Bane 1 næste gang.
+    De Sataniske Munke skal til Bane 1 næste gang.
+    Pirates XXX skal til Bane 2 næste gang.
+
+
+Runde 5  -    "De Sataniske Munke" VS. "Vinderdruerne"      &&      "Red-light District" VS. "Kejser Kurts Kalifat"
+
+    De Sataniske Munke skal til Bane 1 næste gang.
+    Vinderdruerne skal til Bane 1 næste gang.
+    Red-light District skal til Bane 1 næste gang.
+    Kejser Kurts Kalifat skal til Bane 2 næste gang.
+
+
+Runde 6  -    "Red-light District" VS. "De Sataniske Munke"      &&      "Det Danske ØL Hold" VS. "Vinderdruerne"
+
+    Red-light District skal til Bane 1 næste gang.
+    De Sataniske Munke skal til Bane 1 næste gang.
+    Det Danske ØL Hold skal til Bane 1 næste gang.
+    Vinderdruerne skal til Bane 2 næste gang.
+
+
+Runde 7  -    "Det Danske ØL Hold" VS. "Red-light District"      &&      "Competitive Stickman Squad (CSS)" VS. "De Sataniske Munke"
+
+    Det Danske ØL Hold skal til Bane 1 næste gang.
+    Red-light District skal til Bane 1 næste gang.
+    Competitive Stickman Squad (CSS) skal til Bane 1 næste gang.
+    De Sataniske Munke skal til Bane 2 næste gang.
+
+
+Runde 8  -    "Competitive Stickman Squad (CSS)" VS. "Det Danske ØL Hold"      &&      "Slutty Nurses" VS. "Red-light District"
+
+    Competitive Stickman Squad (CSS) skal til Bane 1 næste gang.
+    Det Danske ØL Hold skal til Bane 1 næste gang.
+    Slutty Nurses skal til Bane 1 næste gang.
+    Red-light District skal til Bane 2 næste gang.
+
+
+Runde 9  -    "Slutty Nurses" VS. "Competitive Stickman Squad (CSS)"      &&      "Nørder verdenen rundt" VS. "Det Danske ØL Hold"
+
+    Slutty Nurses skal til Bane 1 næste gang.
+    Competitive Stickman Squad (CSS) skal til Bane 1 næste gang.
+    Nørder verdenen rundt skal til Bane 1 næste gang.
+    Det Danske ØL Hold skal til Bane 2 næste gang.
+
+
+Runde 10  -    "Nørder verdenen rundt" VS. "Slutty Nurses"      &&      "313A" VS. "Competitive Stickman Squad (CSS)"
+
+    Nørder verdenen rundt skal til ingen steder, for der er ikke flere kampe næste gang.
+    Slutty Nurses skal til ingen steder, for der er ikke flere kampe næste gang.
+    313A skal til ingen steder, for der er ikke flere kampe næste gang.
+    Competitive Stickman Squad (CSS) skal til ingen steder, for der er ikke flere kampe næste gang.
+
+
+
