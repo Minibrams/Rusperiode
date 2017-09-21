@@ -21,17 +21,16 @@ namespace KnoldboldV2
             StringBuilder str = new StringBuilder();
             str.AppendLine(Name);
             str.AppendLine();
-            foreach (var round in Rounds) {
-                int roundNum = Rounds.IndexOf(round);
-                var m1 = round.Item1;
-                var m2 = round.Item2;
-                str.Append($"Runde {roundNum + 1}  -");
+            for (int i = 0; i < Rounds.Count; i++) {
+                var m1 = Rounds[i].Item1;
+                var m2 = Rounds[i].Item2;
+                str.Append($"Runde {i + 1}  -");
                 str.AppendLine(Space + $"{m1}      &&      {m2}");
                 str.AppendLine();
-                str.AppendLine(FormatNextField(m1.T1, roundNum));
-                str.AppendLine(FormatNextField(m1.T2, roundNum));
-                str.AppendLine(FormatNextField(m2.T1, roundNum));
-                str.AppendLine(FormatNextField(m2.T2, roundNum));
+                str.AppendLine(FormatNextField(m1.T1, i));
+                str.AppendLine(FormatNextField(m1.T2, i));
+                str.AppendLine(FormatNextField(m2.T1, i));
+                str.AppendLine(FormatNextField(m2.T2, i));
 
                 str.AppendLine();
                 str.AppendLine();
