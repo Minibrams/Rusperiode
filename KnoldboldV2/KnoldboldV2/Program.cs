@@ -11,9 +11,9 @@ namespace KnoldboldV2
     {
         static List<Team> Teams = new List<Team>();
         static List<Field> Fields = new List<Field>();
-        static List<Match> Matches = new List<Match>(); /* just for doublechecking */
+        static List<Match> Matches = new List<Match>(); /* Just for doublechecking / debugging */
 
-        static string extendedASCII = "iso-8859-1";
+        static string extendedASCII = "iso-8859-1"; /* Extended ASCII that allows for special characters (æ, ø, å) */
 
         static void Main(string[] args) {
             Start();
@@ -30,6 +30,11 @@ namespace KnoldboldV2
             }
             catch (FileNotFoundException e) {
                 UserPrompt($"Kunne ikke finde \"{e.FileName}\". Prøv igen...");
+                InitTeams();
+            }
+
+            catch (Exception e) {
+                UserPrompt("Et eller andet gik galt. Prøv igen... ");
                 InitTeams();
             }
         }
@@ -83,22 +88,19 @@ namespace KnoldboldV2
 
         private static void AssignMatchesToFields(Stack<Match> matches) {
             foreach (var field in Fields) {
-                if (matches.Count >= 2)
-                {
+                if (matches.Count >= 2) {
                     var m1 = matches.Pop();
                     var m2 = matches.Pop();
                     Matches.Add(m1); Matches.Add(m2);
                     field.Rounds.Add(Tuple.Create(m1, m2));
                 }
-                else if (matches.Count == 1)
-                {
+                else if (matches.Count == 1) {
                     var m1 = matches.Pop();
                     var m2 = new Match();
                     Matches.Add(m1); Matches.Add(m2);
                     field.Rounds.Add(Tuple.Create(m1, m2));
                 }
-                else
-                {
+                else {
                     var m1 = new Match();
                     var m2 = new Match();
                     Matches.Add(m1); Matches.Add(m2);

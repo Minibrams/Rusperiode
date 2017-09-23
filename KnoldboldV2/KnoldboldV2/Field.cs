@@ -61,6 +61,7 @@ namespace KnoldboldV2
                 return "ingen steder, for der er ikke flere kampe";
             }
             
+            /* Shouldn't happen :D */
             return "KUNNE IKKE FINDE BANE";
         }
     }
