@@ -115,7 +115,7 @@ $enable-print-styles:       true;
 //
 // Settings for the `<body>` element.
 
-$body-bg:       map-get($theme-colors, primary);
+$body-bg:       $white;
 $body-color:    $gray-700;
 
 // Links
