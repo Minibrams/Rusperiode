@@ -1,0 +1,98 @@
+/*!
+ * Bootstrap v4.0.0-beta (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/print";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+@import "bootstrap/transitions";
+@import "bootstrap/dropdown";
+@import "bootstrap/button-group";
+@import "bootstrap/input-group";
+@import "bootstrap/custom-forms";
+@import "bootstrap/nav";
+@import "bootstrap/navbar";
+@import "bootstrap/card";
+@import "bootstrap/breadcrumb";
+@import "bootstrap/pagination";
+@import "bootstrap/badge";
+@import "bootstrap/jumbotron";
+@import "bootstrap/alert";
+@import "bootstrap/progress";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/close";
+@import "bootstrap/modal";
+@import "bootstrap/tooltip";
+@import "bootstrap/popover";
+@import "bootstrap/carousel";
+@import "bootstrap/utilities";
+
+div.container {
+  &.solid {
+    background-color: theme-color("light");
+    padding: 30px
+  }
+  margin-top: 30px;
+  @include border-radius(4px);
+}
+
+.underlined {
+  border-bottom: 1px solid $gray-600;
+  margin-bottom: 20px;
+}
+
+header {
+  min-height: 150px;
+  &.center {
+    text-align: center;
+  }
+  &:not(.solid){
+    color: theme-color('light');
+  }
+  h1 {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 3.6rem;
+    text-shadow: 0 0 1px $black;
+  }
+}
+
+footer {
+  text-align: center;
+  margin-top: 20px;
+  padding: 0 100px;
+  border-top: 8px solid #202529;
+  border-bottom: 8px solid #202529;
+  background-color: #252C30;
+}
+
+blockquote {
+  margin: 1rem;
+  padding: 1.5rem;
+  background-color: $gray-400;
+  quotes: "" "";
+  &:before {
+    float: left;
+    margin-right: 10px;
+    font-family: FontAwesome;
+    font-size: 30px;
+    line-height: 1;
+    content: '\f10d';
+  }
+  p {
+    margin: 0 0 0 40px;
+  }
+}
