@@ -10,22 +10,41 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-
   <body>
     <div class="color-base">
       <div class="container">
         <header class="center">
           <h1>Datalogi og Software</h1>
-          menu og alt muligt ting
+          <div>Lidt nemmere studiestart</div>
         </header>
+
+        <%= render partial: 'partials/navigation' %>
       </div>
-      <div class="container solid">
+      <div class="container">
         <div class="row">
-          <div class="col-9">
-            <%= yield %>
+          <div class="col-9 px-2">
+            <div class="solid">
+              <%= yield %>
+            </div>
           </div>
           <div class="col-3">
-            Sidebar
+            <div class="row">
+              <div class="col-12 mb-3 mt-0">
+                <div class="solid">
+                  Sidebar 0
+                </div>
+              </div>
+            </div>
+
+            <% 1.upto 3 do |i| %>
+              <div class="row">
+                <div class="col-12 my-3">
+                  <div class="solid">
+                    Sidebar <%= i %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

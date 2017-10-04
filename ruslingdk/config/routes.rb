@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   get 'public/contacts'
   get 'public/calendar'
 

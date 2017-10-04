@@ -50,6 +50,13 @@ div.container {
   @include border-radius(4px);
 }
 
+div.solid {
+  background-color: theme-color("light");
+  padding: 30px;
+  border: 1px solid #101519;
+  border-top: 4px solid #101519;
+}
+
 .color-base {
   background-color: theme-color("primary");
   padding-bottom: 30px;
@@ -57,7 +64,7 @@ div.container {
 }
 
 .underlined {
-  border-bottom: 1px solid $gray-600;
+  border-bottom: 1px solid $gray-400;
   margin-bottom: 20px;
 }
 
@@ -92,6 +99,7 @@ footer {
   bottom: 0;
   right: 0;
   left: 0;
+  will-change: transform;
 }
 
 blockquote {
@@ -107,7 +115,28 @@ blockquote {
     line-height: 1;
     content: '\f10d';
   }
-  p {
+  p, h2 {
     margin: 0 0 0 40px;
+  }
+}
+nav {
+  a {
+    color: $white;
+    font-weight: 600;
+    &.nav-link {
+      font-size: 1.1rem;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      &:hover {
+        color: $black;
+        text-shadow: -1px 0 $gray-400, 0 1px $gray-200, 1px 0 $gray-200, 0 -1px $gray-400;
+      }
+    }
+    &.dropdown-item {
+      font-size: 0.9rem;
+    }
+  }
+  .dropdown-header {
+    font-weight: 600;
+    color: $gray-700;
   }
 }
