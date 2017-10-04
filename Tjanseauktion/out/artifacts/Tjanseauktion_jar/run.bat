@@ -1,1 +1,0 @@
-java -jar Tjanseauktion.jar chores.csv teams.csv 5
