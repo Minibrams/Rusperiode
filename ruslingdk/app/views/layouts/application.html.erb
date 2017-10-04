@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruslingdk</title>
+    <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+  <body>
+    <div class="color-base">
+      <div class="container">
+        <header class="center">
+          <h1>Datalogi og Software</h1>
+          <div>Lidt nemmere studiestart</div>
+        </header>
+
+        <%= render partial: 'partials/navigation' %>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-9 px-2">
+            <div class="solid">
+              <%= yield %>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="row">
+              <div class="col-12 mb-3 mt-0">
+                <div class="solid">
+                  Sidebar 0
+                </div>
+              </div>
+            </div>
+
+            <% 1.upto 3 do |i| %>
+              <div class="row">
+                <div class="col-12 my-3">
+                  <div class="solid">
+                    Sidebar <%= i %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="row">
+        <div class="col-4">
+          <img src="http://rusling.dk/wp-content/uploads/2017/09/logo_stud1_rød_RGB-300x181.png" class="image wp-image-963  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" srcset="http://rusling.dk/wp-content/uploads/2017/09/logo_stud1_rød_RGB-300x181.png 300w, http://rusling.dk/wp-content/uploads/2017/09/logo_stud1_rød_RGB-768x465.png 768w, http://rusling.dk/wp-content/uploads/2017/09/logo_stud1_rød_RGB-700x423.png 700w, http://rusling.dk/wp-content/uploads/2017/09/logo_stud1_rød_RGB.png 848w" sizes="(max-width: 300px) 100vw, 300px">
+        </div>
+        <div class="col-4">
+          <img src="http://rusling.dk/wp-content/uploads/2017/09/logo-mashup-1-300x111.png" class="image wp-image-905  attachment-medium size-medium" alt="" style="max-width: 100%; height: auto;" srcset="http://rusling.dk/wp-content/uploads/2017/09/logo-mashup-1-300x111.png 300w, http://rusling.dk/wp-content/uploads/2017/09/logo-mashup-1-700x259.png 700w, http://rusling.dk/wp-content/uploads/2017/09/logo-mashup-1.png 731w" sizes="(max-width: 300px) 100vw, 300px">
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

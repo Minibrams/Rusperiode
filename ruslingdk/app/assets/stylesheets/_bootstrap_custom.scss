@@ -1,0 +1,142 @@
+/*!
+ * Bootstrap v4.0.0-beta (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+@import "bootstrap/functions";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+@import "bootstrap/print";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+@import "bootstrap/transitions";
+@import "bootstrap/dropdown";
+@import "bootstrap/button-group";
+@import "bootstrap/input-group";
+@import "bootstrap/custom-forms";
+@import "bootstrap/nav";
+@import "bootstrap/navbar";
+@import "bootstrap/card";
+@import "bootstrap/breadcrumb";
+@import "bootstrap/pagination";
+@import "bootstrap/badge";
+@import "bootstrap/jumbotron";
+@import "bootstrap/alert";
+@import "bootstrap/progress";
+@import "bootstrap/media";
+@import "bootstrap/list-group";
+@import "bootstrap/close";
+@import "bootstrap/modal";
+@import "bootstrap/tooltip";
+@import "bootstrap/popover";
+@import "bootstrap/carousel";
+@import "bootstrap/utilities";
+
+div.container {
+  &.solid {
+    background-color: theme-color("light");
+    padding: 30px
+  }
+  padding-top: 30px;
+  z-index: 5;
+  @include border-radius(4px);
+}
+
+div.solid {
+  background-color: theme-color("light");
+  padding: 30px;
+  border: 1px solid #101519;
+  border-top: 4px solid #101519;
+}
+
+.color-base {
+  background-color: theme-color("primary");
+  padding-bottom: 30px;
+  box-shadow: rgba(0, 0, 0, 1) 0px 6px 40px -4px;
+}
+
+.underlined {
+  border-bottom: 1px solid $gray-400;
+  margin-bottom: 20px;
+}
+
+header {
+  min-height: 150px;
+  &.center {
+    text-align: center;
+  }
+  &:not(.solid){
+    color: theme-color('light');
+  }
+  h1 {
+    font-family: $font-family-sans-serif;
+    font-weight: 700;
+    font-size: 3.6rem;
+    text-shadow: 0 0 1px $black;
+  }
+}
+
+body {
+  margin-bottom: 219px;
+  background-color: #101519; // Ensures "overscrolling" looks like footer
+}
+
+footer {
+  text-align: center;
+  padding: 30px 100px 0;
+  border-bottom: 8px solid #101519;
+  background-color: #252C30;
+  z-index: -5;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  will-change: transform;
+}
+
+blockquote {
+  margin: 1rem;
+  padding: 1.5rem;
+  background-color: $gray-400;
+  quotes: "" "";
+  &:before {
+    float: left;
+    margin-right: 10px;
+    font-family: FontAwesome;
+    font-size: 30px;
+    line-height: 1;
+    content: '\f10d';
+  }
+  p, h2 {
+    margin: 0 0 0 40px;
+  }
+}
+nav {
+  a {
+    color: $white;
+    font-weight: 600;
+    &.nav-link {
+      font-size: 1.1rem;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      &:hover {
+        color: $black;
+        text-shadow: -1px 0 $gray-400, 0 1px $gray-200, 1px 0 $gray-200, 0 -1px $gray-400;
+      }
+    }
+    &.dropdown-item {
+      font-size: 0.9rem;
+    }
+  }
+  .dropdown-header {
+    font-weight: 600;
+    color: $gray-700;
+  }
+}
