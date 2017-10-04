@@ -32,3 +32,7 @@ For at compile, skal Maven installeres, og Maven goal 'package' køres. For at k
 
 ## Sketch-afstemning
 TODO: Giv points baseret på lydniveauet.
+
+## Rusling.dk - Ruby on Rails
+
+Se [Rusling.dk README](ruslingdk/README.md)
