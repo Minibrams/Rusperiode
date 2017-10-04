@@ -1,9 +1,0 @@
-c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\bin\Debug\KnoldboldV2.exe.config
-c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\bin\Debug\KnoldboldV2.exe
-c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\bin\Debug\KnoldboldV2.pdb
-c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\obj\Debug\KnoldboldV2.csprojResolveAssemblyReference.cache
-c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\obj\Debug\KnoldboldV2.exe
-c:\users\brams\documents\visual studio 2017\Projects\KnoldboldV2\KnoldboldV2\obj\Debug\KnoldboldV2.pdb
-C:\Users\Anders Brams\Documents\GitHub\Rusperiode\KnoldboldV2\KnoldboldV2\bin\Debug\KnoldboldV2.exe.config
-C:\Users\Anders Brams\Documents\GitHub\Rusperiode\KnoldboldV2\KnoldboldV2\obj\Debug\KnoldboldV2.exe
-C:\Users\Anders Brams\Documents\GitHub\Rusperiode\KnoldboldV2\KnoldboldV2\obj\Debug\KnoldboldV2.pdb
