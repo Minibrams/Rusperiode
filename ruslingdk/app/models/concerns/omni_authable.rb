@@ -4,7 +4,7 @@ module OmniAuthable
   extend ActiveSupport::Concern
 
   included do
-    scope :disabled, -> { where(disabled: true) }
+    has_secure_password
   end
 
   class_methods do
