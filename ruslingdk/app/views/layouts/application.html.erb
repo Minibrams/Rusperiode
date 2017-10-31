@@ -15,8 +15,8 @@
     <div class="color-base">
       <div class="container">
         <header class="center">
-          <h1><%= @domain.name %></h1>
-          <div>Lidt nemmere studiestart</div>
+          <h1><%= @domain.name %> (<%= current_user.name %>)</h1>
+          <div><%= t("header.easier_study_start") %></div>
         </header>
 
         <%= render partial: 'partials/navigation' %>
@@ -29,22 +29,18 @@
             </div>
           </div>
           <div class="col-3">
-            <div class="row">
-              <div class="col-12 mb-3 mt-0">
-                <div class="solid">
-                  Sidebar 0
-                </div>
-              </div>
-            </div>
-
-            <% 1.upto 3 do |i| %>
-              <div class="row">
-                <div class="col-12 my-3">
-                  <div class="solid">
-                    Sidebar <%= i %>
+            <% if @domain.secondary_menu.present? %>
+              <nav class="nav justify-content-center dropdown">
+                <% @domain.secondary_menu["items"].each do |item| %>
+                  <div class="row">
+                    <div class="col-12 mb-3 mt-0">
+                      <div class="solid">
+                        <%= item["name"] %>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                <% end %>
+              </nav>
             <% end %>
           </div>
         </div>

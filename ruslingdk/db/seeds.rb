@@ -6,4 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-EducationalDomain.create(domain: 'rusling.dk', name: 'Datalogi/Software')
+dom = EducationalDomain.create(domain: 'rusling.dk', name: 'Datalogi/Software')
+
+dom.menus.create(
+  name: "Ting",
+  items: {
+    "navitem" => [
+      {...},
+      {...},
+      ...
+    ]
+  }
+)

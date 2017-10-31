@@ -1,0 +1,6 @@
+<%= form_for @user, url: auth_login_callback_path(provider: 'login') do |f| %>
+  <%= f.text_field :email %>
+  <%= f.text_field :password %>
+
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>

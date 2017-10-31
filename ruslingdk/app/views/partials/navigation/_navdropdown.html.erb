@@ -1,0 +1,8 @@
+<div class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" data-toggle='dropdown' href="<%= item["link"] %>"><%= item["name"] %></a>
+  <div class="dropdown-menu">
+    <% item["dropdown"]["items"].each do |subitem| %>
+      <a class="dropdown-item" href="<%= subitem["link"] %>"><%= subitem["name"] %></a>
+    <% end %>
+  </div>
+</div>
