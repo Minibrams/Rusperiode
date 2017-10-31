@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031191459) do
+ActiveRecord::Schema.define(version: 20171031195837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20171031191459) do
     t.string "domain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "default_page_id"
+    t.index ["default_page_id"], name: "index_educational_domains_on_default_page_id"
     t.index ["domain"], name: "index_educational_domains_on_domain"
   end
 
@@ -32,6 +34,17 @@ ActiveRecord::Schema.define(version: 20171031191459) do
     t.datetime "updated_at", null: false
     t.index ["educational_domain_id"], name: "index_pages_on_educational_domain_id"
     t.index ["slug"], name: "index_pages_on_slug"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["password_digest"], name: "index_users_on_password_digest"
   end
 
 end
