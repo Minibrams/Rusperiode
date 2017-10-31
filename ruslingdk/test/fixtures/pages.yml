@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  slug: hello-world
+  title: hej verden
+  content: velkomen til
+
+two:
+  slug: mypost
+  title: Min post her
+  content: Og en røvfuld tekst
