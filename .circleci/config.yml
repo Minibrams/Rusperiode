@@ -5,10 +5,20 @@ jobs:
     working_directory: ~/rusperiode/ruslingdk
     docker:
       - image: circleci/ruby:2.5.1-node
-      - image: circleci/postgres:9.4.12-alpine
+        environment:
+          PG_HOST: localhost
+          PG_USER: ubuntu
+          RAILS_ENV: test
+          RACK_ENV: test
+      - image: postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: ubuntu
+          POSTGRES_DB: ruslingdk_test
+          POSTGRES_PASSWORD: ""
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/rusperiode
 
       # Restore bundle cache
       - restore_cache:
@@ -31,12 +41,14 @@ jobs:
       - run: |
           bundle exec rails test
 
-  "build-knoldbold":
+  "build-tjanser":
     docker:
-      - image: circleci/openjdk:8u121-jdk
+      - image: circleci/openjdk:8u162-jdk
+    working_directory: ~/rusperiode/Tjanseauktion
 
     steps:
-      - checkout
+      - checkout:
+          path: ~/rusperiode
       - restore_cache:
           key: tjanser-java-spring-{{ checksum "pom.xml" }}
 
@@ -60,4 +72,4 @@ workflows:
   build_and_test:
     jobs:
       - build-rails
-      - build-knoldbold
+      - build-tjanser
