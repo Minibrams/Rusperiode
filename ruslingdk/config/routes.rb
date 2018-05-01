@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'public/sessions#create', as: :auth_login_callback, via: %i[get post]
 
   # Dynamic page-matching
-  match '/:page', to: 'public/pages#show', via: :get
+  match '/:page', to: 'public/pages#show',
+                  via: :get,
+                  constraints: ->(r) { Page.where(slug: r.params[:slug]).exists? }
   root to: 'public/pages#show'
 end
