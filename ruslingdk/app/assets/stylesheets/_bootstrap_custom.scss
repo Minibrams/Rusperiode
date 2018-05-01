@@ -15,7 +15,7 @@
 // @import "bootstrap/code";
 @import "bootstrap/grid";
 // @import "bootstrap/tables";
-// @import "bootstrap/forms";
+@import "bootstrap/forms";
 @import "bootstrap/buttons";
 @import "bootstrap/transitions";
 @import "bootstrap/dropdown";
@@ -39,6 +39,63 @@
 // @import "bootstrap/popover";
 // @import "bootstrap/carousel";
 @import "bootstrap/utilities";
+
+/*
+ * Social Buttons for Bootstrap
+ *
+ * Copyright 2013-2016 Panayiotis Lipiridis
+ * Licensed under the MIT License
+ *
+ * https://github.com/lipis/bootstrap-social
+ */
+
+$bs-height-base: ($line-height-base + $input-btn-padding-y * 2) !default;
+$bs-height-lg:   (floor($font-size-lg * $line-height-base) + $input-btn-padding-y-lg * 2) !default;
+$bs-height-sm:   (floor($font-size-sm * 1.5) + $input-btn-padding-y-sm * 2) !default;
+$bs-height-xs:   (floor($font-size-sm * 1.2) + $input-btn-padding-y-sm + 1) !default;
+
+.btn-social {
+  position: relative;
+  padding-left: ($bs-height-base + $input-btn-padding-x);
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  > :first-child {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $bs-height-base;
+    line-height: ($bs-height-base + 0.15);
+    font-size: 1.6em;
+    text-align: center;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+.btn-social-icon {
+  @extend .btn-social;
+  height: ($bs-height-base + 2);
+  width: ($bs-height-base + 2);
+  padding: 0;
+  > :first-child {
+    border: none;
+    text-align: center;
+    width: 100%!important;
+  }
+}
+
+@mixin btn-social($color-bg) {
+  background-color: $color-bg;
+  color: #fff;
+  @include button-variant($color-bg, rgba(0,0,0,.2));
+}
+
+.btn-bitbucket     { @include btn-social(#205081); }
+.btn-facebook      { @include btn-social(#3b5998); }
+.btn-github        { @include btn-social(#444444); }
+.btn-google        { @include btn-social(#dd4b39); }
 
 div.container {
   &.solid {
@@ -64,7 +121,7 @@ div.solid {
 
 @for $i from 1 through 12 {
   .col-#{$i} .solid {
-    @include border-radius(4px);
+    @include border-radius(10px);
   }
 }
 

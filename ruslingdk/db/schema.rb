@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501132818) do
+ActiveRecord::Schema.define(version: 20180501151311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20180501132818) do
     t.jsonb "colors"
     t.index ["default_page_id"], name: "index_educational_domains_on_default_page_id"
     t.index ["domain"], name: "index_educational_domains_on_domain"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "title"
+    t.bigint "educational_domain_id"
+    t.string "description"
+    t.string "location"
+    t.decimal "lat", precision: 9, scale: 6
+    t.decimal "lng", precision: 9, scale: 6
+    t.datetime "begin_at", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["educational_domain_id"], name: "index_events_on_educational_domain_id"
   end
 
   create_table "menus", force: :cascade do |t|
@@ -90,5 +103,6 @@ ActiveRecord::Schema.define(version: 20180501132818) do
 
   add_foreign_key "educational_domains", "menus", column: "primary_menu_id", on_delete: :nullify
   add_foreign_key "educational_domains", "menus", column: "secondary_menu_id", on_delete: :nullify
+  add_foreign_key "events", "educational_domains"
   add_foreign_key "menus", "educational_domains"
 end

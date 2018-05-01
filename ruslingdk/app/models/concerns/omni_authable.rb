@@ -25,14 +25,21 @@ module OmniAuthable
       oauth_login(authhash)&.user || create_from_hash(authhash)
     end
 
+    def provider_facebook(authhash = {})
+      # Fix for Facebook parsing expires_at date.
+      authhash[:credentials][:expires_at] = DateTime.strptime authhash[:credentials][:expires_at].to_s, '%s'
+      oauth_login(authhash)&.user || create_from_hash(authhash)
+    end
+
     def provider_login(authhash = {})
       oauth_login(authhash)&.user.try(:authenticate, authhash[:info][:password]) || nil
     end
 
     def oauth_login(authhash)
-      @oauth_login ||= OauthLogin.where(provider: authhash[:provider])
-                                 .where('expires_at IS NULL OR expires_at >= ?', authhash[:credentials][:expires_at])
-                                 .find_by(uid: authhash[:uid])
+      OauthLogin.where(provider: authhash[:provider])
+                .where('expires_at IS NULL OR expires_at >= ?', authhash[:credentials][:expires_at])
+                .where(uid: authhash[:uid])
+                .first
     end
 
     def create_from_hash(authhash = {})
@@ -42,8 +49,12 @@ module OmniAuthable
       ApplicationRecord.transaction do
         this.firstname = authhash[:info][:first_name] if this.respond_to?(:firstname=)
         this.lastname = authhash[:info][:last_name] if this.respond_to?(:lastname=)
-        this.firstname = authhash[:info][:name].split.first if this.respond_to?(:firstname=) && this.firstname.blank?
-        this.lastname = authhash[:info][:name].split[1..-1].join(' ') if this.respond_to?(:lastname=) && this.lastname.blank?
+
+        if authhash[:info][:name]
+          this.firstname = authhash[:info][:name].split.first if this.respond_to?(:firstname=) && this.firstname.blank?
+          this.lastname = authhash[:info][:name].split[1..-1].join(' ') if this.respond_to?(:lastname=) && this.lastname.blank?
+        end
+
         this.email = authhash[:info][:email] if this.respond_to?(:email=)
         this.save
 

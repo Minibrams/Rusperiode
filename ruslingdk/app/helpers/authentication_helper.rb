@@ -5,9 +5,9 @@ module AuthenticationHelper
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id].present?
   end
 
-  def current_user=(u)
-    @current_user ||= u if u.is_a?(User)
-    @current_user ||= User.find_by(id: u) if u.is_a?(Integer)
+  def current_user=(user)
+    @current_user ||= user if user.is_a?(User)
+    @current_user ||= User.find_by(id: user) if user.is_a?(Integer)
     session[:user_id] = @current_user&.id
   end
 

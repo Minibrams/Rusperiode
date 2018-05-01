@@ -6,9 +6,11 @@
 server '172.19.10.19', user: 'deploy', roles: %w[app db web],
                        ssh_options: {
                          proxy: Net::SSH::Proxy::Command.new(
-                           !ENV['SSHPASS'].nil? ?
-                           'sshpass -v -e ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p' :
-                           'ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p'
+                           if ENV['SSHPASS'].nil?
+                             'sshpass -v -e ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p'
+                           else
+                             'ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p'
+                           end
                          )
                        }
 

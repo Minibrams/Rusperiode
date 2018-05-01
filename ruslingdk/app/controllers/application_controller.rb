@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include AuthenticationHelper
   helper :all
 
-  protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   before_action :set_domain
   before_action :set_locale
 

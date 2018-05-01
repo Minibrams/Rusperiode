@@ -1,8 +1,8 @@
-ActiveAdmin.register EducationalDomain do
+ActiveAdmin.register Event do
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
-  permit_params :primary_menu_id, :secondary_menu_id, :default_page_id, :name, :domain, :color_id
+  permit_params :title, :description, :location, :lat, :lng, :educational_domain_id, :begin_at
   #
   # or
   #

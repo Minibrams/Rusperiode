@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # Authentication
-  get '/auth/login', to: 'public/sessions#new'
+  get '/login', to: 'public/sessions#new'
   get '/logout', to: 'public/sessions#destroy'
   match '/auth/:provider/callback', to: 'public/sessions#create', as: :auth_login_callback, via: %i[get post]
 

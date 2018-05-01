@@ -1,5 +1,5 @@
 class Public::SessionsController < PublicApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
 
   def new
     @user = User.new
