@@ -41,6 +41,18 @@ jobs:
       - run: |
           bundle exec rails test
 
+  "build-studego":
+    working_directory: ~/rusperiode/studego
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout:
+          path: ~/rusperiode
+      - run: bundle install --path vendor/bundle
+      - run: ruby builder.rb > output/output.html
+      - store_artifacts:
+          path: output/
+
   "build-tjanser":
     docker:
       - image: circleci/openjdk:8u162-jdk
@@ -72,4 +84,5 @@ workflows:
   build_and_test:
     jobs:
       - build-rails
+      - build-studego
       - build-tjanser

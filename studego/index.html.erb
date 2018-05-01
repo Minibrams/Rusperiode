@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Studegokort-print</title>
+  <style><%= styling %></style>
+</head>
+<body>
+  <%- objects.each_slice(2) do |obj_group| -%>
+    <div class="flex-grid">
+      <%- obj_group.each do |obj| -%>
+        <div class="card">
+          <%= obj[:name] %><br />
+          <%= obj[:description] %>
+        </div>
+      <%- end -%>
+    </div>
+    <br />
+  <%- end -%>
+</body>
+</html>
