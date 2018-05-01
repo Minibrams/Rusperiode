@@ -9,3 +9,6 @@ Se [Tjanseauktion README](Tjanseauktion/README.md)
 
 ## Rusling.dk - Ruby on Rails
 Se [Rusling.dk README](ruslingdk/README.md)
+
+## Studego - Ruby ala Spang
+Se [Studego README](studego/README.md)
