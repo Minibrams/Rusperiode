@@ -18,7 +18,7 @@ namespace FORdeler
 
             List<Member> duplicatedMembers = TeamTester.CountSameTeams(loader.newTeams);
 
-            TeamTester.PrintDuplicates(duplicatedMembers);
+            TeamTester.PrintSameTeams(duplicatedMembers);
 
             Console.WriteLine();
             Console.ReadKey();

@@ -11,12 +11,11 @@ namespace FORdeler
         public Member(string name, Team belongingTeam)
         {
             Name = name;
-            BelongingTeam = belongingTeam;
+            relation.NewTeam = belongingTeam;
+            relation.correspondingMember = this;
         }
 
-        public Team BelongingTeam;
-
-        public Team OldTeam;
+        public Relation relation;
 
         public string Name;
 

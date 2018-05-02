@@ -64,13 +64,14 @@ namespace FORdeler
             oldMembers.Sort();
             members.Sort();
 
+            // Merging the two teams into one member type.
             foreach (Member oldMember in oldMembers)
             {
                 foreach (Member newMember in members)
                 {
                     if (oldMember.Name == newMember.Name)
                     {
-                        newMember.OldTeam = oldMember.BelongingTeam;
+                        newMember.relation.OldTeam = oldMember.relation.NewTeam;
                     }
                 }
             }

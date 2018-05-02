@@ -16,5 +16,10 @@ namespace FORdeler
         public string Name;
 
         public List<Member> Members = new List<Member>();
+
+        public override string ToString()
+        {
+            return Name.ToString();
+        }
     }
 }

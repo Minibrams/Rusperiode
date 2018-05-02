@@ -18,7 +18,7 @@ namespace FORdeler
                 foreach (Member member in team.Members)
                 {
                     List<Member> duplicatedMembers = new List<Member>();
-                    duplicatedMembers.AddRange(team.Members.Where(x => x.OldTeam == member.OldTeam).ToList());
+                    duplicatedMembers.AddRange(team.Members.Where(x => x.relation.OldTeam == member.relation.OldTeam).ToList());
 
                     if (duplicatedMembers.Count > 1 && !allDuplicatedMembers.Contains(duplicatedMembers.First()))
                         allDuplicatedMembers.AddRange(duplicatedMembers);
@@ -28,13 +28,20 @@ namespace FORdeler
             return allDuplicatedMembers;
         }
 
-        public static void PrintDuplicates(List<Member> duplicateMembers)
+        public static void PrintSameTeams(List<Member> duplicateMembers)
         {
             Console.WriteLine("The following members are duplicated:");
             foreach (Member member in duplicateMembers)
             {
-                Console.WriteLine($"On team {member.BelongingTeam.Name}: {member.Name} from team {member.OldTeam.Name}");
+                Console.WriteLine($"On team {member.relation.NewTeam}: {member.Name} from team {member.relation.OldTeam}");
             }
         }
+
+        public static void PrintNumberOfSameTeams(List<Member> duplicateMembers)
+        {
+            Console.WriteLine($"There currently exists {duplicateMembers.Count} members who share teams on both old and new.");
+        }
+
+        public static List<Member> CountRelativeSameMembers(List<>)
     }
 }
