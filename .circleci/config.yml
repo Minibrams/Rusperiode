@@ -19,7 +19,6 @@ jobs:
     steps:
       - checkout:
           path: ~/rusperiode
-
       # Restore bundle cache
       - restore_cache:
           key: ruslingdk-bundler-{{ checksum "Gemfile.lock" }}
@@ -33,6 +32,14 @@ jobs:
           paths:
             - vendor/bundle
 
+      - run:
+          name: install dockerize
+          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          environment:
+            DOCKERIZE_VERSION: v0.6.1
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
@@ -40,6 +47,18 @@ jobs:
       # Run rspec in parallel
       - run: |
           bundle exec rails test
+
+  "build-studego":
+    working_directory: ~/rusperiode/studego
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - checkout:
+          path: ~/rusperiode
+      - run: bundle install --path vendor/bundle
+      - run: ruby builder.rb > output/output.html
+      - store_artifacts:
+          path: output/
 
   "build-tjanser":
     docker:
@@ -72,4 +91,5 @@ workflows:
   build_and_test:
     jobs:
       - build-rails
+      - build-studego
       - build-tjanser
