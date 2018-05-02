@@ -2,9 +2,9 @@
   <nav class="nav justify-content-center dropdown">
     <% @domain.primary_menu.items.each do |item| %>
       <% if item["dropdown"].present? %>
-        <%= render "partials/navigation/navdropdown.html.erb", locals: { item: item } %>
+        <%= render partial: "partials/navigation/navdropdown.html.erb", locals: { item: item } %>
       <% else %>
-        <%= render "partials/navigation/navitem.html.erb", locals: { item: item } %>
+        <%= render partial: "partials/navigation/navitem.html.erb", locals: { item: item } %>
       <% end %>
     <% end %>
   </nav>

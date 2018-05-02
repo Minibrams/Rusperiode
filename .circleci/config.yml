@@ -46,7 +46,7 @@ jobs:
 
       # Run rspec in parallel
       - run: |
-          bundle exec rails test
+          bundle exec rspec
 
   "build-studego":
     working_directory: ~/rusperiode/studego

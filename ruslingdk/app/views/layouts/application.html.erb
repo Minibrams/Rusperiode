@@ -9,6 +9,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script>
+      function initGoogleMap(){
+        <%= content_for :init_maps %>
+      }
+    </script>
     <%= yield :head %>
   </head>
   <body>
@@ -31,30 +36,31 @@
           <div class="col-3">
             <nav class="justify-content-center dropdown">
               <div class="row">
-                <% if @domain.events.active.exists? %>
+                <% if @domain.events.active.exists? && !current_page?(controller: 'public/events', action: 'show', id: params[:id] || 0) %>
                   <div class="col-12 mb-3 mt-0">
-                    <div class="solid">
-                      <% @event = @domain.events.active.order(:begin_at).first %>
+                    <div class="solid" style="border-bottom-right-radius: 0;border-bottom-left-radius: 0;">
+                      <% event = @domain.events.active.order(:begin_at).first %>
                       <h5>Næste arrangement</h5>
-                      <%= @event.title %>, <%= l @event.begin_at, format: :short %>
-                      <div id="map" style="height: 100%;min-height:150px;margin:-30px;margin-top:30px"></div>
+                      <%= event.title %>, <%= l event.begin_at, format: :short %>
+                      <div id="map_two" style="height: 100%;min-height:150px;margin:-30px;margin-top:30px"></div>
                       <script>
-                        var map;
-                        function initMap() {
-                          var location = {lat: <%= @event.lat %>, lng: <%= @event.lng %>}
-                          map = new google.maps.Map(document.getElementById('map'), {
+                        var map_two;
+                        function initSidebarMap() {
+                          var location = {lat: <%= event.lat %>, lng: <%= event.lng %>}
+                          map_two = new google.maps.Map(document.getElementById('map_two'), {
                             center: location,
                             zoom: 11
                           });
 
                           var marker = new google.maps.Marker({
                             position: location,
-                            map: map
+                            map: map_two
                           });
                         }
                       </script>
-                      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGztWYFJv5qtbDPwYM8cqPN6LE7bdFr2M&callback=initMap"
-                      async defer></script>
+                      <% content_for :init_maps do %>
+                        initSidebarMap();
+                      <% end %>
                     </div>
                   </div>
                 <% end %>
@@ -89,5 +95,6 @@
       <%= yield :footer %>
     </footer>
     <%= yield :bottom %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGztWYFJv5qtbDPwYM8cqPN6LE7bdFr2M&callback=initGoogleMap"></script>
   </body>
 </html>
