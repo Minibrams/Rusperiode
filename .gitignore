@@ -1,5 +1,11 @@
 /Tjanseauktion/out
 /Tjanseauktion/.idea
+
 /KnoldboldV2/.vs
 /KnoldboldV2/KnoldboldV2/obj
 /KnoldboldV2/KnoldboldV2/bin
+
+# Ignore folder, but have .keep
+/studego/output/*
+!/studego/output/.keep
+/studego/.bundle

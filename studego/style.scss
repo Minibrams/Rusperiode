@@ -1,0 +1,46 @@
+@page {
+  size: 210mm 297mm;
+}
+
+html, body{
+  height: 297mm;
+  width: 210mm;
+  margin: 0 auto;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+* { box-sizing:border-box; }
+.flex-grid {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  &:nth-child(3n+3) {
+    page-break-after: always;
+  }
+  &:last-child {
+    page-break-after: never;
+  }
+  .card {
+    h1 {
+      font-size:3rem;
+      text-transform: uppercase;
+      margin-bottom: 1em;
+    }
+    p {
+      font-size:1.2rem;
+      br {
+        line-height: 2.5rem;
+      }
+    }
+    -webkit-column-break-inside: avoid; /* Chrome, Safari, Opera */
+              page-break-inside: avoid; /* Firefox */
+                   break-inside: avoid; /* IE 10+ */
+    height:95mm;
+    text-align:center;
+    border: 2px solid black;
+    width: 45%;
+    padding: 3mm;
+  }
+}
