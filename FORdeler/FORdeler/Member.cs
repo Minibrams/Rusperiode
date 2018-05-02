@@ -11,6 +11,7 @@ namespace FORdeler
         public Member(string name, Team belongingTeam)
         {
             Name = name;
+            BelongingTeam = belongingTeam;
         }
 
         public Team BelongingTeam;
