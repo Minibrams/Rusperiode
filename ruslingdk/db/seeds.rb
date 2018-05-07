@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-dom = EducationalDomain.create(domain: 'rusling.dk', name: 'Datalogi/Software')
+dom = EducationalDomain.find_or_initialize_by(domain: 'rusling.dk')
+dom.name = 'Datalogi/Software'
+dom.save
+
 menprod = Menu.create(
   name: "Ting",
   items: [],
@@ -16,10 +19,11 @@ dom.update(primary_menu: menprod)
 
 
 if Rails.env.development?
-  testdomain = EducationalDomain.create(domain: 'localhost', name: 'Spang Faktultet Test')
-  men = Menu.create(
-    name: "Test Menu",
-    items: [
+  testdomain = EducationalDomain.find_or_initialize_by(domain: 'localhost')
+  testdomain.name = 'Spang Faktultet Test'
+  testdomain.save
+  men = Menu.find_or_initialize_by(name: "Test Menu")
+  men.items = [
       {
         "name" => "Forside",
         "link" => "/"
@@ -38,9 +42,10 @@ if Rails.env.development?
           }
         ]
       }
-    ],
-    educational_domain: testdomain
-  )
+    ]
+  men.educational_domain = testdomain
+  men.save
+
   pa = Page.create(educational_domain: testdomain, title: 'TestTitle', content: 'Seedcontent')
 
   testdomain.update(primary_menu: men, default_page: pa)
