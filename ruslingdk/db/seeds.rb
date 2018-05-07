@@ -17,7 +17,30 @@ dom.update(primary_menu: menprod)
 
 if Rails.env.development?
   testdomain = EducationalDomain.create(domain: 'localhost', name: 'Spang Faktultet Test')
-  men = Menu.create(name: "Test Menu", items: [], educational_domain: testdomain)
+  men = Menu.create(
+    name: "Test Menu",
+    items: [
+      {
+        "name" => "Forside",
+        "link" => "/"
+      },
+      {
+        "name" => "Vigtige links",
+        "link" => '#',
+        "dropdown" => [
+          {
+            "name" => "Stack Overflow",
+            "link" => "https://stackoverflow.com"
+          },
+          {
+            "name" => "Google",
+            "link" => "https://google.com"
+          }
+        ]
+      }
+    ],
+    educational_domain: testdomain
+  )
   pa = Page.create(educational_domain: testdomain, title: 'TestTitle', content: 'Seedcontent')
 
   testdomain.update(primary_menu: men, default_page: pa)
