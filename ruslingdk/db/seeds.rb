@@ -7,14 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 dom = EducationalDomain.create(domain: 'rusling.dk', name: 'Datalogi/Software')
-
-dom.menus.create(
+menprod = Menu.create(
   name: "Ting",
-  items: {
-    "navitem" => [
-      {...},
-      {...},
-      ...
-    ]
-  }
+  items: [],
+  educational_domain: dom
 )
+dom.update(primary_menu: menprod)
+
+
+if Rails.env.development?
+  testdomain = EducationalDomain.create(domain: 'rusling.dk', name: 'Datalogi/Software')
+  men = Menu.create(name: "Test Menu", items: [], educational_domain: testdomain)
+  testdomain.update(primary_menu: men)
+end
