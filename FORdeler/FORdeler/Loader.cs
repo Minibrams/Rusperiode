@@ -35,6 +35,9 @@ namespace FORdeler
                     List<string> row = value.Split(';', '\t', ',').ToList();
                     int numColumns = row.Count; //Counts number of entries in the row
 
+                    if (row.First().Contains("sep"))
+                        continue;
+
                     for (int columnCount = 0; columnCount < numColumns; columnCount++)
                     {
                         // The first row is the name of the teams
@@ -72,6 +75,7 @@ namespace FORdeler
                     if (oldMember.Name == newMember.Name)
                     {
                         newMember.relation.OldTeam = oldMember.relation.NewTeam;
+                        oldMember.relation = newMember.relation;
                     }
                 }
             }

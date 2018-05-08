@@ -11,6 +11,7 @@ namespace FORdeler
         public Member(string name, Team belongingTeam)
         {
             Name = name;
+            relation = new Relation();
             relation.NewTeam = belongingTeam;
             relation.correspondingMember = this;
         }
@@ -22,6 +23,11 @@ namespace FORdeler
         public int CompareTo(Member obj)
         {
             return Name.CompareTo(obj.Name);
+        }
+
+        public override string ToString()
+        {
+            return Name.ToString();
         }
     }
 }

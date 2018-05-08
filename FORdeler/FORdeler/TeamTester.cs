@@ -8,7 +8,6 @@ namespace FORdeler
 {
     static class TeamTester
     {
-
         public static List<Member> CountSameTeams(List<Team> teamList)
         {
             List<Member> allDuplicatedMembers = new List<Member>();
@@ -42,6 +41,38 @@ namespace FORdeler
             Console.WriteLine($"There currently exists {duplicateMembers.Count} members who share teams on both old and new.");
         }
 
-        public static List<Member> CountRelativeSameMembers(List<>)
+        public static List<RelativePair> CountRelativeSameMembers(List<Team> teams)
+        {
+            List<RelativePair> relativeSameMembers = new List<RelativePair>();
+
+            for (int i = 0; i < teams.Count; i++)
+            {
+                for (int j = i + 1; j < teams.Count - 1; j++)
+                {
+                    List<RelativePair> relatives = new List<RelativePair>();
+                    foreach (Member member in teams[i].Members)
+                    {
+                        var newMemberArr = teams[i].Members.Where(x => x.relation.NewTeam == member.relation.NewTeam).ToList();
+                        var oldMemberArr = teams[j].Members.Where(x => x.relation.NewTeam == member.relation.NewTeam).ToList();
+
+                        // More than one means duplicates, less than one means no relation. Duplicates handled elsewhere.
+                        if (newMemberArr.Count != 1 || oldMemberArr.Count != 1)
+                            continue;
+
+                        var pair = new RelativePair(newMemberArr.First(), oldMemberArr.First());
+                        relatives.Add(pair);
+
+                        if (oldMemberArr.Count() > 0)
+                        { }
+                    }
+
+                    if (relatives.Count > 1)
+                    {
+                        relativeSameMembers.AddRange(relatives);
+                    }
+                }
+            }
+            return relativeSameMembers;
+        }
     }
 }
