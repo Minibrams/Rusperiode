@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'public/sessions#create', as: :auth_login_callback, via: %i[get post]
 
   # Events
+  get '/events/', to: 'public/events#index'
   get '/events/:id', to: 'public/events#show'
 
   # Dynamic page-matching

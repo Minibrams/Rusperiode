@@ -1,2 +1,23 @@
 @import 'variables';
 @import 'bootstrap_custom';
+
+
+.fc-event {
+  color: #ffffff;
+
+  &.prosa {
+    background-color: #CF1D23;
+  }
+
+  &.ida {
+    background-color: #C4005F;
+  }
+
+  &.ruskorps {
+    background-color: rgb(255, 136, 0);
+  }
+
+  &.studentersamfundet {
+    background-color: #134010;
+  }
+}
