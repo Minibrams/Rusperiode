@@ -27,20 +27,6 @@ namespace FORdeler
             return allDuplicatedMembers;
         }
 
-        public static void PrintSameTeams(List<Member> duplicateMembers)
-        {
-            Console.WriteLine("The following members are duplicated:");
-            foreach (Member member in duplicateMembers)
-            {
-                Console.WriteLine($"On team {member.relation.NewTeam}: {member.Name} from team {member.relation.OldTeam}");
-            }
-        }
-
-        public static void PrintNumberOfSameTeams(List<Member> duplicateMembers)
-        {
-            Console.WriteLine($"There currently exists {duplicateMembers.Count} members who share teams on both old and new.");
-        }
-
         public static List<RelativePair> CountRelativeSameMembers(List<Team> teams)
         {
             List<RelativePair> relativeSameMembers = new List<RelativePair>();
@@ -73,6 +59,40 @@ namespace FORdeler
                 }
             }
             return relativeSameMembers;
+        }
+
+        public static void PrintSameTeams(List<Member> duplicateMembers)
+        {
+            Console.WriteLine("The following members are duplicated:");
+            foreach (Member member in duplicateMembers)
+            {
+                Console.WriteLine($"On team {member.relation.NewTeam}: {member.Name} from team {member.relation.OldTeam}");
+            }
+        }
+
+        public static void PrintNumberOfSameTeams(List<Member> duplicateMembers)
+        {
+            Console.WriteLine($"There currently exists {duplicateMembers.Count} members who share teams on both old and new.");
+        }
+
+        public static void PrintRelativeSameTeams(List<RelativePair> relatedMembers)
+        {
+            Console.WriteLine("The following teams have a relation - members from old teams being paired and placed in the same new group.");
+            for (int i = 0; i < relatedMembers.Count; i++)
+            {
+                if (i == 0 || relatedMembers[i].FirstMember.relation.OldTeam != relatedMembers[i - 1].FirstMember.relation.OldTeam)
+                {
+                    Console.Write($"From teams: {relatedMembers[i].FirstMember.relation.OldTeam}");
+                    Console.WriteLine($" and {relatedMembers[i].SecondMember.relation.OldTeam}");
+                }
+
+                Console.WriteLine($"There is a relation between {relatedMembers[i].FirstMember} and {relatedMembers[i].SecondMember}.");
+            }
+        }
+
+        public static void PrintNumberOfRelativeSameTeams(List<RelativePair> relatedMembers)
+        {
+            Console.WriteLine($"There currently exists {relatedMembers.Count} pairs on related teams. ({relatedMembers.Count * 2} members involved)");
         }
     }
 }
