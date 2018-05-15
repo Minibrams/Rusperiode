@@ -28,8 +28,6 @@
           <h1><%= @domain.name %></h1>
           <div><%= t("header.easier_study_start") %></div>
         </header>
-
-        <%#= render partial: 'partials/navigation' %>
       </div>
       <div class="container">
         <div class="row">
@@ -57,24 +55,3 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGztWYFJv5qtbDPwYM8cqPN6LE7bdFr2M&callback=initGoogleMap"></script>
   </body>
 </html>
-
-<% if false %>
-      <%#Skal flyttes ud, da nu render alle pages som dette.. tror jeg?%>
-      <div class="grid">
-        <div class="row">
-          <div class="box" style="background-image: url(http://placekitten.com/200/200);">
-            <a class='menu-link' href='javascript:void(0)' onclick='window.location = "/events"'></a>
-            <div class="inner">1</div>
-            <div class="overlay"></div>
-          </div>
-          <div class="box" style="background-image: url(http://placekitten.com/300/300);"><div class="inner">2</div></div>
-          <div class="box" style="background-image: url(http://placekitten.com/400/400);"><div class="inner">3</div></div>  
-        </div>
-        <div class="row">
-          <div class="box" style="background-image: url(http://placekitten.com/100/100);"><div class="inner">4</div></div>
-          <div class="box" style="background-image: url(http://placekitten.com/400/200);"><div class="inner">5</div></div>
-          <div class="box" style="background-image: url(http://placekitten.com/300/400);"><div class="inner">6</div></div>  
-        </div>
-      </div>
-      <%#Grid går her til%>
-<% end %>
