@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   match '/:page', to: 'public/pages#show',
                   via: :get,
                   constraints: ->(r) { Page.where(slug: r.params[:slug]).exists? }
-  root to: 'public/pages#show'
+  root to: 'public/pages#menu'
 end

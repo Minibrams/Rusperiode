@@ -29,58 +29,12 @@
           <div><%= t("header.easier_study_start") %></div>
         </header>
 
-        <%= render partial: 'partials/navigation' %>
+        <%#= render partial: 'partials/navigation' %>
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-9 px-2">
-            <div class="solid">
-              <%= yield %>
-            </div>
-          </div>
-          <div class="col-3">
-            <nav class="justify-content-center dropdown">
-              <div class="row">
-                <% if @domain.events.active.exists? && !current_page?(controller: 'public/events', action: 'show', id: params[:id] || 0) %>
-                  <div class="col-12 mb-3 mt-0">
-                    <div class="solid" style="border-bottom-right-radius: 0;border-bottom-left-radius: 0;">
-                      <% event = @domain.events.active.order(:begin_at).first %>
-                      <h5>Næste arrangement</h5>
-                      <%= event.title %>, <%= l event.begin_at, format: :short %>
-                      <div id="map_two" style="height: 100%;min-height:150px;margin:-30px;margin-top:30px"></div>
-                      <script>
-                        var map_two;
-                        function initSidebarMap() {
-                          var location = {lat: <%= event.lat %>, lng: <%= event.lng %>}
-                          map_two = new google.maps.Map(document.getElementById('map_two'), {
-                            center: location,
-                            zoom: 11
-                          });
-
-                          var marker = new google.maps.Marker({
-                            position: location,
-                            map: map_two
-                          });
-                        }
-                      </script>
-                      <% content_for :init_maps do %>
-                        initSidebarMap();
-                      <% end %>
-                    </div>
-                  </div>
-                <% end %>
-
-                <% if @domain.secondary_menu.present? %>
-                  <% @domain.secondary_menu["items"].each do |item| %>
-                    <div class="col-12 mb-3 mt-0">
-                      <div class="solid">
-                        <%= item["name"] %>
-                      </div>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-            </nav>
+          <div class="col-12">
+            <%= yield %>
           </div>
         </div>
       </div>
@@ -103,3 +57,24 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGztWYFJv5qtbDPwYM8cqPN6LE7bdFr2M&callback=initGoogleMap"></script>
   </body>
 </html>
+
+<% if false %>
+      <%#Skal flyttes ud, da nu render alle pages som dette.. tror jeg?%>
+      <div class="grid">
+        <div class="row">
+          <div class="box" style="background-image: url(http://placekitten.com/200/200);">
+            <a class='menu-link' href='javascript:void(0)' onclick='window.location = "/events"'></a>
+            <div class="inner">1</div>
+            <div class="overlay"></div>
+          </div>
+          <div class="box" style="background-image: url(http://placekitten.com/300/300);"><div class="inner">2</div></div>
+          <div class="box" style="background-image: url(http://placekitten.com/400/400);"><div class="inner">3</div></div>  
+        </div>
+        <div class="row">
+          <div class="box" style="background-image: url(http://placekitten.com/100/100);"><div class="inner">4</div></div>
+          <div class="box" style="background-image: url(http://placekitten.com/400/200);"><div class="inner">5</div></div>
+          <div class="box" style="background-image: url(http://placekitten.com/300/400);"><div class="inner">6</div></div>  
+        </div>
+      </div>
+      <%#Grid går her til%>
+<% end %>

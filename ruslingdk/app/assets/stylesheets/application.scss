@@ -21,3 +21,67 @@
     background-color: #134010;
   }
 }
+
+.grid {  /*Responsivt grid http://bluecaret.com/blog/responsive-grid-of-squares*/
+    margin: 0 auto;
+    width: 100vw;
+    max-width: 80vh;
+    height: 100vw;
+    max-height: 80vh;
+    font-size: 1rem;
+}
+.row {
+    display: flex;
+}
+.box {
+    background: rgb(47, 0, 255);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+    flex: 1 0 auto;
+    position: relative;
+}
+.box:hover > .overlay{ 
+  width:100%;
+  height:100%;
+  position:absolute;
+  background-color:#000;
+  opacity:0.15;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+.box .inner {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 10px;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+}
+
+.menu-link{
+  /* all rules required to make the whole div clickable */ 
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+  z-index: 1;
+  /* this is a fix for IE7-9 */
+  background-color:#ffffff;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";  
+  filter: alpha(opacity=0);  
+  opacity:0;  
+}
