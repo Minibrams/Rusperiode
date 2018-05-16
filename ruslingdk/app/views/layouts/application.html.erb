@@ -14,6 +14,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/locale/da.js"></script>
     <script>
+
+      window.rus_maps = [];
       function initGoogleMap(){
         <%= content_for :init_maps %>
       }
@@ -28,6 +30,7 @@
           <h1><%= @domain.name %></h1>
           <div><%= t("header.easier_study_start") %></div>
         </header>
+
       </div>
       <div class="container">
         <div class="row">

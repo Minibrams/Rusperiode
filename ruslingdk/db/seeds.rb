@@ -50,9 +50,9 @@ if Rails.env.development?
         "image_url" => 'http://placekitten.com/600/600'
       },
       {
-        "name" => "Næste Begivenhed",
+        "name" => "Gode Råd",
         "link" => "#",
-        "image_url" => 'http://placekitten.com/700/700'
+        "image_url" => 'http://placekitten.com/700/200'
       }
     ]
   men.educational_domain = testdomain
@@ -61,7 +61,7 @@ if Rails.env.development?
 
   pa = Page.create(educational_domain: testdomain, title: 'Test', content: 'Test')
 
-  ev1 = Event.create(title: "Ruskorps Event", educational_domain: testdomain, description: "Noget ruskorpset arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-16 14:30:00", planner: "ruskorps")
+  ev1 = Event.create(title: "Ruskorps Event", educational_domain: testdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-16 14:30:00", planner: "ruskorps")
   ev2 = Event.create(title: "PROSA Event", educational_domain: testdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
   ev3 = Event.create(title: "IDA Event", educational_domain: testdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-20 14:30:00", planner: "ida")
   ev4 = Event.create(title: "Studentersamfundet Event", educational_domain: testdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
