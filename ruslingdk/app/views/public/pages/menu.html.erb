@@ -1,0 +1,13 @@
+<div class= "grid">
+  <% @domain.primary_menu.items.each_slice(3).each do |row| %>
+    <div class="row">
+      <% row.each do |item| %>
+        <div class="box" style='background-image: url("<%= item["image_url"] %>");'>
+          <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
+          <div class="inner"><%= item["name"] %></div>
+          <div class="overlay"></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

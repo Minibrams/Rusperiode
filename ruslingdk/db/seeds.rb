@@ -25,28 +25,47 @@ if Rails.env.development?
   men = Menu.find_or_initialize_by(name: "Test Menu")
   men.items = [
       {
-        "name" => "Forside",
-        "link" => "/"
+        "name" => "FAQ",
+        "link" => "/",
+        "image_url" => 'http://placekitten.com/200/200'
       },
       {
-        "name" => "Vigtige links",
-        "link" => '#',
-        "dropdown" => [
-          {
-            "name" => "Stack Overflow",
-            "link" => "https://stackoverflow.com"
-          },
-          {
-            "name" => "Google",
-            "link" => "https://google.com"
-          }
-        ]
+        "name" => "How To",
+        "link" => "/",
+        "image_url" => 'http://placekitten.com/300/300'
+      },
+      {
+        "name" => "Arrangementer",
+        "link" => "/events",
+        "image_url" => 'http://placekitten.com/400/400'
+      },
+      {
+        "name" => "Information",
+        "link" => "/",
+        "image_url" => 'http://placekitten.com/500/500'
+      },
+      {
+        "name" => "Vigtige Kontakter",
+        "link" => "/",
+        "image_url" => 'http://placekitten.com/600/600'
+      },
+      {
+        "name" => "Næste Begivenhed",
+        "link" => "#",
+        "image_url" => 'http://placekitten.com/700/700'
       }
     ]
   men.educational_domain = testdomain
   men.save
 
-  pa = Page.create(educational_domain: testdomain, title: 'TestTitle', content: 'Seedcontent')
+
+  pa = Page.create(educational_domain: testdomain, title: 'Test', content: 'Test')
+
+  ev1 = Event.create(title: "Ruskorps Event", educational_domain: testdomain, description: "Noget ruskorpset arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-16 14:30:00", planner: "ruskorps")
+  ev2 = Event.create(title: "PROSA Event", educational_domain: testdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
+  ev3 = Event.create(title: "IDA Event", educational_domain: testdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-20 14:30:00", planner: "ida")
+  ev4 = Event.create(title: "Studentersamfundet Event", educational_domain: testdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
+  
 
   testdomain.update(primary_menu: men, default_page: pa)
 end

@@ -1,33 +1,34 @@
-<select id="planner_selector">
-  <option value="alle">Alle</option>
-  <option value="ruskorps">Ruskorps</option>
-  <option value="prosa">PROSA</option>
-  <option value="ida">IDA</option>
-  <option value="studentersamfundet">Studentersamfundet</option>
-</select>
+<div class="solid">
+  <select id="planner_selector">
+    <option value="alle">Alle</option>
+    <option value="ruskorps">Ruskorps</option>
+    <option value="prosa">PROSA</option>
+    <option value="ida">IDA</option>
+    <option value="studentersamfundet">Studentersamfundet</option>
+  </select>
 
-<div id="calendar"></div>
+  <div id="calendar"></div>
 
 
-<script type="text/javascript">
-$(document).ready(function(){
-  $('#calendar').fullCalendar({
-    defaultView: 'month',
-    locale: 'da',
-    events: <%= raw(@events.map { |ev| { title: ev.title, start: ev.begin_at, className: ev.planner, url: "/events/#{ev.id}" } }.to_json) %>,
-    eventRender: function eventRender( event, element, view ) {
-      if ($('#planner_selector').val() == "alle")
-        return true
-      else
-        return event.className == $('#planner_selector').val()
-    }
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#calendar').fullCalendar({
+      defaultView: 'month',
+      locale: 'da',
+      events: <%= raw(@events.map { |ev| { title: ev.title, start: ev.begin_at, className: ev.planner, url: "/events/#{ev.id}" } }.to_json) %>,
+      eventRender: function eventRender( event, element, view ) {
+        if ($('#planner_selector').val() == "alle")
+          return true
+        else
+          return event.className == $('#planner_selector').val()
+      }
+    });
   });
-});
-$('#planner_selector').on('change',function(){
-    $('#calendar').fullCalendar('rerenderEvents');
-});
-</script>
-
+  $('#planner_selector').on('change',function(){
+      $('#calendar').fullCalendar('rerenderEvents');
+  });
+  </script>
+</div>
 
 
  
