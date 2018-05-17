@@ -29,16 +29,19 @@
     height: 100vw;
     max-height: 80vh;
     font-size: 1rem;
+    justify-content: center;
 }
 .row {
     display: flex;
+    justify-content: left; /*Alignment of trailing boxes*/
 }
 .box {
-    margin: 10px;
-    color: white;
-    font-weight: bold;
-    flex: 1 0 auto;
-    position: relative;
+
+  position: relative;
+  width: 30%;
+  margin: 1.66%;
+  background-color:#1E1E1E;
+  overflow:hidden;
 }
 
 .box:hover > .overlay{ 
@@ -54,6 +57,31 @@
     float:left;
     display: block;
     padding-top: 100%;
+}
+
+.box--3 {
+  flex-basis: 33.333%;
+}
+
+.box--2 {
+  flex-basis: 50%;
+}
+
+.box--1 {
+  flex-basis: 100%;
+}
+
+.bg-img {
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  flex: 1 0 auto;
 }
 
 .filters {
@@ -96,12 +124,25 @@
   height:100%;
   top:0;
   left: 0;
-  z-index: 1;
+  z-index: 9999;
   /* this is a fix for IE7-9 */
   background-color:#ffffff;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";  
   filter: alpha(opacity=0);  
   opacity:0;  
+}
+
+.contact-info {
+  position: absolute;
+  color: white;
+  font-size: 1em;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  float: bottom;
+  align-items: bottom;
+  justify-content:left;
+  z-index: 999;
 }
 
 
@@ -132,6 +173,12 @@
 
 .align-right{
   float: right;
+}
+
+.hilsen{
+  text-align: center;
+  color: white;
+  font-size: 1.25em;
 }
 
 .filterable{

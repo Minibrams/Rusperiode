@@ -1,8 +1,17 @@
 class Public::PagesController < PublicApplicationController
+  before_action :find_page
+
   def show
-    @page = params[:page].present? ? @domain.pages.find_by(slug: params[:page]) : @domain.default_page
+    render @page.view_file
   end
-  def menu
-    @page = params[:page].present? ? @domain.pages.find_by(slug: params[:page]) : @domain.default_page
+  def index
+    
   end
+
+  private
+
+  def find_page
+    @page = params[:slug].present? ? @domain.pages.find_by(slug: params[:slug]) : @domain.default_page
+  end
+
 end

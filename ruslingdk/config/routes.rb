@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get '/events/:id', to: 'public/events#show'
 
   # Dynamic page-matching
-  match '/:page', to: 'public/pages#show',
+  match '/:slug', to: 'public/pages#show',
                   via: :get,
                   constraints: ->(r) { Page.where(slug: r.params[:slug]).exists? }
-  root to: 'public/pages#menu'
+  root to: 'public/pages#index'
 end

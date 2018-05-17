@@ -10,5 +10,5 @@ class EducationalDomain < ApplicationRecord
   belongs_to :default_page, class_name: 'Page', optional: true
   # belongs_to :layout
 
-  scope :default_domain, -> { where(domain: 'rusling.dk').first }
+  scope :default_domain, -> { where(domain: 'localhost').first }
 end
