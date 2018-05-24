@@ -1,3 +1,4 @@
+<div class="solid">
 <h2><%= @page.title %></h2>
 <%= raw(@page.content) %>
 <p>Skrevet den. <%= l(@page.created_at, format: :short) %></p>
@@ -6,3 +7,4 @@
 <% else %>
   mega meget ikke logget ind
 <% end %>
+</div>
