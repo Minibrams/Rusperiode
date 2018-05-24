@@ -1,20 +1,19 @@
 <div class="row justify-content-center mb-2">
-  <div class="col-4 hilsen">
+  <div class="col hilsen">
     <%= raw(@page.content) %>
   </div>
 </div>
 
-<div class= "grid">
-  <% @page.accordion.each_slice(3).each do |row| %>
-    <div class="row">
-      <% row.each do |item| %>
-      <div class="box rounded">
-        <div class="bg-img" style='background-image: url("<%= item["image_url"] %>");'></div>
-        <div class="overlay"></div>
-        <div class="contact-info"><%= item["name"] %><br><%= item["email"] %><br><%= item["nr"] %></div>
-      </div>       
-      <% end %>
-    </div>
-  <% end %>
-</div>
+  <div class="flexbox">
+    <% @page.accordion.each do |item| %>
+      <div class="col-12 col-sm-6 col-lg-4">  
+        <div class="box rounded">
+          <div class="bg-img" style='background-image: url("<%= item["image_url"] %>");'></div>
+          <div class="overlay"></div>
+          <div class="contact-info"><%= item["name"] %><br><%= item["email"] %><br><%= item["nr"] %></div>
+        </div>       
+      </div>
+    <% end %>
+  </div>
+
 
