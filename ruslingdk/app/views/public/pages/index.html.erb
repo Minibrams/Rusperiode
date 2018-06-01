@@ -1,22 +1,20 @@
 <div class="row justify-content-center">
-  <div class="col-4 hilsen">
+  <div class="col hilsen">
     Mega meget velkommen!<br>
     I hedder fra nu af "ruslinge"!
   </div>
 </div>
 
-<div class= "grid">
-  <% @domain.primary_menu.items.each_slice(3).each do |row| %>
-    <div class="row">
-      <% row.each do |item| %>
-      <div class="box rounded" >
+<div class="flexbox">
+  <% @domain.primary_menu.items.each do |item| %>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="box rounded">
         <div class="filters" style='background-image: url("<%= item["image_url"] %>");'></div>
         <div class="overlay"></div>
         <div class="menu-text"><%= item["name"] %>
           <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
         </div>
       </div>       
-      <% end %>
     </div>
   <% end %>
 </div>

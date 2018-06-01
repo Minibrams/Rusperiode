@@ -22,24 +22,24 @@
   }
 }
 
-.grid {  /*Responsivt grid http://bluecaret.com/blog/responsive-grid-of-squares*/
-    margin: 0 auto;
-    width: 100vw;
-    max-width: 80vh;
-    height: 100vw;
-    max-height: 80vh;
-    font-size: 1rem;
-    justify-content: center;
+
+.flexbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  flex-wrap: wrap;
+  margin: auto;
 }
-.row {
-    display: flex;
-    justify-content: left; /*Alignment of trailing boxes*/
+
+.flexbox > div {
+  box-sizing: border-box;
+  padding: 10px;
 }
+
+
 .box {
 
   position: relative;
-  width: 30%;
-  margin: 1.66%;
   background-color:#1E1E1E;
   overflow:hidden;
 }
@@ -57,18 +57,6 @@
     float:left;
     display: block;
     padding-top: 100%;
-}
-
-.box--3 {
-  flex-basis: 33.333%;
-}
-
-.box--2 {
-  flex-basis: 50%;
-}
-
-.box--1 {
-  flex-basis: 100%;
 }
 
 .bg-img {
@@ -105,7 +93,7 @@
 .menu-text {
     position: absolute;
     color: white;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     bottom: 0;
     top: 10px;
     left: 0;
@@ -114,6 +102,11 @@
     align-items: top;
     justify-content: center;
     z-index: 999;
+}
+
+.img-fluid{
+  max-width: 100%;
+  height: auto;
 }
 
 
@@ -135,9 +128,9 @@
 .contact-info {
   position: absolute;
   color: white;
-  font-size: 1em;
-  bottom: 10px;
-  left: 10px;
+  font-size: 1rem;
+  bottom: 5px;
+  left: 5px;
   display: flex;
   float: bottom;
   align-items: bottom;
