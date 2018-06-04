@@ -14,7 +14,6 @@
   }
 
   &.ruskorps {
-    background-color: rgb(255, 136, 0);
   }
 
   &.studentersamfundet {
@@ -40,11 +39,10 @@
 .box {
 
   position: relative;
-  background-color:#1E1E1E;
   overflow:hidden;
 }
 
-.box:hover > .overlay{ 
+.box:hover > .overlay{
   width:100%;
   height:100%;
   position: absolute;
@@ -111,8 +109,8 @@
 
 
 .menu-link{
-  /* all rules required to make the whole div clickable */ 
-  position:absolute; 
+  /* all rules required to make the whole div clickable */
+  position:absolute;
   width:100%;
   height:100%;
   top:0;
@@ -120,9 +118,9 @@
   z-index: 9999;
   /* this is a fix for IE7-9 */
   background-color:#ffffff;
-  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";  
-  filter: alpha(opacity=0);  
-  opacity:0;  
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity:0;
 }
 
 .contact-info {
@@ -143,18 +141,12 @@
   background: none;
   padding: 12px 22px;
 }
-.btn-primary.outline {
-  border: 2px solid #FF8C00;
-  color: #FF8C00;
-}
+
 
 .btn-primary.outline:focus, .btn-primary.outline:active{
   box-shadow: none;
 }
 
-.card{
-  border: 2px solid #FF8C00;
-}
 
 .card-body{
   padding: 12px 22px;

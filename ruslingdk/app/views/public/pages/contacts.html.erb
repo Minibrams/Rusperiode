@@ -6,12 +6,12 @@
 
   <div class="flexbox">
     <% @page.accordion.each do |item| %>
-      <div class="col-12 col-sm-6 col-lg-4">  
+      <div class="col-12 col-sm-6 col-lg-4">
         <div class="box rounded">
           <div class="bg-img" style='background-image: url("<%= item["image_url"] %>");'></div>
           <div class="overlay"></div>
           <div class="contact-info"><%= item["name"] %><br><%= item["email"] %><br><%= item["nr"] %></div>
-        </div>       
+        </div>
       </div>
     <% end %>
   </div>
