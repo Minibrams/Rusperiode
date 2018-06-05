@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516181621) do
+ActiveRecord::Schema.define(version: 20180605093907) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,10 @@ ActiveRecord::Schema.define(version: 20180516181621) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "educational_domain_id"
+    t.boolean "domain_admin", default: false
+    t.boolean "system_admin", default: false
+    t.index ["educational_domain_id"], name: "index_users_on_educational_domain_id"
     t.index ["email"], name: "index_users_on_email"
     t.index ["password_digest"], name: "index_users_on_password_digest"
   end
@@ -108,4 +112,5 @@ ActiveRecord::Schema.define(version: 20180516181621) do
   add_foreign_key "educational_domains", "menus", column: "secondary_menu_id", on_delete: :nullify
   add_foreign_key "events", "educational_domains"
   add_foreign_key "menus", "educational_domains"
+  add_foreign_key "users", "educational_domains"
 end

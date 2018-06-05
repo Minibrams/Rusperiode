@@ -20,4 +20,8 @@ module AuthenticationHelper
   def require_not_logged_in
     redirect_to dashboard_path if current_user.is_a?(User)
   end
+
+  def authenticate_admin_user!
+    current_user.domain_admin || current_user.system_admin
+  end
 end
