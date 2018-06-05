@@ -6,8 +6,8 @@
 server '172.19.10.19', user: 'deploy', roles: %w[app db web],
                        ssh_options: {
                          proxy: Net::SSH::Proxy::Command.new(
-                           if ENV['SSHPASS'].nil?
-                             'sshpass -v -e ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p'
+                           if !ENV['SSHPASS'].nil?
+                             'sshpass -e ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p'
                            else
                              'ssh fthoms16@student.aau.dk@sshgw.aau.dk -W %h:%p'
                            end
@@ -28,7 +28,7 @@ set :puma_env,        fetch(:rack_env, fetch(:rails_env, 'production'))
 set :deploy_via,      :remote_cache
 
 set :puma_threads,    [4, 16]
-set :puma_workers,    0
+set :puma_workers,    4
 
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
