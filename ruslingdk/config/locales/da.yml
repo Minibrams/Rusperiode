@@ -1,6 +1,3 @@
 da:
   header:
     easier_study_start: Lidt Nemmere studiestart
-  time:
-    formats:
-      short: "%H:%M"
