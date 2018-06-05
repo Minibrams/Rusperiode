@@ -1,20 +1,17 @@
-<div class="row justify-content-center mb-2">
-  <div class="col hilsen">
-    <%= raw(@page.content) %>
-  </div>
-</div>
+<%= render partial: 'partials/body_text' %>
 
-  <div class="flexbox">
-    <%  EducationalDomain.all.each do |item| %>
-      <% next if item == EducationalDomain.default_domain %>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="box rounded" style='background-color: <%= item.colors["primary-color"] %>'>
-          <div class="overlay"></div>
-          <div class="menu-text"><%= item.name %></div>      <%# Fjern :3000, når der ikke skal testes mere..... Virker ikke med at have port på :domain i educational_domain%>
-          <a class='menu-link' href='http://<%= item.domain %>:3000'></a>
-        </div>
+<div class="flexbox">
+  <% default_domain_id = EducationalDomain.default_domain.id %>
+  <%  EducationalDomain.all.each do |item| %>
+    <% next if item.id == default_domain_id %>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="box rounded" style='background-color: <%= item.colors["primary-color"] %>'>
+        <div class="overlay"></div>
+        <div class="menu-text"><% item.educations.each do |ed| %><%= raw(ed + '</br>') %><% end %></div>      <%# Fjern :3000, når der ikke skal testes mere..... Virker ikke med at have port på :domain i educational_domain%>
+        <a class='menu-link' href='http://<%= item.domain %>:3000'></a>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 
 

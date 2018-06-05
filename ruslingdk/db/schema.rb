@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20180605093907) do
     t.integer "primary_menu_id"
     t.integer "secondary_menu_id"
     t.jsonb "colors"
+    t.text "educations", default: [], array: true
+    t.string "locale"
     t.index ["default_page_id"], name: "index_educational_domains_on_default_page_id"
     t.index ["domain"], name: "index_educational_domains_on_domain"
   end
