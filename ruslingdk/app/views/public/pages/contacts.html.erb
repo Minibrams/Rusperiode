@@ -1,19 +1,15 @@
-<div class="row justify-content-center mb-2">
-  <div class="col hilsen">
-    <%= raw(@page.content) %>
-  </div>
-</div>
+<%= render partial: 'partials/body_text' %>
 
-  <div class="flexbox">
-    <% @page.accordion.each do |item| %>
-      <div class="col-12 col-sm-6 col-lg-4">
-        <div class="box rounded">
-          <div class="bg-img" style='background-image: url("<%= item["image_url"] %>");'></div>
-          <div class="overlay"></div>
-          <div class="contact-info"><%= item["name"] %><br><%= item["email"] %><br><%= item["nr"] %></div>
-        </div>
+<div class="flexbox">
+  <% @page.accordion.each do |item| %>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="box rounded">
+        <div class="bg-img" style='background-image: url("<%= item["image_url"] %>");'></div>
+        <div class="overlay"></div>
+        <div class="contact-info"><%= item["name"] %><br><%= item["email"] %><br><%= item["nr"] %></div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+</div>
 
 

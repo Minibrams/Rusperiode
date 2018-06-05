@@ -11,4 +11,6 @@ class EducationalDomain < ApplicationRecord
   # belongs_to :layout
 
   scope :default_domain, -> { where(domain: 'localhost').first }
+
+
 end

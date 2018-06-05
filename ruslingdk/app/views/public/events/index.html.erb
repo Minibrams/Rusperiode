@@ -21,7 +21,7 @@
         base.merge!(backgroundColor: @domain.colors["primary-color"]) if ev.planner == 'ruskorps'
         base
       end.to_json) %>,
-      eventRender: function eventRender( event, element, view ) {
+      eventRender: function eventRender( event, $element, view ) {
         if ($('#planner_selector').val() == "alle")
           return true
         else

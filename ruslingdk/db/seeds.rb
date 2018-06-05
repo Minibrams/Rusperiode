@@ -24,6 +24,7 @@ if Rails.env.development?
   frontpageDomain = EducationalDomain.find_or_initialize_by(domain: 'localhost')
   frontpageDomain.name = 'rusling.dk'
   frontpageDomain.colors = {"primary-color" => "#211a52"}
+  frontpageDomain.locale = "en"
   frontpageDomain.save
 
   fppage = Page.create!(educational_domain: frontpageDomain, title: 'rusling.dk', content: 'Velkommen til rusling.dk <br>Find din uddannelse i oversigten nedenunder!', view_file: "frontpage")
@@ -34,7 +35,9 @@ if Rails.env.development?
   #DatSW
   datswdomain = EducationalDomain.find_or_initialize_by(domain: 'datsw.localhost')
   datswdomain.name = 'Datalogi og Software'
+  datswdomain.educations = ["Datalogi", "Software"]
   datswdomain.colors = {"primary-color" => "#FF8C00"}
+  datswdomain.locale = "da"
   datswdomain.save
 
   men = datswdomain.menus.find_or_initialize_by(name: "Test Menu")
@@ -202,7 +205,9 @@ if Rails.env.development?
 #Eng
 engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
   engdomain.name = 'Engeneering'
+  engdomain.educations = ["Matematik", "Fysik", "Matematik-Økonomi", "Noget andet"]
   engdomain.colors = {"primary-color" => "#00FF00"}
+  engdomain.locale = "da"
   engdomain.save
 
   meneng = engdomain.menus.find_or_initialize_by(name: "Eng Menu")
@@ -371,7 +376,9 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
 #Hum
   humdomain = EducationalDomain.find_or_initialize_by(domain: 'hum.localhost')
   humdomain.name = 'Humaniora'
+  humdomain.educations = ["Dansk", "Engelsk", "Tysk", "Svensk", "Norsk", "Historie"]
   humdomain.colors = {"primary-color" => "#FF0000"}
+  humdomain.locale = "en"
   humdomain.save
 
   menhum = humdomain.menus.find_or_initialize_by(name: "Hum Menu")
@@ -538,7 +545,9 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
 #Samf
 samfdomain = EducationalDomain.find_or_initialize_by(domain: 'samf.localhost')
   samfdomain.name = 'Samfundsvidenskab'
+  samfdomain.educations = ["Kommunikation", "Uddannelse2", "Uddannelse3", "Uddannelse4"]
   samfdomain.colors = {"primary-color" => "#0000FF"}
+  samfdomain.locale = "da"
   samfdomain.save
 
   mensamf = samfdomain.menus.find_or_initialize_by(name: "Test Menu")
@@ -707,7 +716,9 @@ samfdomain = EducationalDomain.find_or_initialize_by(domain: 'samf.localhost')
 #Sund
 sunddomain = EducationalDomain.find_or_initialize_by(domain: 'sund.localhost')
   sunddomain.name = 'Sund'
+  sunddomain.educations = ["Idræt", "Medicin", "MEDIS", "Uddannelse42", "Uddannelse43"]
   sunddomain.colors = {"primary-color" => "#FFFF00"}
+  sunddomain.locale = "en"
   sunddomain.save
 
   mensund = sunddomain.menus.find_or_initialize_by(name: "Test Menu")

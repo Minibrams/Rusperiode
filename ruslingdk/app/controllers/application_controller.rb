@@ -15,6 +15,6 @@ private
   end
 
   def set_locale
-    I18n.locale = :en
+    I18n.locale = @domain&.locale&.to_sym || :en
   end
 end

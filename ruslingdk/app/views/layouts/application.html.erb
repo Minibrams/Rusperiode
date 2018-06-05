@@ -21,11 +21,16 @@
         <%= content_for :init_maps %>
       }
     </script>
-
+    <%#= render partial: 'custom_colors' %><%#_custom_colors i layout mappen med custom style%>
+    <style>
+      .color-base {
+        background-color: <%= @domain.colors["primary-color"] %>;
+      }
+    </style>
     <%= yield :head %>
   </head>
   <body>
-    <div class="color-base" style="background-color: <%= @domain.colors["primary-color"] %>">
+    <div class="color-base">
       <div class="container">
         <header class="center">
           <h1><a href="/" style="color: white; text-decoration: none"><%= @domain.name %></a></h1>
