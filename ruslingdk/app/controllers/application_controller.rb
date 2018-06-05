@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 private
 
   def set_domain
-    @domain = Rails.cache.fetch("DomainCache/#{request.host}", expires_in: 12.hours) do
+    @domain = Rails.cache.fetch("DomainCache/#{request.host}", expires_in: 1.minutes) do
       EducationalDomain.find_by(domain: request.host) || EducationalDomain.default_domain
     end
   end
