@@ -37,7 +37,7 @@ if Rails.env.development?
   datswdomain.colors = {"primary-color" => "#FF8C00"}
   datswdomain.save
 
-  men = Menu.find_or_initialize_by(name: "Test Menu")
+  men = datswdomain.menus.find_or_initialize_by(name: "Test Menu")
   men.items = [
       {
         "name" => "FAQ",
@@ -205,7 +205,7 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
   engdomain.colors = {"primary-color" => "#00FF00"}
   engdomain.save
 
-  meneng = Menu.find_or_initialize_by(name: "Eng Menu")
+  meneng = engdomain.menus.find_or_initialize_by(name: "Eng Menu")
   meneng.items = [
       {
         "name" => "FAQ",
@@ -374,7 +374,7 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
   humdomain.colors = {"primary-color" => "#FF0000"}
   humdomain.save
 
-  menhum = Menu.find_or_initialize_by(name: "Hum Menu")
+  menhum = humdomain.menus.find_or_initialize_by(name: "Hum Menu")
   menhum.items = [
       {
         "name" => "FAQ",
@@ -541,7 +541,7 @@ samfdomain = EducationalDomain.find_or_initialize_by(domain: 'samf.localhost')
   samfdomain.colors = {"primary-color" => "#0000FF"}
   samfdomain.save
 
-  mensamf = Menu.find_or_initialize_by(name: "Test Menu")
+  mensamf = samfdomain.menus.find_or_initialize_by(name: "Test Menu")
   mensamf.items = [
       {
         "name" => "FAQ",
@@ -710,7 +710,7 @@ sunddomain = EducationalDomain.find_or_initialize_by(domain: 'sund.localhost')
   sunddomain.colors = {"primary-color" => "#FFFF00"}
   sunddomain.save
 
-  mensund = Menu.find_or_initialize_by(name: "Test Menu")
+  mensund = sunddomain.menus.find_or_initialize_by(name: "Test Menu")
   mensund.items = [
       {
         "name" => "FAQ",

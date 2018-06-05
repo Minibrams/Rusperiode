@@ -1,16 +1,6 @@
 ActiveAdmin.register EducationalDomain do
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  permit_params :primary_menu_id, :secondary_menu_id, :default_page_id, :name, :domain, :color_id
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
+  permit_params :primary_menu_id, :default_page_id, :name, :domain, :color_id
+  includes :primary_menu, :default_page
 
   form title: 'Side' do |f|
     inputs 'Siden' do
@@ -21,8 +11,30 @@ ActiveAdmin.register EducationalDomain do
     end
     inputs 'Menuer' do
       f.input :primary_menu, as: :select, collection: Menu.all, include_blank: false
-      f.input :secondary_menu, as: :select, collection: Menu.all, include_blank: false  
     end
     actions
+  end
+
+  index do
+    selectable_column
+    column :name
+    column :domain if current_user.system_admin?
+    column :default_page
+    column :primary_menu
+    column "Colors" do |ed|
+      raw(ed.colors.map { |(k,v)| "#{k}: #{v}" }.join(raw('<br />')))
+    end
+
+    actions
+  end
+
+  controller do
+    def scoped_collection
+      if current_user.system_admin?
+        end_of_association_chain
+      else
+        end_of_association_chain.where(id: [current_user.educational_domain_id])
+      end
+    end
   end
 end

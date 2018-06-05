@@ -6,15 +6,13 @@ module AuthenticationHelper
   end
 
   def current_user=(user)
-    @current_user ||= user if user.is_a?(User)
-    @current_user ||= User.find_by(id: user) if user.is_a?(Integer)
+    @current_user = user                   if user.is_a?(User)
+    @current_user = User.find_by(id: user) if user.is_a?(Integer)
     session[:user_id] = @current_user&.id
   end
 
   def require_logged_in
-    return unless current_user.nil?
-    flash[:error] = 'Login required'
-    redirect_to root_path
+    access_denied if current_user.blank?
   end
 
   def require_not_logged_in
@@ -22,6 +20,13 @@ module AuthenticationHelper
   end
 
   def authenticate_admin_user!
-    current_user.domain_admin || current_user.system_admin
+    return true if current_user.domain_admin?
+    return true if current_user.system_admin?
+    redirect_to root_path
+  end
+
+  def access_denied(_)
+    flash[:error] = 'Login required'
+    redirect_to root_path
   end
 end
