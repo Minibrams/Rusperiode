@@ -550,7 +550,9 @@ samfdomain = EducationalDomain.find_or_initialize_by(domain: 'samf.localhost')
   samfdomain.locale = "da"
   samfdomain.save
 
-  mensamf = samfdomain.menus.find_or_initialize_by(name: "Test Menu")
+
+  mensamf = samfdomain.menus.find_or_initialize_by(name: "Samf Menu")
+
   mensamf.items = [
       {
         "name" => "FAQ",
@@ -721,7 +723,9 @@ sunddomain = EducationalDomain.find_or_initialize_by(domain: 'sund.localhost')
   sunddomain.locale = "en"
   sunddomain.save
 
-  mensund = sunddomain.menus.find_or_initialize_by(name: "Test Menu")
+
+  mensund = sunddomain.menus.find_or_initialize_by(name: "Sund Menu")
+
   mensund.items = [
       {
         "name" => "FAQ",
