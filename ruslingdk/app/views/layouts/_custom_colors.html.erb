@@ -1,5 +1,7 @@
 <style>
-      .color-base {
-        background-color: <%= @domain.colors["primary-color"] %>;
-      }
-    </style>
+  <% if @domain.colors.present? %>
+    .color-base {
+      background-color: <%= @domain.colors["primary-color"] %>;
+    }
+  <% end %>
+</style>

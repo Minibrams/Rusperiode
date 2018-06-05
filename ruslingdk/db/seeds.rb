@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Rails.env.production?
-  dom = EducationalDomain.find_or_initialize_by(domain: 'rusling.dk', colors:{"primary-color"=>"#FF8C00"})
+  dom = EducationalDomain.find_or_initialize_by(domain: 'rusling.dk')
+  dom.colors = {"primary-color" => "#FF8C00"}
   dom.name = 'Datalogi/Software'
-  dom.save
+  dom.locale = 'da'
+  dom.save!
 
   menprod = Menu.create(
     name: "Ting",
