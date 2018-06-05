@@ -16,7 +16,11 @@
     $('#calendar').fullCalendar({
       defaultView: 'month',
       locale: 'da',
-      events: <%= raw(@events.map { |ev| { title: ev.title, start: ev.begin_at, className: ev.planner, url: "/events/#{ev.id}" } }.to_json) %>,
+      events: <%= raw(@events.map do |ev|
+        base = { title: ev.title, start: ev.begin_at, className: ev.planner, url: "/events/#{ev.id}"}
+        base.merge!(backgroundColor: @domain.colors["primary-color"]) if ev.planner == 'ruskorps'
+        base
+      end.to_json) %>,
       eventRender: function eventRender( event, element, view ) {
         if ($('#planner_selector').val() == "alle")
           return true
@@ -35,16 +39,16 @@
 
     <%# @domain.events.sort_by |ev| do ev[:begin_at] end ?????????????????? i tilfælde af at de ikke bliver lagt ind i rigtig rækkefølge    %>
   <div id="accordion">
-  
+
   <% @domain.events.each.with_index do |event, i| %>
     <div class="filterable <%= event["planner"]%>">
-    <div class="card mb-1 rounded" style="width: 100%;">
+    <div class="card mb-1 rounded" style="width: 100%; border: 2px solid <%= @domain.colors["primary-color"] %>">
       <div class="card-header rounded" id="heading<%= event["id"] %>">
         <h5 class="mb-0">
-          <button class="btn btn-primary outline btn-lg btn-block border-0 rounded" data-toggle="collapse" data-target="#collapse<%= event["id"] %>" aria-expanded="true" aria-controls="collapse<%= event["id"] %>" style="">
+          <button class="btn btn-primary outline btn-lg btn-block border-0 rounded" data-toggle="collapse" data-target="#collapse<%= event["id"] %>" aria-expanded="true" aria-controls="collapse<%= event["id"] %>" style="color: <%= @domain.colors["primary-color"] %>; border: 2px solid <%= @domain.colors["primary-color"] %>">
             <p class="align-left"><%= event["title"] %></p>
             <p class="align-right"><%= event["begin_at"].strftime("%d/%m/%y %H:%M") %></p>
-            
+
             <div style="clear: both;"></div>
           </button>
         </h5>
@@ -77,7 +81,7 @@
       </div>
     </div>
     </div>
-  
+
   <% end %>
   </div>
 

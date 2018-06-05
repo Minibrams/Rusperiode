@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= @domain.name %> - Lidt nemmere studiestart</title>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
     <%= yield :head %>
   </head>
   <body>
-    <div class="color-base">
+    <div class="color-base" style="background-color: <%= @domain.colors["primary-color"] %>">
       <div class="container">
         <header class="center">
           <h1><a href="/" style="color: white; text-decoration: none"><%= @domain.name %></a></h1>

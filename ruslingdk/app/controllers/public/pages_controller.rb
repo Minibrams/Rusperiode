@@ -14,4 +14,7 @@ class Public::PagesController < PublicApplicationController
     @page = params[:slug].present? ? @domain.pages.find_by(slug: params[:slug]) : @domain.default_page
   end
 
+  def choose_domain
+    
+  end
 end
