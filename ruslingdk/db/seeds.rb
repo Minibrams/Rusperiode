@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 def create_datsw(domain)
   datswdomain = EducationalDomain.find_or_initialize_by(domain: 'datsw.'+domain)
   datswdomain.name = 'Datalogi og Software'
@@ -49,6 +41,13 @@ def create_datsw(domain)
     ]
   datswmenu.educational_domain = datswdomain
   datswmenu.save
+
+  #Contacts
+  tobias = Contact.create(educational_domain: datswdomain, name: "Tobias Palludan", email: "tpallu16@student.aau.dk", number: "20 58 21 14", description: "Tobias kan hjælpe med alt!", image: "http://placekitten.com/500/500")
+  spang = Contact.create(educational_domain: datswdomain, name: "Frederik Spang Thomsen", email: "fspang16@student.aau.dk", description: "Spang kan kode i rails!", image: "http://placekitten.com/250/500")
+  brams = Contact.create(educational_domain: datswdomain, name: "Anders Brams", email: "abrams15@student.aau.dk", description: "Brams er champion!", image: "http://placekitten.com/500/700")
+  kurt = Contact.create(educational_domain: datswdomain, name: "Kurt Nørmark", email: "normark@cs.aau.dk", description: "Du kan skrive til Kurt hvis du har spørgsmål vedr. alt der har med studiet, grupper og projekter at gøre.", image: "http://placekitten.com/1080/500")
+  anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
 
   pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content: 'Velkommen til!<br>Vi gør alt hvad vi kan for at i kan få en fantastisk start på jeres studie!<br>Her på siden har vi forsøgt at samle alle de informationer i kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
@@ -132,30 +131,15 @@ def create_datsw(domain)
   howto_page.save
 
   contacts_page = Page.create(slug: "kontakter", educational_domain: datswdomain, title: 'Vigtige Kontakter', content: 'Her er alle de mennesker der er vigtige!', view_file:"contacts")
-  contacts_page.accordion = [
-    {
-      "name" => "Tobias Palludan",
-      "email" => "",
-      "nr" => "",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    },
-    {
-      "name" => "Anders Brams",
-      "email" => "",
-      "nr" => "",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    },
-    {
-      "name" => "Kurt Nørmark",
-      "email" => "",
-      "nr" => "",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    }
-  ]
-  contacts_page.save
 
   advice_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd fra ældre studerende!', content: File.read(__dir__ + "/seeds/advice.html"), view_file:"show")
 
+  #ev1datsw = Event.create(title: "Ruskorps Event", educational_domain: datswdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-07-16 14:30:00", planner: "ruskorps")
+  #ev2datsw = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
+  #ev3datsw = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-20 14:30:00", planner: "ida")
+  #ev4datsw = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
+  #ev4datsw = Event.create(title: "Ruskorps Event2", educational_domain: datswdomain, description: "PUBCRAAAAAWL!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-06-07 14:30:00", planner: "ruskorps")
+  #ev4datsw = Event.create(title: "Ruskorps Event3", educational_domain: datswdomain, description: "Ruskorpset holder fedt LAN!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-06 14:30:00", planner: "ruskorps")
 
   datswdomain.update(primary_menu: datswmenu, default_page: pa)
 

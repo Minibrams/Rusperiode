@@ -206,3 +206,7 @@ da:
       long: "%A d. %e. %B %Y, %H.%M"
       short: "%e. %b %Y, %H.%M"
     pm: ''
+  events:
+    today: "I dag"
+    upcoming: "Kommende"
+    previous: "Afholdte"
