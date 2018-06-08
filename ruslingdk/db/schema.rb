@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607140343) do
+ActiveRecord::Schema.define(version: 20180608084724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,31 @@ ActiveRecord::Schema.define(version: 20180607140343) do
     t.string "image"
     t.bigint "educational_domain_id"
     t.index ["educational_domain_id"], name: "index_contacts_on_educational_domain_id"
+  end
+
+  create_table "cs_go_matches", force: :cascade do |t|
+    t.string "challonge_id"
+    t.jsonb "raw_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challonge_id"], name: "index_cs_go_matches_on_challonge_id"
+  end
+
+  create_table "cs_go_teams", force: :cascade do |t|
+    t.string "challonge_id"
+    t.datetime "exported_to_challonge"
+    t.jsonb "raw_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challonge_id"], name: "index_cs_go_teams_on_challonge_id"
+  end
+
+  create_table "cs_go_tournaments", force: :cascade do |t|
+    t.string "challonge_id"
+    t.jsonb "raw_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["challonge_id"], name: "index_cs_go_tournaments_on_challonge_id"
   end
 
   create_table "educational_domains", force: :cascade do |t|
