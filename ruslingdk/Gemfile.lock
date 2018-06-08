@@ -7,7 +7,7 @@ GIT
 PATH
   remote: /Users/spang/Arbejde/progras/challonge-ruby-gem
   specs:
-    challonge-api (0.2.0)
+    challonge-api (0.3.0)
       activeresource
 
 GEM
