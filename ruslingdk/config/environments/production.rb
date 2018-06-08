@@ -78,4 +78,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Skal være rusling.dk, når vi får domænet op.
+  config.action_controller.default_url_options = {
+    host: "192.38.55.109"
+  }
 end

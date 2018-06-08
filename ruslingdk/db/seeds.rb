@@ -134,12 +134,12 @@ def create_datsw(domain)
 
   advice_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd fra ældre studerende!', content: File.read(__dir__ + "/seeds/advice.html"), view_file:"show")
 
-  #ev1datsw = Event.create(title: "Ruskorps Event", educational_domain: datswdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-07-16 14:30:00", planner: "ruskorps")
-  #ev2datsw = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
-  #ev3datsw = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-20 14:30:00", planner: "ida")
-  #ev4datsw = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
-  #ev4datsw = Event.create(title: "Ruskorps Event2", educational_domain: datswdomain, description: "PUBCRAAAAAWL!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-06-07 14:30:00", planner: "ruskorps")
-  #ev4datsw = Event.create(title: "Ruskorps Event3", educational_domain: datswdomain, description: "Ruskorpset holder fedt LAN!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-06 14:30:00", planner: "ruskorps")
+  ev1datsw = Event.create(title: "Ruskorps Event", educational_domain: datswdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-07-16 14:30:00", planner: "ruskorps")
+  ev2datsw = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
+  ev3datsw = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-20 14:30:00", planner: "ida")
+  ev4datsw = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
+  ev4datsw = Event.create(title: "Ruskorps Event2", educational_domain: datswdomain, description: "PUBCRAAAAAWL!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-06-08 14:30:00", planner: "ruskorps")
+  ev4datsw = Event.create(title: "Ruskorps Event3", educational_domain: datswdomain, description: "Ruskorpset holder fedt LAN!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-06 14:30:00", planner: "ruskorps")
 
   datswdomain.update(primary_menu: datswmenu, default_page: pa)
 

@@ -11,7 +11,7 @@ class EducationalDomain < ApplicationRecord
   belongs_to :default_page, class_name: 'Page', optional: true
   # belongs_to :layout
 
-  scope :default_domain, -> { where(domain: '192.38.56.109').first }
+  scope :default_domain, -> { where(domain: Rails.application.config.action_controller.default_url_options[:host]).first }
 
 
 end

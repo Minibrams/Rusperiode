@@ -1,5 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :educational_domain, dependent: :destroy
-  scope :active, -> { where('begin_at >= ?', Time.now) }
+
+  scope :upcoming, -> { where('DATE(begin_at) > ?', Date.today) }
+  scope :today, -> { where('DATE(begin_at) = ?', Date.today) }
+  scope :previous, -> { where('DATE(begin_at) < ?', Date.today) }
+
   validates :planner, inclusion: {in: ["prosa", "ruskorps", "ida", "studentersamfundet"]}
 end
