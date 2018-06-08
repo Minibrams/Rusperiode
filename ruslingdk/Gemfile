@@ -7,6 +7,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'dotenv-rails', require: 'dotenv/rails-now', group: [:development, :test]
+
 gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 3.7'
@@ -30,7 +32,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 
+gem 'challonge-api', path: '/Users/spang/Arbejde/progras/challonge-ruby-gem'
+
 group :development, :test do
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
   # Adds support for Capybara system testing and selenium driver
@@ -40,6 +45,7 @@ group :development, :test do
 
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+
 end
 
 group :development do
