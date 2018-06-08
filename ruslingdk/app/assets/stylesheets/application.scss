@@ -39,7 +39,7 @@
 .box {
 
   position: relative;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .box:hover > .overlay{
@@ -124,19 +124,48 @@
   opacity:0;
 }
 
-.contact-info {
+.box .info {
   position: absolute;
   color: white;
-  font-size: 1rem;
+  font-size: 0;
   bottom: 5px;
   left: 5px;
-  display: flex;
-  float: bottom;
   align-items: bottom;
   justify-content:left;
   z-index: 999;
+  visibility: hidden;
 }
 
+.box:hover .info{
+  font-size: 1.25rem;
+  visibility: visible;
+}
+
+.box:hover .info:after{
+  font-size: 1.25rem;
+  visibility: visible;
+}
+
+.box .description {
+  position: absolute;
+  color: white;
+  font-size: 1.25rem;
+  bottom: 5px;
+  left: 5px;
+  align-items: bottom;
+  justify-content:left;
+  z-index: 999;
+  visibility: visible;
+}
+
+.box:hover .description{
+  font-size: 0;
+  visibility: hidden;
+}
+.box:hover .description:after{
+  font-size: 0;
+  visibility: hidden;
+}
 
 .btn.outline {
   background: none;

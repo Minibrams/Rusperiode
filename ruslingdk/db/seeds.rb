@@ -1,49 +1,13 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-if Rails.env.production?
-  dom = EducationalDomain.find_or_initialize_by(domain: 'rusling.dk')
-  dom.colors = {"primary-color" => "#FF8C00"}
-  dom.name = 'Datalogi/Software'
-  dom.locale = 'da'
-  dom.save!
-
-  menprod = Menu.create(
-    name: "Ting",
-    items: [],
-    educational_domain: dom
-  )
-  dom.update(primary_menu: menprod)
-end
-
-if Rails.env.development?
-#Forside
-  frontpageDomain = EducationalDomain.find_or_initialize_by(domain: 'localhost')
-  frontpageDomain.name = 'rusling.dk'
-  frontpageDomain.colors = {"primary-color" => "#211a52"}
-  frontpageDomain.locale = "en"
-  frontpageDomain.save
-
-  fppage = Page.create!(educational_domain: frontpageDomain, title: 'rusling.dk', content: 'Velkommen til rusling.dk <br>Find din uddannelse i oversigten nedenunder!', view_file: "frontpage")
-  frontpageDomain.update!(default_page: fppage)
-
-
-#Tech
-  #DatSW
-  datswdomain = EducationalDomain.find_or_initialize_by(domain: 'datsw.localhost')
+def create_datsw(domain)
+  datswdomain = EducationalDomain.find_or_initialize_by(domain: 'datsw.'+domain)
   datswdomain.name = 'Datalogi og Software'
   datswdomain.educations = ["Datalogi", "Software"]
   datswdomain.colors = {"primary-color" => "#FF8C00"}
   datswdomain.locale = "da"
   datswdomain.save
 
-  men = datswdomain.menus.find_or_initialize_by(name: "Test Menu")
-  men.items = [
+  datswmenu = datswdomain.menus.find_or_initialize_by(name: "DatSW Menu")
+  datswmenu.items = [
       {
         "name" => "FAQ",
         "link" => "/faq",
@@ -75,10 +39,17 @@ if Rails.env.development?
         "image_url" => 'http://placekitten.com/700/200'
       }
     ]
-  men.educational_domain = datswdomain
-  men.save
+  datswmenu.educational_domain = datswdomain
+  datswmenu.save
 
-  pa = Page.create(educational_domain: datswdomain, title: 'Test', content: 'Test', view_file: "index")
+  #Contacts
+  tobias = Contact.create(educational_domain: datswdomain, name: "Tobias Palludan", email: "tpallu16@student.aau.dk", number: "20 58 21 14", description: "Tobias kan hjælpe med alt!", image: "http://placekitten.com/500/500")
+  spang = Contact.create(educational_domain: datswdomain, name: "Frederik Spang Thomsen", email: "fspang16@student.aau.dk", description: "Spang kan kode i rails!", image: "http://placekitten.com/250/500")
+  brams = Contact.create(educational_domain: datswdomain, name: "Anders Brams", email: "abrams15@student.aau.dk", description: "Brams er champion!", image: "http://placekitten.com/500/700")
+  kurt = Contact.create(educational_domain: datswdomain, name: "Kurt Nørmark", email: "normark@cs.aau.dk", description: "Du kan skrive til Kurt hvis du har spørgsmål vedr. alt der har med studiet, grupper og projekter at gøre.", image: "http://placekitten.com/1080/500")
+  anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
+
+  pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content: 'Velkommen til!<br>Vi gør alt hvad vi kan for at i kan få en fantastisk start på jeres studie!<br>Her på siden har vi forsøgt at samle alle de informationer i kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
   faq_page = Page.create(slug: "faq", educational_domain: datswdomain, title: 'FAQ', content: 'Her er svarene på alle jeres spørgmål!', view_file:"accordion")
   faq_page.accordion = [
@@ -101,32 +72,32 @@ if Rails.env.development?
   ]
   faq_page.save
 
-  info_page = Page.create(slug: "info", educational_domain: datswdomain, title: 'info', content: 'En masse informationer!', view_file:"accordion")
+  info_page = Page.create(slug: "info", educational_domain: datswdomain, title: 'Informationer', content: 'En masse informationer!', view_file:"accordion")
   info_page.accordion = [
-    {
-      "title" => "Studiestartsdagen",
-      "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
-    },
+    #{
+    #  "title" => "Studiestartsdagen",
+    #  "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
+    #},
     {
       "title" => "Studieordninger",
       "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
-    },
-    {
-      "title" => "Studenterpolitik",
-      "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
-    },
-    {
-      "title" => "Ruskorpset",
-      "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
-    },
-    {
-      "title" => "Samarbejdspartnere",
-      "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
-    }
+    }#,
+    #{
+    #  "title" => "Studenterpolitik",
+    #  "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
+    #},
+    #{
+    #  "title" => "Ruskorpset",
+    #  "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
+    #},
+    #{
+    #  "title" => "Samarbejdspartnere",
+    #  "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
+    #}
   ]
   info_page.save
 
-  howto_page = Page.create(slug: "howto", educational_domain: datswdomain, title: 'info', content: 'En masse informationer!', view_file:"accordion")
+  howto_page = Page.create(slug: "howto", educational_domain: datswdomain, title: 'Guides', content: 'Guides til alt!', view_file:"accordion")
   howto_page.accordion = [
     {
       "title" => "LaTeX",
@@ -160,49 +131,54 @@ if Rails.env.development?
   howto_page.save
 
   contacts_page = Page.create(slug: "kontakter", educational_domain: datswdomain, title: 'Vigtige Kontakter', content: 'Her er alle de mennesker der er vigtige!', view_file:"contacts")
-  contacts_page.accordion = [
-    {
-      "name" => "Fornavn Efternavn",
-      "email" => "sample@email.com",
-      "nr" => "12345678",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    },
-    {
-      "name" => "Fornavn Efternavn",
-      "email" => "sample@email.com",
-      "nr" => "12345678",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    },
-    {
-      "name" => "Fornavn Efternavn",
-      "email" => "sample@email.com",
-      "nr" => "12345678",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    },
-    {
-      "name" => "Fornavn Efternavn",
-      "email" => "sample@email.com",
-      "nr" => "12345678",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    },
-    {
-      "name" => "Fornavn Efternavn",
-      "email" => "sample@email.com",
-      "nr" => "12345678",
-      "image_url" => 'http://placekitten.com/1920/1080'
-    }
-  ]
-  contacts_page.save
 
   advice_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd fra ældre studerende!', content: File.read(__dir__ + "/seeds/advice.html"), view_file:"show")
 
-  ev1 = Event.create(title: "Ruskorps Event", educational_domain: datswdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-16 14:30:00", planner: "ruskorps")
-  ev2 = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
-  ev3 = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-20 14:30:00", planner: "ida")
-  ev4 = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
+  ev1datsw = Event.create(title: "Ruskorps Event", educational_domain: datswdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-07-16 14:30:00", planner: "ruskorps")
+  ev2datsw = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00", planner: "prosa")
+  ev3datsw = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-20 14:30:00", planner: "ida")
+  ev4datsw = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00", planner: "studentersamfundet")
+  ev4datsw = Event.create(title: "Ruskorps Event2", educational_domain: datswdomain, description: "PUBCRAAAAAWL!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-06-08 14:30:00", planner: "ruskorps")
+  ev4datsw = Event.create(title: "Ruskorps Event3", educational_domain: datswdomain, description: "Ruskorpset holder fedt LAN!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-06 14:30:00", planner: "ruskorps")
+
+  datswdomain.update(primary_menu: datswmenu, default_page: pa)
 
 
-  datswdomain.update(primary_menu: men, default_page: pa)
+end
+
+def create_frontpage(domain)
+  dom = EducationalDomain.find_or_initialize_by(domain: domain)
+  dom.colors = {"primary-color" => "#211A52"}
+  dom.name = 'Rusling.dk'
+  dom.locale = 'da'
+  dom.save!
+
+  fppage = Page.create!(educational_domain: dom, title: 'rusling.dk', content: 'Velkommen til rusling.dk <br>Find din uddannelse i oversigten nedenunder!', view_file: "frontpage")
+  dom.update!(default_page: fppage)
+end
+
+if Rails.env.production?
+  #Create Frontpage
+  create_frontpage('192.38.56.109')
+
+  #Create domains
+  create_datsw('192.38.56.109')
+
+
+
+  #pages
+
+
+  #menus
+
+end
+
+if Rails.env.development?
+#Forside
+  create_frontpage('localhost')
+
+#Domæner
+  create_datsw('localhost')
 
 #Eng
 engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
@@ -534,7 +510,7 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
   ]
   contactshum_page.save
 
-  advicehum_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd fra ældre studerende!', content: File.read(__dir__ + "/seeds/advice.html"), view_file:"show")
+  advicehum_page = Page.create(slug: "advice", educational_domain: humdomain, title: 'Gode råd fra ældre studerende!', content: File.read(__dir__ + "/seeds/advice.html"), view_file:"show")
 
 
   ev1hum = Event.create(title: "Ruskorps Event", educational_domain: humdomain, description: "<h5>Ruskorpset</h5>Holder et svedigt event!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-16 14:30:00", planner: "ruskorps")

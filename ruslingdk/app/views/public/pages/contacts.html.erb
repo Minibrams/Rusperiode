@@ -1,12 +1,13 @@
 <%= render partial: 'partials/body_text' %>
 
 <div class="flexbox">
-  <% @page.accordion.each do |item| %>
+  <% @domain.contacts.each do |item| %>
     <div class="col-12 col-sm-6 col-lg-4">
       <div class="box rounded">
-        <div class="bg-img" style='background-image: url("<%= item["image_url"] %>");'></div>
+        <div class="bg-img" style='background-image: url("<%= item["image"] %>");'></div>
         <div class="overlay"></div>
-        <div class="contact-info"><%= item["name"] %><br><%= item["email"] %><br><%= item["nr"] %></div>
+        <div class="info"><%= item["name"] %><br/><%= item["email"] %><br/><%= item["number"] %></div>
+        <div class="description"><%= item["description"] %></div>
       </div>
     </div>
   <% end %>

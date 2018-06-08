@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605093907) do
+ActiveRecord::Schema.define(version: 20180607140343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20180605093907) do
     t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
     t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.string "number"
+    t.string "email"
+    t.string "description"
+    t.string "image"
+    t.bigint "educational_domain_id"
+    t.index ["educational_domain_id"], name: "index_contacts_on_educational_domain_id"
   end
 
   create_table "educational_domains", force: :cascade do |t|
@@ -110,6 +120,7 @@ ActiveRecord::Schema.define(version: 20180605093907) do
     t.index ["password_digest"], name: "index_users_on_password_digest"
   end
 
+  add_foreign_key "contacts", "educational_domains"
   add_foreign_key "educational_domains", "menus", column: "primary_menu_id", on_delete: :nullify
   add_foreign_key "educational_domains", "menus", column: "secondary_menu_id", on_delete: :nullify
   add_foreign_key "events", "educational_domains"
