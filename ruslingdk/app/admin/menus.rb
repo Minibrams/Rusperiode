@@ -3,7 +3,7 @@ ActiveAdmin.register Menu do
   json_editor
 
   permit_params do
-    permitted = [:name, :items]
+    permitted = %i[name items]
     permitted << :educational_domain_id if current_user.system_admin?
     permitted
   end
@@ -21,9 +21,7 @@ ActiveAdmin.register Menu do
     selectable_column
     column :name
 
-    if current_user.system_admin?
-      column :educational_domain
-    end
+    column :educational_domain if current_user.system_admin?
     actions
   end
 

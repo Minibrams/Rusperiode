@@ -21,8 +21,8 @@ ActiveAdmin.register EducationalDomain do
     column :domain if current_user.system_admin?
     column :default_page
     column :primary_menu
-    column "Colors" do |ed|
-      raw(ed.colors.map { |(k,v)| "#{k}: #{v}" }.join(raw('<br />')))
+    column 'Colors' do |ed|
+      raw(ed.colors.map { |(k, v)| "#{k}: #{v}" }.join(raw('<br />')))
     end
 
     actions

@@ -4,7 +4,7 @@ ActiveAdmin.register_page 'Dashboard' do
   content title: proc { I18n.t('active_admin.dashboard') } do
     columns do
       column do
-        panel "Recent Users" do
+        panel 'Recent Users' do
           ul do
             User.last(5).map do |user|
               li user.name
@@ -14,8 +14,8 @@ ActiveAdmin.register_page 'Dashboard' do
       end
 
       column do
-        panel "Info" do
-          para "Welcome to Rusling.dk."
+        panel 'Info' do
+          para 'Welcome to Rusling.dk.'
         end
       end
     end

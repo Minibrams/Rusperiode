@@ -1,7 +1,7 @@
 ActiveAdmin.register Page do
   includes :educational_domain
   permit_params do
-    params = [:slug, :title, :view_file, :content, :accordion]
+    params = %i[slug title view_file content accordion]
     params += [:educational_domain_id] if current_user.system_admin?
     params
   end
@@ -10,13 +10,11 @@ ActiveAdmin.register Page do
     selectable_column
     column :slug
     column :title
-    column "content" do |p|
-      truncate(p.content, omision: "...", length: 100)
+    column 'content' do |p|
+      truncate(p.content, omision: '...', length: 100)
     end
 
-    if current_user.system_admin?
-      column :educational_domain
-    end
+    column :educational_domain if current_user.system_admin?
     actions
   end
 

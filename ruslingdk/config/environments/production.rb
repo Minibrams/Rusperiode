@@ -81,6 +81,6 @@ Rails.application.configure do
 
   # Skal være rusling.dk, når vi får domænet op.
   config.action_controller.default_url_options = {
-    host: "192.38.55.109"
+    host: '192.38.55.109'
   }
 end

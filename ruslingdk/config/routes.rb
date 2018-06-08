@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
+  namespace :api do
+    constraints subdomain: 'api' do
+      resources :matches
+    end
+  end
+
   # Authentication
   get '/login', to: 'public/sessions#new'
   get '/logout', to: 'public/sessions#destroy'
@@ -14,5 +20,6 @@ Rails.application.routes.draw do
   match '/:slug', to: 'public/pages#show',
                   via: :get,
                   constraints: ->(r) { Page.where(slug: r.params[:slug]).exists? }
+
   root to: 'public/pages#show'
 end

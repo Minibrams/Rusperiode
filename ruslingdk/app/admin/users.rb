@@ -3,8 +3,8 @@ ActiveAdmin.register User do
   includes :educational_domain
 
   permit_params do
-    permitted  = [:firstname, :lastname, :email] if current_user.system_admin? || current_user.id == object.id
-    permitted += [:educational_domain_id, :domain_admin, :system_admin] if current_user.system_admin?
+    permitted  = %i[firstname lastname email] if current_user.system_admin? || current_user.id == object.id
+    permitted += %i[educational_domain_id domain_admin system_admin] if current_user.system_admin?
     permitted
   end
 

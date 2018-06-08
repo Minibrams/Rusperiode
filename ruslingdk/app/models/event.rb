@@ -5,5 +5,5 @@ class Event < ApplicationRecord
   scope :today, -> { where('DATE(begin_at) = ?', Date.today) }
   scope :previous, -> { where('DATE(begin_at) < ?', Date.today) }
 
-  validates :planner, inclusion: {in: ["prosa", "ruskorps", "ida", "studentersamfundet"]}
+  validates :planner, inclusion: { in: %w[prosa ruskorps ida studentersamfundet] }
 end
