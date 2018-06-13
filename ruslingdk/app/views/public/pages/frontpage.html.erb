@@ -7,7 +7,7 @@
     <div class="col-12 col-sm-6 col-lg-4">
       <div class="box rounded" style='background-color: <%= item.colors["primary-color"] %>'>
         <div class="overlay"></div>
-        <div class="menu-text"><% item.educations.each do |ed| %><%= raw(ed + '</br>') %><% end %></div>      <%# Fjern :3000, når der ikke skal testes mere..... Virker ikke med at have port på :domain i educational_domain%>
+        <div class="menu-text"><% item.educations.each do |ed| %><%= raw(ed + '</br>') %><% end %></div>
         <a class='menu-link' href='http://<%= item.domain %>'></a>
       </div>
     </div>

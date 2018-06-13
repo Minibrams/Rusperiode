@@ -34,11 +34,11 @@
       filterSelect($('#planner_selector').val());
   });
   </script>
-<div id="accordionParent">
-  <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionToday", condition: :today  } %>
+  <div id="accordionParent">
+    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionToday", condition: :today  } %>
 
-  <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionNext", condition: :upcoming  } %>
+    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionNext", condition: :upcoming  } %>
 
-  <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionPrevious", condition: :previous } %>
+    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionPrevious", condition: :previous } %>
+  </div>
 </div>
-</div> <%# Lukker solid %>
