@@ -5,8 +5,6 @@ class Public::PagesController < PublicApplicationController
     render @page.view_file
   end
 
-  def index; end
-
 private
 
   def find_page
