@@ -1,3 +1,16 @@
+markdown = RedCarpet::Markdown.new(renderer, extensions = {})
+
+def html_parse(input, parser)
+  if (parser == "textile")
+    RedCloth.new(input).to_html
+  elsif (parser == "markdown")
+    markdown.render(input)
+  else
+    raise "Parser not supported, please try again (markdown/textile)"
+  end
+end
+
+
 def create_datsw(domain)
   datswdomain = EducationalDomain.find_or_initialize_by(domain: 'datsw.'+domain)
   datswdomain.name = 'Datalogi og Software'

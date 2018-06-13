@@ -1,12 +1,28 @@
-<div class="solid">
+<%= render partial: 'partials/event_breadcrumbs' %>
 
-  <select id="planner_selector">
-    <option value="alle">Alle</option>
-    <option value="ruskorps">Ruskorps</option>
-    <option value="prosa">PROSA</option>
-    <option value="ida">IDA</option>
-    <option value="studentersamfundet">Studentersamfundet</option>
-  </select>
+<div class="solid">
+  <div id="planner-buttons" class="btn-group btn-group-justified mb-3" role="group">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn planner-button active" value="alle">Alle
+        </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn planner-button fc-event prosa"  value="prosa">PROSA
+        </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn planner-button fc-event ida" value="ida">IDA
+        </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn planner-button" style="background-color:<%= @domain.colors["primary-color"] %>" value="ruskorps">Ruskorps
+        </button>
+    </div>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn planner-button fc-event studentersamfundet" value="studentersamfundet">Studentersamfundet
+        </button>
+    </div>
+  </div>
 
   <div id="calendar" class="mb-1"></div>
 
@@ -22,16 +38,21 @@
         base
       end.to_json) %>,
       eventRender: function eventRender( event, element, view ) {
-        if ($('#planner_selector').val() == "alle")
+        if ($('#planner-buttons .active').val() == "alle")
           return true
         else
-          return event.className == $('#planner_selector').val()
+          return event.className == $('#planner-buttons .active').val()
       }
     });
   });
-  $('#planner_selector').on('change',function(){
-      $('#calendar').fullCalendar('rerenderEvents');
-      filterSelect($('#planner_selector').val());
+
+  $(".planner-button").on("click", function() {
+
+    $(".planner-button").removeClass("active");
+    $(this).addClass("active");
+
+    $('#calendar').fullCalendar('rerenderEvents');
+    filterSelect($(this).val());
   });
   </script>
   <div id="accordionParent">

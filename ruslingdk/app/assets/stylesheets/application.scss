@@ -203,3 +203,34 @@
 .show{
   display: block
 }
+
+.btn-group-justified {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  .btn,
+  .btn-group {
+    float: none;
+    display: table-cell;
+    width: 1%;
+    .btn {
+      width: 95%;
+      padding: 1%;
+    }
+  }
+}
+
+.planner-button {
+  margin: 0 0 10 10;
+  display: inline-block;
+  border: 1 black;
+  padding: 1%;
+}
+
+.planner-button:hover {
+  box-shadow: 1px 1px 1px black;
+}
+
+.planner-button.active {
+  box-shadow: 2px 2px 2px black;
+}
