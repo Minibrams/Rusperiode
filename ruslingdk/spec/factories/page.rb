@@ -35,8 +35,6 @@ FactoryBot.define do
       slug "testshow"
       view_file "show"
     end
-
   end
-
 end
 
