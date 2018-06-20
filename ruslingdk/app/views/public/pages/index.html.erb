@@ -2,8 +2,8 @@
 
 <div class="flexbox">
   <% @domain.primary_menu.items.each do |item| %>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="box rounded">
+    <div class="col-12 col-sm-12 col-lg-4">
+      <div class="box">
         <div class="filters" style='background-image: url("<%= item["image_url"] %>");'></div>
         <div class="overlay"></div>
         <div class="menu-text"><%= item["name"] %>

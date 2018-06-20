@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Source+Sans+Pro" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet">
     <%# <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css" rel="stylesheet">%>
@@ -27,18 +28,7 @@
   <body>
     <div class="color-base">
       <div class="container">
-        <header class="center">
-          <h1><a href="/" style="color: white; text-decoration: none"><%= @domain.name %></a></h1>
-          <div><%= t("header.easier_study_start") %></div>
-        </header>
-
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <%= yield %>
-          </div>
-        </div>
+        <%= yield %>
       </div>
     </div>
     <footer>

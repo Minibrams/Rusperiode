@@ -1,9 +1,25 @@
-markdown = RedCarpet::Markdown.new(renderer, extensions = {})
+require 'redcarpet'
 
 def html_parse(input, parser)
   if (parser == "textile")
     RedCloth.new(input).to_html
   elsif (parser == "markdown")
+    options = {
+      filter_html:     true,
+      hard_wrap:       true,
+      link_attributes: { rel: 'nofollow', target: "_blank" },
+      space_after_headers: true,
+      fenced_code_blocks: true
+    }
+
+    extensions = {
+      autolink:           true,
+      superscript:        true,
+      disable_indented_code_blocks: true
+    }
+
+    renderer = Redcarpet::Render::HTML.new(options)
+    markdown = Redcarpet::Markdown.new(renderer, extensions)
     markdown.render(input)
   else
     raise "Parser not supported, please try again (markdown/textile)"
@@ -12,7 +28,7 @@ end
 
 
 def create_datsw(domain)
-  datswdomain = EducationalDomain.find_or_initialize_by(domain: 'datsw.'+domain)
+  datswdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   datswdomain.name = 'Datalogi og Software'
   datswdomain.educations = ["Datalogi", "Software"]
   datswdomain.colors = {"primary-color" => "#FF8C00"}
@@ -87,26 +103,26 @@ def create_datsw(domain)
 
   info_page = Page.create(slug: "info", educational_domain: datswdomain, title: 'Informationer', content: 'En masse informationer!', view_file:"accordion")
   info_page.accordion = [
-    #{
-    #  "title" => "Studiestartsdagen",
-    #  "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
-    #},
+    {
+      "title" => "Studiestartsdagen",
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studiestartsdagen.md"), "markdown")
+    },
     {
       "title" => "Studieordninger",
       "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
-    }#,
-    #{
-    #  "title" => "Studenterpolitik",
-    #  "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
-    #},
-    #{
-    #  "title" => "Ruskorpset",
-    #  "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
-    #},
-    #{
-    #  "title" => "Samarbejdspartnere",
-    #  "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
-    #}
+    },
+    {
+      "title" => "Studenterpolitik",
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studenterpolitik.md"), "markdown")
+    },
+    {
+      "title" => "Ruskorpset",
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/ruskorpset.md"), "markdown")
+    },
+    {
+      "title" => "Samarbejdspartnere",
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/samarbejdspartnere.md"), "markdown")
+    }
   ]
   info_page.save
 
@@ -191,7 +207,7 @@ if Rails.env.development?
   create_frontpage('localhost')
 
 #Domæner
-  create_datsw('localhost')
+  create_datsw('datsw.localhost')
 
 #Eng
 engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
@@ -264,24 +280,24 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
   infoeng_page.accordion = [
     {
       "title" => "Studiestartsdagen",
-      "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studiestartsdagen.md"), "markdown")
     },
-    {
-      "title" => "Studieordninger",
-      "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
-    },
+    #{
+    #  "title" => "Studieordninger",
+    #  "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
+    #},
     {
       "title" => "Studenterpolitik",
-      "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
-    },
-    {
-      "title" => "Ruskorpset",
-      "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
-    },
-    {
-      "title" => "Samarbejdspartnere",
-      "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
-    }
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studenterpolitik.md"), "markdown")
+    }#,
+    #{
+    #  "title" => "Ruskorpset",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/ruskorpset.md"), "markdown")
+    #},
+    #{
+    #  "title" => "Samarbejdspartnere",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/samarbejdspartnere.md"), "markdown")
+    #}
   ]
   infoeng_page.save
 
@@ -434,24 +450,24 @@ engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
   infohum_page.accordion = [
     {
       "title" => "Studiestartsdagen",
-      "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studiestartsdagen.md"), "markdown")
     },
-    {
-      "title" => "Studieordninger",
-      "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
-    },
+    #{
+    #  "title" => "Studieordninger",
+    #  "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
+    #},
     {
       "title" => "Studenterpolitik",
-      "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
-    },
-    {
-      "title" => "Ruskorpset",
-      "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
-    },
-    {
-      "title" => "Samarbejdspartnere",
-      "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
-    }
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studenterpolitik.md"), "markdown")
+    }#,
+    #{
+    #  "title" => "Ruskorpset",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/ruskorpset.md"), "markdown")
+    #},
+    #{
+    #  "title" => "Samarbejdspartnere",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/samarbejdspartnere.md"), "markdown")
+    #}
   ]
   infohum_page.save
 
@@ -606,24 +622,24 @@ samfdomain = EducationalDomain.find_or_initialize_by(domain: 'samf.localhost')
   infosamf_page.accordion = [
     {
       "title" => "Studiestartsdagen",
-      "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studiestartsdagen.md"), "markdown")
     },
-    {
-      "title" => "Studieordninger",
-      "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
-    },
+    #{
+    #  "title" => "Studieordninger",
+    #  "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
+    #},
     {
       "title" => "Studenterpolitik",
-      "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
-    },
-    {
-      "title" => "Ruskorpset",
-      "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
-    },
-    {
-      "title" => "Samarbejdspartnere",
-      "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
-    }
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studenterpolitik.md"), "markdown")
+    }#,
+    #{
+    #  "title" => "Ruskorpset",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/ruskorpset.md"), "markdown")
+    #},
+    #{
+    #  "title" => "Samarbejdspartnere",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/samarbejdspartnere.md"), "markdown")
+    #}
   ]
   infosamf_page.save
 
@@ -779,24 +795,24 @@ sunddomain = EducationalDomain.find_or_initialize_by(domain: 'sund.localhost')
   infosund_page.accordion = [
     {
       "title" => "Studiestartsdagen",
-      "content" => File.read(__dir__ + "/seeds/info/studiestartsdagen.html")
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studiestartsdagen.md"), "markdown")
     },
-    {
-      "title" => "Studieordninger",
-      "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
-    },
+    #{
+    #  "title" => "Studieordninger",
+    #  "content" => File.read(__dir__ + "/seeds/info/studieordninger.html")
+    #},
     {
       "title" => "Studenterpolitik",
-      "content" => File.read(__dir__ + "/seeds/info/studenterpolitik.html")
-    },
-    {
-      "title" => "Ruskorpset",
-      "content" => File.read(__dir__ + "/seeds/info/ruskorpset.html")
-    },
-    {
-      "title" => "Samarbejdspartnere",
-      "content" => File.read(__dir__ + "/seeds/info/samarbejdspartnere.html")
-    }
+      "content" => html_parse(File.read(__dir__ + "/seeds/info/studenterpolitik.md"), "markdown")
+    }#,
+    #{
+    #  "title" => "Ruskorpset",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/ruskorpset.md"), "markdown")
+    #},
+    #{
+    #  "title" => "Samarbejdspartnere",
+    #  "content" => html_parse(File.read(__dir__ + "/seeds/info/samarbejdspartnere.md"), "markdown")
+    #}
   ]
   infosund_page.save
 
