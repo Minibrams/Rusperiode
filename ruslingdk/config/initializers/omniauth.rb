@@ -1,4 +1,4 @@
-OmniAuth.config.full_host = 'https://spang.eu.ngrok.io'.freeze
+OmniAuth.config.full_host = 'https://spang.eu.ngrok.io'
 
 Rails.application.config.middleware.use OmniAuth::Builder do
   provider :developer unless Rails.env.production?

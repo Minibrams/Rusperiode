@@ -1,11 +1,15 @@
-<% if @domain.primary_menu.present? %>
-  <nav class="nav justify-content-center dropdown">
-    <% @domain.primary_menu.items.each do |item| %>
-      <% if item["dropdown"].present? %>
-        <%= render partial: "partials/navigation/navdropdown.html.erb", locals: { item: item } %>
-      <% else %>
+<nav class="nav justify-content-center dropdown">
+  <% default_domain_id = EducationalDomain.default_domain.id %>
+  <div class="nav-item dropdown">
+    <a class="nav-link" data-toggle='dropdown'>
+      Vælg din uddannelse </br> &#9660
+    </a>
+    <div class="dropdown-menu">
+    <%  EducationalDomain.all.each do |item| %>
+      <% next if item.id == default_domain_id %>
         <%= render partial: "partials/navigation/navitem.html.erb", locals: { item: item } %>
       <% end %>
-    <% end %>
-  </nav>
-<% end %>
+    </div>
+  </div>
+</nav>
+
