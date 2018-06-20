@@ -204,10 +204,10 @@ end
 
 if Rails.env.development?
 #Forside
-  create_frontpage('localhost')
+  #create_frontpage('localhost')
 
 #Domæner
-  create_datsw('datsw.localhost')
+  create_datsw('localhost')
 
 #Eng
 engdomain = EducationalDomain.find_or_initialize_by(domain: 'eng.localhost')
