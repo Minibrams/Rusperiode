@@ -11,6 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css" rel="stylesheet">
     <%# <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css" rel="stylesheet">%>
 
+    <%= render partial: 'layouts/custom_colors', locals:{colors: @domain.colors}%>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
@@ -22,7 +23,7 @@
         <%= content_for :init_maps %>
       }
     </script>
-    <%= render partial: 'layouts/custom_colors' %>
+
     <%= yield :head %>
   </head>
   <body>

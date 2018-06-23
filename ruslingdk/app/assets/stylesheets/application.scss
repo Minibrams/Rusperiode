@@ -3,24 +3,44 @@
 
 
 .fc-event {
-  color: #ffffff;
+  color: var(--fontDark);
+  font-family: 'Source Sans Pro Light', sans-serif;
+
+  &.alle {
+    background-color: rgb(237, 193, 49);
+    justify-content: center;
+  }
 
   &.prosa {
     background-color: #CF1D23;
+    color: var(--fontLight);
+    justify-content: center;
   }
 
   &.ida {
     background-color: #C4005F;
+    color: var(--fontLight);
+    justify-content: center;
   }
 
   &.ruskorps {
+    justify-content: center;
   }
 
   &.studentersamfundet {
     background-color: #134010;
+    color: var(--fontLight);
+    justify-content: center;
   }
 }
 
+.fc-view-container{
+  background-color: white;
+}
+
+blockquote{
+  background-color: var(--primary);
+}
 
 .flexbox {
   display: flex;
@@ -34,7 +54,7 @@
 .container {
   position: relative;
   padding: 0;
-  height: 100vh;
+  height: fit-content;
 }
 
 @media (min-width: 1200px) , (min-width: 992px), (min-width: 768px), (min-width: 576px){
@@ -103,14 +123,15 @@
   filter: blur(1px);
 }
 
-.menu-text0, .menu-text1, .menu-text3 {
+.menu-header0, .menu-header1, .menu-header3 {
     position: absolute;
-    color: #3E3E3D;
+    color: var(--fontDark);
     font-size: 2.3vw;
     bottom: 0;
     top: 35%;
     left: 0;
     right: 0;
+    padding: 0 5%;
     display: flex;
     align-items: top;
     text-align: center;
@@ -118,19 +139,55 @@
     z-index: 999;
 }
 
-.menu-text2, .menu-text4, .menu-text5 {
+.menu-header2, .menu-header4, .menu-header5 {
   position: absolute;
-  color: #FFFFFF;
+  color: var(--fontLight);
   font-size: 2.3vw;
   bottom: 0;
   top: 35%;
   left: 0;
   right: 0;
+  padding: 0 5%;
   display: flex;
   align-items: top;
   text-align: center;
   justify-content: center;
   z-index: 999;
+}
+
+
+.menu-content0, .menu-content1, .menu-content3 {
+  position: absolute;
+  color: var(--fontDark);
+  font-size: 2vw;
+  font-family: 'Source Sans Pro', sans-serif;
+  bottom: 0;
+  top: 45%;
+  left: 0;
+  right: 0;
+  padding: 0 5%;
+  display: flex;
+  align-items: top;
+  text-align: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.menu-content2, .menu-content4, .menu-content5 {
+position: absolute;
+color: var(--fontLight);
+font-size: 2vw;
+font-family: 'Source Sans Pro', sans-serif;
+bottom: 0;
+top: 45%;
+left: 0;
+right: 0;
+padding: 0 5%;
+display: flex;
+align-items: top;
+text-align: center;
+justify-content: center;
+z-index: 999;
 }
 
 .img-fluid{
@@ -147,17 +204,30 @@
   right: 0;
   max-width: 100%;
   max-height: 100%;
+  z-index: 9999;
+}
+
+.banner-title {
+  color: var(--fontLight);
+  text-align: center;
+  font-size: 36pt;
+  font-family: 'Bree Serif', serif;
+  position: absolute;
+  z-index: 101;
+  left: 0;
+  right: 0;
+  bottom: 20%;
 }
 
 .menu-link{
   /* all rules required to make the whole div clickable */
   position:absolute;
-  color: #3E3E3D;
+  color: var(--fontDark);
   width:100%;
   height:100%;
   top:0;
   left: 0;
-  z-index: 9999;
+  z-index: 999999999;
   /* this is a fix for IE7-9 */
   background-color:#ffffff;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -218,9 +288,18 @@
   box-shadow: none;
 }
 
+.accordion-toggle {
+  padding: 2% 7%;
+  cursor: pointer;
+  color: var(--fontLight) !important;
+}
+
+.card-header{
+  align-items: center;
+}
 
 .card-body{
-  padding: 12px 22px;
+  padding: 5% 7%;
 }
 
 .align-left{
@@ -233,12 +312,17 @@
 
 .hilsen{
   text-align: center;
-  color: black;
-  font-size: 1.25em;
+  color: var(--fontDark);
+  padding-bottom: 5%;
+  padding-top: 5%;
 }
 
-.filterable{
-  display: none
+.content-header{
+  font-family: 'Bree Serif', serif;
+}
+
+.content{
+  font-family: 'Source San Pro', sans-serif;
 }
 
 .show{
@@ -251,35 +335,42 @@
   table-layout: fixed;
   .btn,
   .btn-group {
-    float: none;
+    float: center;
     display: table-cell;
     width: 1%;
     .btn {
-      width: 95%;
-      padding: 1%;
+      width: 100%;
+      border-radius: 0;
+      justify-content: center;
     }
   }
 }
 
+.btn:not(:disabled):not(.disabled):active:focus,
+.btn:not(:disabled):not(.disabled).active:focus{
+  -webkit-box-shadow: inset 0px 0px 10px var(--fontLight);
+  -moz-box-shadow: inset 0px 0px 10px var(--fontLight);
+  box-shadow: inset 0px 0px 10px var(--fontLight);
+}
+
 .planner-button {
-  margin: 0 0 10 10;
   display: inline-block;
-  border: 1 black;
-  padding: 1%;
+  justify-content: center;
+  outline: none;
 }
 
 .planner-button:hover {
-  box-shadow: 1px 1px 1px black;
+  outline: none;
 }
 
 .planner-button.active {
-  box-shadow: 2px 2px 2px black;
+  outline: none;
 }
 .fp-top{
-  height: 66%;
+  height: 66vh;
   width: 100%;
   top: 0px;
-  position: absolute;
+  position: relative;
 }
 .fp-img {
   position: absolute;
@@ -289,10 +380,26 @@
   right: 29%;
 }
 
-.fp-bottom{
+.index-top {
+  height: 60vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: relative;
+}
+
+.index-img {
   position: absolute;
+  margin-top: 2%;
+  margin-left: 2%;
+  height: 25%;
+  width: 25%;
+}
+
+.fp-bottom{
+  position: relative;
   bottom: 0px;
-  height: 34%;
+  height: 34vh;
   width: 100%;
 }
 .fp-menu {
@@ -311,32 +418,35 @@
   padding-bottom: 0px;
 }
 
-.overlay0{
+.overlay{
   width:100%;
   height:100%;
   position: absolute;
-  background-color: rgb(237, 193, 45);
+  background-color: black;
   opacity:0.5;
   z-index: 100;
   color: #3E3E3D;
 }
 
-.overlay1, .overlay3{
+.overlay0{
   width:100%;
   height:100%;
   position: absolute;
-  background-color: #808080;
-  opacity:0.5;
+  background-color: #EDC131;
+  opacity:0.7;
   z-index: 100;
   color: #3E3E3D;
+}
+
+.overlay1, .overlay3{
 }
 
 .overlay2{
   width:100%;
   height:100%;
   position: absolute;
-  background-color: rgb(205, 87, 64);
-  opacity:0.5;
+  background-color: #CD563F;
+  opacity:0.7;
   z-index: 100;
   color: white;
 }
@@ -345,8 +455,8 @@
   width:100%;
   height:100%;
   position: absolute;
-  background-color: rgb(26, 39, 51);
-  opacity:0.5;
+  background-color: #1A2633;
+  opacity:0.7;
   z-index: 100;
   color: white;
 }
@@ -355,24 +465,34 @@
   width:100%;
   height:100%;
   position: absolute;
-  background-color: rgb(78, 158, 69);
-  opacity:0.5;
+  background-color: #4D9E45;
+  opacity:0.7;
   z-index: 100;
   color: white;
 }
 
-div#accordion{
-  padding: 5% 10%;
-}
-
-.accordion-toggle{
-  color: #3E3E3D;
+.padding{
+  padding: 5% 13%;
 }
 
 .card:nth-child(even) .card-header{
-  background-color: rgb(237, 193, 45);
+  background-color: var(--secondary);
+}
+
+.card:nth-child(even) .card-body{
+  border-left: 2px var(--secondary) solid;
+  border-right: 2px var(--secondary) solid;
 }
 
 .card:nth-child(odd) .card-header{
-  background-color: rgb(248, 230, 18);
+  background-color: var(--primary);
+}
+
+.card:nth-child(odd) .card-body{
+  border-left: 2px var(--primary) solid;
+  border-right: 2px var(--primary) solid;
+}
+
+p{
+  font-family: 'Source Sans Pro Light', sans-serif;
 }

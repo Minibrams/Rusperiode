@@ -2,13 +2,11 @@
   <% @page.accordion.each.with_index do |item, i| %>
     <div class="card">
       <div class="card-header" id="heading<%= i %>">
-        <h5>
           <div class="accordion-toggle" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="true" aria-controls="collapse<%= i %>">
-            <p class="align-left mb-0"><%= item["title"] %></p>
+            <h3 class="align-left mb-0"><%= item["title"] %></h3>
 
             <div style="clear: both;"></div>
           </div>
-        </h5>
       </div>
 
       <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#accordion">

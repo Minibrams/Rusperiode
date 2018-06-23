@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607140343) do
+ActiveRecord::Schema.define(version: 20180623143730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180607140343) do
     t.datetime "begin_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "planner", default: "ruskorps"
     t.index ["educational_domain_id"], name: "index_events_on_educational_domain_id"
   end
 
@@ -101,6 +100,7 @@ ActiveRecord::Schema.define(version: 20180607140343) do
     t.datetime "updated_at", null: false
     t.string "view_file"
     t.jsonb "accordion"
+    t.string "content_header"
     t.index ["educational_domain_id"], name: "index_pages_on_educational_domain_id"
     t.index ["slug"], name: "index_pages_on_slug"
   end
