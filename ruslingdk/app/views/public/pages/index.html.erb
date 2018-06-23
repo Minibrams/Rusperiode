@@ -1,15 +1,17 @@
+<%= render partial: 'partials/index_header'%>
+
 <%= render partial: 'partials/body_text' %>
 
 <div class="flexbox">
   <% @domain.primary_menu.items.each_with_index do |item, i| %>
     <div class="col-12 col-sm-12 col-lg-4">
       <div class="box">
-        <div class="filters" style='background-image: url("<%= item["image_url"] %>");'></div>
+        <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
+        <div class="filters" style='background-image: url("<%= image_path(item["image_url"]) %>");'></div>
         <div class="hoverlay"></div>
-        <div class="overlay<%= i %>"></div>
-        <div class="menu-text<%= i %>"><%= item["name"] %>
-          <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
-        </div>
+        <div class="overlay<%= i%6 %>"></div>
+        <div class="menu-header<%= i%6 %>"><%= item["name"] %></div>
+        <div class="menu-content<%= i%6 %>"><%= item["description"] %></div>
       </div>
     </div>
   <% end %>
