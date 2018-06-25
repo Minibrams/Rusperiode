@@ -126,9 +126,9 @@ blockquote{
 .menu-header0, .menu-header1, .menu-header3 {
     position: absolute;
     color: var(--fontDark);
-    font-size: 2.3vw;
+    font-size: 2.6rem;
     bottom: 0;
-    top: 35%;
+    top: 38%;
     left: 0;
     right: 0;
     padding: 0 5%;
@@ -142,9 +142,9 @@ blockquote{
 .menu-header2, .menu-header4, .menu-header5 {
   position: absolute;
   color: var(--fontLight);
-  font-size: 2.3vw;
+  font-size: 2.6rem;
   bottom: 0;
-  top: 35%;
+  top: 38%;
   left: 0;
   right: 0;
   padding: 0 5%;
@@ -159,10 +159,11 @@ blockquote{
 .menu-content0, .menu-content1, .menu-content3 {
   position: absolute;
   color: var(--fontDark);
-  font-size: 2vw;
+  font-size: 2rem;
   font-family: 'Source Sans Pro', sans-serif;
   bottom: 0;
-  top: 45%;
+  top: 50%;
+  line-height: 1;
   left: 0;
   right: 0;
   padding: 0 5%;
@@ -176,10 +177,11 @@ blockquote{
 .menu-content2, .menu-content4, .menu-content5 {
 position: absolute;
 color: var(--fontLight);
-font-size: 2vw;
+font-size: 2rem;
 font-family: 'Source Sans Pro', sans-serif;
 bottom: 0;
-top: 45%;
+top: 50%;
+line-height: 1;
 left: 0;
 right: 0;
 padding: 0 5%;
@@ -188,6 +190,83 @@ align-items: top;
 text-align: center;
 justify-content: center;
 z-index: 999;
+}
+
+@media (max-width: 767.98px){
+  .menu-header0, .menu-header1, .menu-header3 {
+    position: absolute;
+    color: var(--fontDark);
+    font-size: 1.9rem;
+    bottom: 0;
+    top: 38%;
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+    display: flex;
+    align-items: top;
+    text-align: center;
+    justify-content: center;
+    z-index: 999;
+  }
+
+  .menu-header2, .menu-header4, .menu-header5 {
+  position: absolute;
+  color: var(--fontLight);
+  font-size: 1.9rem;
+  bottom: 0;
+  top: 38%;
+  left: 0;
+  right: 0;
+  padding: 0 5%;
+  display: flex;
+  align-items: top;
+  text-align: center;
+  justify-content: center;
+  z-index: 999;
+  }
+
+
+  .menu-content0, .menu-content1, .menu-content3 {
+  position: absolute;
+  color: var(--fontDark);
+  font-size: 1.6rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  bottom: 0;
+  top: 50%;
+  line-height: 1;
+  left: 0;
+  right: 0;
+  padding: 0 5%;
+  display: flex;
+  align-items: top;
+  text-align: center;
+  justify-content: center;
+  z-index: 999;
+  }
+
+  .menu-content2, .menu-content4, .menu-content5 {
+  position: absolute;
+  color: var(--fontLight);
+  font-size: 1.6rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  bottom: 0;
+  top: 50%;
+  line-height: 1;
+  left: 0;
+  right: 0;
+  padding: 0 5%;
+  display: flex;
+  align-items: top;
+  text-align: center;
+  justify-content: center;
+  z-index: 999;
+  }
+}
+
+.menu-text{
+  font-size: 1.5rem;
+  text-align: center;
+  align-items: center;
 }
 
 .img-fluid{
@@ -210,13 +289,28 @@ z-index: 999;
 .banner-title {
   color: var(--fontLight);
   text-align: center;
-  font-size: 36pt;
+  font-size: 3rem;
+  line-height: 1;
   font-family: 'Bree Serif', serif;
   position: absolute;
   z-index: 101;
   left: 0;
   right: 0;
   bottom: 20%;
+}
+@media (max-width: 767.98px){
+  .banner-title {
+    color: var(--fontLight);
+    text-align: center;
+    font-size: 2rem;
+    line-height: 1;
+    font-family: 'Bree Serif', serif;
+    position: absolute;
+    z-index: 101;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+  }
 }
 
 .menu-link{
@@ -314,7 +408,6 @@ z-index: 999;
   text-align: center;
   color: var(--fontDark);
   padding-bottom: 5%;
-  padding-top: 5%;
 }
 
 .content-header{
@@ -366,34 +459,22 @@ z-index: 999;
 .planner-button.active {
   outline: none;
 }
+
+
 .fp-top{
   height: 66vh;
   width: 100%;
   top: 0px;
   position: relative;
 }
+
+
 .fp-img {
   position: absolute;
   top: 30%;
   bottom: 25%;
   left: 26%;
   right: 29%;
-}
-
-.index-top {
-  height: 60vh;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  position: relative;
-}
-
-.index-img {
-  position: absolute;
-  margin-top: 2%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
 }
 
 .fp-bottom{
@@ -408,6 +489,70 @@ z-index: 999;
   bottom: 31%;
   left: 28%;
   right: 28%;
+}
+
+@media (max-width: 767.98px){
+  .fp-top{
+    height: 45vh;
+    width: 100%;
+    top: 0px;
+    position: relative;
+  }
+
+  .fp-img {
+    position: absolute;
+    top: 30%;
+    bottom: 25%;
+    left: 13%;
+    right: 14.5%;
+  }
+
+  .fp-bottom{
+    position: relative;
+    bottom: 0px;
+    height: 55vh;
+    width: 100%;
+  }
+  .fp-menu {
+    position: absolute;
+    top: 31%;
+    bottom: 31%;
+    left: 14%;
+    right: 14%;
+  }
+}
+
+.index-top {
+  height: 60vh;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: relative;
+}
+.index-img {
+  position: absolute;
+  margin-top: 2%;
+  margin-left: 2%;
+  height: 25%;
+  width: 25%;
+}
+
+@media (max-width: 767.98px){
+  .index-top {
+    height: 45vh;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    position: relative;
+  }
+
+  .index-img {
+    position: absolute;
+    margin-top: 5%;
+    margin-left: 5%;
+    height: 25%;
+    width: 55%;
+  }
 }
 
 .menu-open{
@@ -493,6 +638,86 @@ z-index: 999;
   border-right: 2px var(--primary) solid;
 }
 
+.collapse{
+  border-color: inherit;
+}
+
 p{
   font-family: 'Source Sans Pro Light', sans-serif;
+}
+
+.card:nth-child(even){
+  border-bottom: 0px var(--secondary) solid;
+}
+
+.card:nth-child(odd){
+  border-bottom: 0px var(--primary) solid;
+}
+
+.card:last-child .card-body{
+  border-bottom-width: 2px;
+  border-bottom-color: inherit;
+  border-bottom-style: solid;
+}
+
+.sponsor-title{
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.samarbejdspartner-box{
+  position: relative;
+  align-items: center;
+  height: 167px;
+  overflow: hidden;
+  padding: none;
+}
+
+.samarbejdspartner-box:after {
+  content: "";
+  float:left;
+  display: block;
+  padding-top: 100%;
+}
+
+.sponsor-img {
+  padding: 1% 3%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: auto;
+  max-width: 100%;
+  flex-direction: row;
+  flex: 1 0 auto;
+}
+
+.helper{
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.event-title{
+  float: left;
+}
+.event-date{
+  float: right;
+}
+
+@media (max-width: 767.98px){
+  .event-title{
+    float: left;
+    display: inline-block;
+  }
+  .event-date{
+    float: left;
+    display: inline-block;
+  }
 }

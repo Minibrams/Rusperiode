@@ -84,6 +84,12 @@ def create_datsw(domain)
   kurt = Contact.create(educational_domain: datswdomain, name: "Kurt Nørmark", email: "normark@cs.aau.dk", description: "Du kan skrive til Kurt hvis du har spørgsmål vedr. alt der har med studiet, grupper og projekter at gøre.", image: "http://placekitten.com/1080/500")
   anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
 
+  #Sponsors
+  sponsor1 = Sponsor.create(educational_domain: datswdomain, name: "progras", image: "progras.png")
+  sponsor2 = Sponsor.create(educational_domain: datswdomain, name: "progras", image: "prosa.png")
+  sponsor3 = Sponsor.create(educational_domain: datswdomain, name: "progras", image: "cego.png")
+
+
   pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content_header: '<h4>Velkommen til Rusling.dk</h4>', content: 'Vi gør alt hvad vi kan for at i kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer i kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
   faq_page = Page.create(slug: "faq", educational_domain: datswdomain, title: 'Vigtig viden (FAQ)', content_header: '<h4>Her er svarene på alle jeres spørgmål!</h4>', view_file:"accordion")
@@ -165,7 +171,7 @@ def create_datsw(domain)
   ]
   howto_page.save
 
-  contacts_page = Page.create(slug: "kontakter", educational_domain: datswdomain, title: 'Kontakt', content_header: '<h4>Her er alle de mennesker der er vigtige!', view_file:"contacts")
+  contacts_page = Page.create(slug: "kontakter", educational_domain: datswdomain, title: 'Kontakt', content_header: '<h4>Her er alle de mennesker der er vigtige!</h4>', content:'mouseover(tap) for kontakt information.', view_file:"contacts")
 
   advice_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd', content: File.read(__dir__ + "/seeds/advice.html"), content_header: "<h4>Herunder har vi samlet er par gode råd fra ældre studerende på datalogi og software</h4>", view_file:"show")
 
@@ -926,9 +932,9 @@ end
 
 if Rails.env.development?
 #Forside
-  create_frontpage('fp.localhost')
+  create_frontpage('localhost')
 
 #Domæner
-  create_datsw('localhost')
+  create_datsw('datsw.localhost')
 
 end
