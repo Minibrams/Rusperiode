@@ -219,6 +219,8 @@ GEM
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
+    rack-utf8_sanitizer (1.6.0)
+      rack (>= 1.0, < 3.0)
     rails (5.1.6)
       actioncable (= 5.1.6)
       actionmailer (= 5.1.6)
@@ -376,6 +378,7 @@ DEPENDENCIES
   pg
   pry
   puma (~> 3.7)
+  rack-utf8_sanitizer
   rails (~> 5.1.4)
   redcarpet
   redis-rails

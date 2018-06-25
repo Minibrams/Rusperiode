@@ -3,6 +3,7 @@ class EducationalDomain < ApplicationRecord
   has_many :menus
   has_many :events
   has_many :contacts
+  has_many :sponsors
 
   belongs_to :primary_menu, class_name: 'Menu', optional: true
   belongs_to :secondary_menu, class_name: 'Menu', optional: true

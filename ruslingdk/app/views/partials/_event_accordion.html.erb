@@ -8,19 +8,18 @@
     <div class="card">
       <div class="card-header" id="heading<%= event["id"] %>">
         <div class="accordion-toggle" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-            <h3 class="align-left mb-0"><%= event.title %></h3>
-            <h3 class="align-right mb-0"><%= l(event.begin_at, format: :short) %></h3>
+          <h4 class="event-title"><%= event.title %></h4><h4 class="event-date"><%= l(event.begin_at, format: :short) %></h4>
 
-            <div style="clear: both;"></div>
+          <div style="clear: both;"></div>
         </div>
       </div>
       <div id="collapse<%= event.id %>" class="collapse" aria-labelledby="heading<%= event.id %>" data-parent="#accordionParent">
         <div class="card-body">
           <div class="row">
-            <div class="col">
+            <div class="col pb-2 pb-lg-0">
               <%= raw(event.description) %>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-lg-4">
               <div id="eventmap<%= event.id %>" style="height: 100%;min-height:150px"></div>
                 <% content_for :init_maps do %>
                   var location = {lat: <%= event.lat %>, lng: <%= event.lng %>}
