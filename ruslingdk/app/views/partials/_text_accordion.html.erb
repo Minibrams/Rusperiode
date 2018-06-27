@@ -1,18 +1,16 @@
 <div id="accordion">
   <% @page.accordion.each.with_index do |item, i| %>
-    <div class="card mb-1 rounded" style="width: 100%; border: 2px solid <%= @domain.colors["primary-color"] %>">
-      <div class="card-header mb-0 rounded" id="heading<%= i %>">
-        <h5 class="mb-0">
-          <button class="btn btn-primary outline btn-lg btn-block border-0 rounded mb-0" style="color: <%= @domain.colors["primary-color"] %>; border: 2px solid <%= @domain.colors["primary-color"] %>" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="true" aria-controls="collapse<%= i %>">
-            <p class="align-left mb-0"><%= item["title"] %></p>
+    <div class="card">
+      <div class="card-header" id="heading<%= i %>">
+          <div class="accordion-toggle" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="true" aria-controls="collapse<%= i %>">
+            <h4 class="align-left"><%= item["title"] %></h4>
 
             <div style="clear: both;"></div>
-          </button>
-        </h5>
+          </div>
       </div>
 
       <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#accordion">
-        <div class="card-body rounded">
+        <div class="card-body">
           <%= raw(item["content"]) %>
         </div>
       </div>

@@ -58,17 +58,17 @@ $colors: map-merge((
   gray-dark: $gray-800
 ), $colors);
 
-$theme-colors: ();
-$theme-colors: map-merge((
-  primary: $orange,
-  secondary: $indigo,
-  success: $green,
-  info: $teal,
-  warning: $yellow,
-  danger: $red,
-  light: $gray-100,
-  dark: $gray-800,
-), $theme-colors);
+// $theme-colors: ();
+// $theme-colors: map-merge((
+//   primary: $orange,
+//   secondary: $indigo,
+//   success: $green,
+//   info: $teal,
+//   warning: $yellow,
+//   danger: $red,
+//   light: $gray-100,
+//   dark: $gray-800,
+// ), $theme-colors);
 
 // Set a specific jump point for requesting color jumps
 // $theme-color-interval: 8%;

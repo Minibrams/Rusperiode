@@ -1,15 +1,18 @@
-<nav class="nav justify-content-center dropdown">
-  <% default_domain_id = EducationalDomain.default_domain.id %>
-  <div class="nav-item dropdown">
-    <a class="nav-link" data-toggle='dropdown'>
-      Vælg din uddannelse </br> &#9660
-    </a>
-    <div class="dropdown-menu">
-    <%  EducationalDomain.all.each do |item| %>
-      <% next if item.id == default_domain_id %>
-        <%= render partial: "partials/navigation/navitem.html.erb", locals: { item: item } %>
-      <% end %>
-    </div>
+<div class="fp-bottom">
+  <div class="fp-menu">
+    <nav class="nav justify-content-center dropdown">
+      <% default_domain_id = EducationalDomain.default_domain.id %>
+      <div class="nav-item dropdown">
+        <a class="nav-link" data-toggle='dropdown'>
+          <h4>Vælg din uddannelse &#9660</h4>
+        </a>
+        <div class="dropdown-menu">
+        <%  EducationalDomain.all.each do |item| %>
+          <% next if item.id == default_domain_id %>
+            <%= render partial: "partials/navigation/navitem.html.erb", locals: { item: item } %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
   </div>
-</nav>
-
+</div>

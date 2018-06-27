@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180607140343) do
+ActiveRecord::Schema.define(version: 20180624154438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20180607140343) do
     t.datetime "begin_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "planner", default: "ruskorps"
     t.index ["educational_domain_id"], name: "index_events_on_educational_domain_id"
   end
 
@@ -101,8 +100,18 @@ ActiveRecord::Schema.define(version: 20180607140343) do
     t.datetime "updated_at", null: false
     t.string "view_file"
     t.jsonb "accordion"
+    t.string "content_header"
     t.index ["educational_domain_id"], name: "index_pages_on_educational_domain_id"
     t.index ["slug"], name: "index_pages_on_slug"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "educational_domain_id"
+    t.index ["educational_domain_id"], name: "index_sponsors_on_educational_domain_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -125,5 +134,6 @@ ActiveRecord::Schema.define(version: 20180607140343) do
   add_foreign_key "educational_domains", "menus", column: "secondary_menu_id", on_delete: :nullify
   add_foreign_key "events", "educational_domains"
   add_foreign_key "menus", "educational_domains"
+  add_foreign_key "sponsors", "educational_domains"
   add_foreign_key "users", "educational_domains"
 end

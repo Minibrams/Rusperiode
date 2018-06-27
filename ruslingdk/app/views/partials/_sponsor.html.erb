@@ -1,0 +1,10 @@
+<div class="sponsor-title">Sponsorer</div>
+<div class="flexbox">
+  <% @domain.sponsors.each do |item| %>
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="samarbejdspartner-box">
+        <img class="sponsor-img" src="<%= image_path("sponsors/#{item.image}") %>"/>
+      </div>
+    </div>
+  <% end %>
+</div>
