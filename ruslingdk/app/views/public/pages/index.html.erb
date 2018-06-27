@@ -1,15 +1,20 @@
-<%= render partial: 'partials/body_text' %>
-
+  <%= render partial: 'partials/index_header'%>
+<div class="padding">
+  <%= render partial: 'partials/body_text' %>
+</div>
 <div class="flexbox">
-  <% @domain.primary_menu.items.each do |item| %>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="box rounded">
-        <div class="filters" style='background-image: url("<%= item["image_url"] %>");'></div>
-        <div class="overlay"></div>
-        <div class="menu-text"><%= item["name"] %>
-          <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
-        </div>
+  <% @domain.primary_menu.items.each_with_index do |item, i| %>
+    <div class="col-12 col-sm-12 col-lg-4">
+      <div class="box">
+        <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
+        <div class="filters" style='background-image: url("<%= image_url(item["image_url"]) %>");'></div>
+        <div class="hoverlay"></div>
+        <div class="overlay<%= i%6 %>"></div>
+        <div class="menu-header<%= i%6 %>"><%= item["name"] %></div>
+        <div class="menu-content<%= i%6 %>"><%= item["description"] %></div>
       </div>
     </div>
   <% end %>
 </div>
+
+<%= render partial: 'partials/sponsor' %>

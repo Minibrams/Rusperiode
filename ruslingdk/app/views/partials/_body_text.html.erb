@@ -1,5 +1,6 @@
-<div class="row justify-content-center mb-2">
-  <div class="col-6 hilsen">
-    <%= raw(@page.content) %>
+<div class="row justify-content-center">
+  <div class="hilsen">
+    <div class="content-header"><%= raw(@page.content_header) %></div>
+    <div class="content"><%= raw(@page.content) %></div>
   </div>
 </div>

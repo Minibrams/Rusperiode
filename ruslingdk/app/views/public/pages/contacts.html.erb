@@ -1,9 +1,11 @@
-<%= render partial: 'partials/body_text' %>
-
+<%= render partial: 'partials/index_header' %>
+<div class="padding">
+  <%= render partial: 'partials/body_text' %>
+</div>
 <div class="flexbox">
   <% @domain.contacts.each do |item| %>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="box rounded">
+    <div class="col-12 col-sm-12 col-lg-4">
+      <div class="box">
         <div class="bg-img" style='background-image: url("<%= item["image"] %>");'></div>
         <div class="overlay"></div>
         <div class="info"><%= item["name"] %><br/><%= item["email"] %><br/><%= item["number"] %></div>

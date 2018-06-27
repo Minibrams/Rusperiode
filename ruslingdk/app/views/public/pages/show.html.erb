@@ -1,3 +1,4 @@
-<div class="solid">
-<h2><%= @page.title %></h2>
-<%= raw(@page.content) %>
+<%= render partial: 'partials/index_header' %>
+<div class="padding">
+  <%= render partial: 'partials/body_text' %>
+</div>

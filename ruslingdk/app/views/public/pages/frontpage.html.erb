@@ -1,17 +1,10 @@
-<%= render partial: 'partials/body_text' %>
+<%= render partial: 'partials/frontpage_header'%>
 
-<div class="flexbox">
-  <% default_domain_id = EducationalDomain.default_domain.id %>
-  <%  EducationalDomain.all.each do |item| %>
-    <% next if item.id == default_domain_id %>
-    <div class="col-12 col-sm-6 col-lg-4">
-      <div class="box rounded" style='background-color: <%= item.colors["primary-color"] %>'>
-        <div class="overlay"></div>
-        <div class="menu-text"><% item.educations.each do |ed| %><%= raw(ed + '</br>') %><% end %></div>      <%# Fjern :3000, når der ikke skal testes mere..... Virker ikke med at have port på :domain i educational_domain%>
-        <a class='menu-link' href='http://<%= item.domain %>'></a>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render partial: 'partials/navigation'%>
 
+<script type="text/javascript">
 
+  $(".nav-link").on("click", function() {
+    addPadding();
+  });
+</script>
