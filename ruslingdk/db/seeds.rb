@@ -90,7 +90,6 @@ def create_datsw(domain)
   sponsor2 = Sponsor.create(educational_domain: datswdomain, name: "prosa", image: "prosa.png")
   sponsor3 = Sponsor.create(educational_domain: datswdomain, name: "cego", image: "cego.png")
 
-
   pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content_header: '<h4>Velkommen til Rusling.dk</h4>', content: 'Vi gør alt hvad vi kan for at i kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer i kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
   faq_page = Page.create(slug: "faq", educational_domain: datswdomain, title: 'Vigtig viden (FAQ)', content_header: '<h4>Her er svarene på alle jeres spørgmål!</h4>', view_file:"accordion")

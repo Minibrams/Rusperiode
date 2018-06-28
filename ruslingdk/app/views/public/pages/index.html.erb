@@ -6,6 +6,10 @@
   <% @domain.primary_menu.items.each_with_index do |item, i| %>
     <div class="col-12 col-sm-12 col-lg-4">
       <div class="box">
+<<<<<<< HEAD
+=======
+      <%binding.pry%>
+>>>>>>> 6be87b97fbf3749d9783ccdc04664a5e2947185e
         <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
         <div class="filters" style='background-image: url(<%= image_path(item["image_url"]) %>);'></div>
         <div class="hoverlay"></div>
