@@ -32,7 +32,7 @@ def create_datsw(domain)
   datswdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   datswdomain.name = 'Datalogi og Software'
   datswdomain.educations = ["Datalogi", "Software"]
-  datswdomain.colors = {"primary-color" => "#FF5000", "secondary-color" => "#FF9B33"}
+  datswdomain.colors = {"primary-color" => "#eb7115", "secondary-color" => "#f19c5c"}
   datswdomain.locale = "da"
   datswdomain.save
 
@@ -203,7 +203,7 @@ def create_engdomain(domain)
   engdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   engdomain.name = 'Engeneering'
   engdomain.educations = ["Matematik", "Fysik", "Matematik-Økonomi", "Noget andet"]
-  engdomain.colors = {"primary-color" => "#6EA516", "secondary-color" => "#8BB745"}
+  engdomain.colors = {"primary-color" => "#4d9e45", "secondary-color" => "#83bb7d"}
   engdomain.locale = "da"
   engdomain.save
 
@@ -382,7 +382,7 @@ def create_humdomain(domain)
   humdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   humdomain.name = 'Humaniora'
   humdomain.educations = ["Dansk", "Engelsk", "Tysk", "Svensk", "Norsk", "Historie"]
-  humdomain.colors = {"primary-color" => "#D20D44", "secondary-color" => "#DB3D69"}
+  humdomain.colors = {"primary-color" => "#CD563F", "secondary-color" => "#dc8979"}
   humdomain.locale = "en"
   humdomain.save
 
@@ -560,7 +560,7 @@ def create_samfdomain(domain)
   samfdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   samfdomain.name = 'Samfundsvidenskab'
   samfdomain.educations = ["Kommunikation", "Uddannelse2", "Uddannelse3", "Uddannelse4"]
-  samfdomain.colors = {"primary-color" => "#002930", "secondary-color" => "#334561"}
+  samfdomain.colors = {"primary-color" => "#1a2633", "secondary-color" => "#5f6871"}
   samfdomain.locale = "da"
   samfdomain.save
 
@@ -741,7 +741,7 @@ def create_sunddomain(domain)
   sunddomain = EducationalDomain.find_or_initialize_by(domain: domain)
   sunddomain.name = 'Sund'
   sunddomain.educations = ["Idræt", "Medicin", "MEDIS", "Uddannelse42", "Uddannelse43"]
-  sunddomain.colors = {"primary-color" => "#FFCC00", "secondary-color" => "#FFD636"}
+  sunddomain.colors = {"primary-color" => "#edc131", "secondary-color" => "#f2d46f"}
   sunddomain.locale = "en"
   sunddomain.save
 
