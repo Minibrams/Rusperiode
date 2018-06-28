@@ -333,8 +333,9 @@ z-index: 999;
   position: absolute;
   color: white;
   font-size: 0;
-  bottom: 5px;
-  left: 5px;
+  font-family: 'Source Sans Pro Light', sans-serif;
+  bottom: 10px;
+  left: 10px;
   align-items: bottom;
   justify-content:left;
   z-index: 999;
@@ -342,21 +343,22 @@ z-index: 999;
 }
 
 .box:hover .info{
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   visibility: visible;
 }
 
 .box:hover .info:after{
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   visibility: visible;
 }
 
 .box .description {
   position: absolute;
   color: white;
-  font-size: 1.25rem;
-  bottom: 5px;
-  left: 5px;
+  font-size: 1.5rem;
+  font-family: 'Source Sans Pro Light', sans-serif;
+  bottom: 10px;
+  left: 10px;
   align-items: bottom;
   justify-content:left;
   z-index: 999;
@@ -370,6 +372,52 @@ z-index: 999;
 .box:hover .description:after{
   font-size: 0;
   visibility: hidden;
+}
+
+@media (max-width: 767.98px){
+  .box .info {
+    position: absolute;
+    color: white;
+    font-size: 0;
+    bottom: 10px;
+    left: 10px;
+    align-items: bottom;
+    justify-content:left;
+    z-index: 999;
+    visibility: hidden;
+  }
+
+  .box:hover .info{
+    font-size: 1.25rem;
+    visibility: visible;
+  }
+
+  .box:hover .info:after{
+    font-size: 1.25rem;
+    visibility: visible;
+  }
+
+  .box .description {
+    position: absolute;
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'Source Sans Pro Light', sans-serif;
+    bottom: 10px;
+    left: 10px;
+    align-items: bottom;
+    justify-content:left;
+    z-index: 999;
+    visibility: visible;
+  }
+
+  .box:hover .description{
+    font-size: 0;
+    visibility: hidden;
+  }
+  .box:hover .description:after{
+    font-size: 0;
+    visibility: hidden;
+  }
 }
 
 .btn.outline {
@@ -406,8 +454,9 @@ z-index: 999;
 
 .hilsen{
   text-align: center;
+  align-items: center;
+  justify-content: center;
   color: var(--fontDark);
-  padding-bottom: 5%;
 }
 
 .content-header{
@@ -415,7 +464,7 @@ z-index: 999;
 }
 
 .content{
-  font-family: 'Source San Pro', sans-serif;
+  font-family: 'Source San Pro Light', sans-serif;
 }
 
 .show{
