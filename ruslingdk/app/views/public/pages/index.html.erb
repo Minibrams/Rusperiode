@@ -6,8 +6,9 @@
   <% @domain.primary_menu.items.each_with_index do |item, i| %>
     <div class="col-12 col-sm-12 col-lg-4">
       <div class="box">
+      <%binding.pry%>
         <a class='menu-link' href='javascript:void(0)' onclick='window.location = "<%= item["link"] %>"'></a>
-        <div class="filters" style='background-image: url("<%= image_url(item["image_url"]) %>");'></div>
+        <div class="filters" style='background-image: url(<%= image_path(item["image_url"]) %>);'></div>
         <div class="hoverlay"></div>
         <div class="overlay<%= i%6 %>"></div>
         <div class="menu-header<%= i%6 %>"><%= item["name"] %></div>
@@ -16,5 +17,6 @@
     </div>
   <% end %>
 </div>
+
 
 <%= render partial: 'partials/sponsor' %>
