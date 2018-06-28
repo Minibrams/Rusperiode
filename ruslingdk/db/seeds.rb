@@ -921,10 +921,10 @@ end
 
 if Rails.env.production?
   #Create Frontpage
-  create_frontpage('192.38.56.109')
+  create_frontpage('rusling.dk')
 
   #Create domains
-  create_datsw('192.38.56.109')
+  create_datsw('datsw.rusling.dk')
 
 
 
