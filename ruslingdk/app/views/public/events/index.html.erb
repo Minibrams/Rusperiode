@@ -56,10 +56,14 @@
   });*/
   </script>
   <div id="accordionParent">
-    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionToday", condition: :today  } %>
-
-    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionNext", condition: :upcoming  } %>
-
-    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionPrevious", condition: :previous } %>
+    <% if @events.today.any? %>
+      <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionToday", condition: :today  } %>
+    <% end %>
+    <% if @events.upcoming.any? %>
+      <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionNext", condition: :upcoming  } %>
+    <% end %>
+    <% if @events.previous.any? %>
+      <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionPrevious", condition: :previous } %>
+    <% end %>
   </div>
 </div>
