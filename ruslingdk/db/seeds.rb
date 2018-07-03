@@ -27,7 +27,6 @@ def html_parse(input, parser)
 end
 
 
-
 def create_datsw(domain)
   datswdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   datswdomain.name = 'Datalogi og Software'
