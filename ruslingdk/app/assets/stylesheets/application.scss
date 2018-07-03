@@ -725,6 +725,7 @@ p{
 .samarbejdspartner-box{
   position: relative;
   align-items: center;
+  justify-content: center;
   height: 167px;
   overflow: hidden;
   padding: none;
@@ -738,12 +739,14 @@ p{
 }
 
 .sponsor-img {
-  padding: 1% 3%;
+  padding: 1% 1%;
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 0;
+  right: 0;
   margin: auto;
-  height: auto;
+  max-height: 100%;
   max-width: 100%;
   flex-direction: row;
   flex: 1 0 auto;
