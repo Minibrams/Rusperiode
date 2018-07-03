@@ -1,7 +1,5 @@
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
-<<<<<<< HEAD
-=======
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -16,5 +14,4 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
->>>>>>> 393b10fcb2d34301b23e3290ebac0f9c3b062a7e
 end
