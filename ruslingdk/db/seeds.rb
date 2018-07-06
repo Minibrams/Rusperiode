@@ -89,7 +89,7 @@ def create_datsw(domain)
   sponsor2 = Sponsor.create(educational_domain: datswdomain, name: "prosa", image: "prosa.png")
   sponsor3 = Sponsor.create(educational_domain: datswdomain, name: "cego", image: "cego.png")
 
-  pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content_header: '<h4>Velkommen til Rusling.dk</h4>', content: 'Vi gør alt hvad vi kan for at i kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer i kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
+  pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content_header: '<h4>Velkommen til Rusling.dk</h4>', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
   faq_page = Page.create(slug: "faq", educational_domain: datswdomain, title: 'Vigtig viden (FAQ)', content_header: '<h4>Her er svarene på alle jeres spørgmål!</h4>', view_file:"accordion")
   faq_page.accordion = [
@@ -112,7 +112,7 @@ def create_datsw(domain)
   ]
   faq_page.save
 
-  info_page = Page.create(slug: "info", educational_domain: datswdomain, title: 'Information', content_header: '<h4>Vi har samlet så mange informationer som mulig!</h4>', content: 'Hvis i synes der mangler noget, må i gerne sige til!', view_file:"accordion")
+  info_page = Page.create(slug: "info", educational_domain: datswdomain, title: 'Information', content_header: '<h4>Vi har samlet så mange informationer som mulig!</h4>', content: 'Hvis I synes der mangler noget, må I gerne sige til!', view_file:"accordion")
   info_page.accordion = [
     {
       "title" => "Studiestartsdagen",
@@ -174,7 +174,7 @@ def create_datsw(domain)
 
   advice_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd', content: File.read(__dir__ + "/seeds/advice.html"), content_header: "<h4>Herunder har vi samlet er par gode råd fra ældre studerende på datalogi og software</h4>", view_file:"show")
 
-  ev1datsw = Event.create(title: "Studiestartsdagen", educational_domain: datswdomain, description: "<h5>Klar, parat, studiestart!</h5><p>Vi glæder os utrolig meget til at tage imod jer!<br />Mere info om dagen kan i finde <a href=\"/info/\">her</a> under overskriften \"Studiestartsdagen\"</p>", location: "Honnørkajen", lat: 57.0502987, lng: 9.9229435, begin_at: "2018-09-03 08:30:00")
+  ev1datsw = Event.create(title: "Studiestartsdagen", educational_domain: datswdomain, description: "<h5>Klar, parat, studiestart!</h5><p>Vi glæder os utrolig meget til at tage imod jer!<br />Mere info om dagen kan I finde <a href=\"/info/\">her</a> under overskriften \"Studiestartsdagen\"</p>", location: "Honnørkajen", lat: 57.0502987, lng: 9.9229435, begin_at: "2018-09-03 08:30:00")
   #ev2datsw = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00")
   #ev3datsw = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-20 14:30:00")
   #ev4datsw = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00")
@@ -931,9 +931,9 @@ end
 
 if Rails.env.development?
 #Forside
-  create_frontpage('localhost')
+  create_frontpage('fp.localhost')
 
 #Domæner
-  create_datsw('datsw.localhost')
+  create_datsw('localhost')
 
 end
