@@ -80,7 +80,7 @@ def create_datsw(domain)
   #Contacts
   tobias = Contact.create(educational_domain: datswdomain, name: "Tobias Palludan", email: "tpallu16@student.aau.dk", number: "20 58 21 14", description: "Tobias er ansvarlig for studiestartsperioden. Er du i tvivl om noget, kan du starte med at skrive til Tobias - så finder han den rette person til dig.", image: "tobiaspalludan.jpg")
   diana = Contact.create(educational_domain: datswdomain, name: "Diana Wolff Bie", email: "dwb@staff.aau.dk", description: "Diana er studiesekretæren, og står for mange af de praktiske ting på jeres uddannelse. I vil høre mere om, hvordan hun kan hjælpe, til studiestarten.", image: "dianawolffbie.jpg")
-  brams = Contact.create(educational_domain: datswdomain, name: "Anders Brams", email: "abrams15@student.aau.dk", description: "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade.", image: "andersbrams.jpg")
+  brams = Contact.create(educational_domain: datswdomain, name: "Anders Brams", email: "studievejl@cs.aau.dk", description: "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade.", image: "andersbrams.jpg")
   kurt = Contact.create(educational_domain: datswdomain, name: "Kurt Nørmark", email: "normark@cs.aau.dk", description: "Du kan skrive til Kurt hvis du har spørgsmål vedr. alt der har med studiet, grupper og projekter at gøre.", image: "kurt.jpg")
   #anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
 
