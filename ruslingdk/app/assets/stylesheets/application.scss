@@ -192,11 +192,11 @@ justify-content: center;
 z-index: 999;
 }
 
-@media (max-width: 1440px){
+@media (max-width: 1920.90px){
   .menu-header0, .menu-header1, .menu-header3 {
     position: absolute;
     color: var(--fontDark);
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-family: 'Bree Serif', serif;
     bottom: 0;
     top: 38%;
@@ -213,7 +213,7 @@ z-index: 999;
   .menu-header2, .menu-header4, .menu-header5 {
   position: absolute;
   color: var(--fontLight);
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-family: 'Bree Serif', serif;
   bottom: 0;
   top: 38%;
@@ -231,7 +231,7 @@ z-index: 999;
   .menu-content0, .menu-content1, .menu-content3 {
   position: absolute;
   color: var(--fontDark);
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-family: 'Source Sans Pro', sans-serif;
   bottom: 0;
   top: 50%;
@@ -249,7 +249,7 @@ z-index: 999;
   .menu-content2, .menu-content4, .menu-content5 {
   position: absolute;
   color: var(--fontLight);
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   font-family: 'Source Sans Pro', sans-serif;
   bottom: 0;
   top: 50%;
@@ -265,7 +265,7 @@ z-index: 999;
   }
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1080.90px){
   .menu-header0, .menu-header1, .menu-header3 {
     position: absolute;
     color: var(--fontDark);
@@ -716,7 +716,7 @@ z-index: 999;
   visibility: hidden;
 }
 
-@media (max-width: 1440.98px){
+@media (max-width: 1920.98px){
   .box .info {
     position: absolute;
     color: white;
@@ -762,7 +762,7 @@ z-index: 999;
   }
 }
 
-@media (max-width: 1024.98px){
+@media (max-width: 1080.98px){
   .box .info {
     position: absolute;
     color: white;
@@ -995,19 +995,19 @@ z-index: 999;
   font-size: 2.5rem;
 }
 
-@media (max-width: 1440.98px){
+@media (max-width: 1920.98px){
   .content-header{
     font-family: 'Bree Serif', serif;
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 
   .content{
     font-family: 'Source San Pro', sans-serif;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 }
 
-@media (max-width: 1024.98px){
+@media (max-width: 1080.98px){
   .content-header{
     font-family: 'Bree Serif', serif;
     font-size: 2.2rem;
@@ -1309,7 +1309,7 @@ p{
 }
 
 
-@media (max-width: 1440.98px){
+@media (max-width: 1920.98px){
   .sponsor-title{
     text-align: center;
     font-size: 2.8rem;
@@ -1322,7 +1322,7 @@ p{
   }
 }
 
-@media (max-width: 1024.98px){
+@media (max-width: 1080.98px){
   .sponsor-title{
     text-align: center;
     font-size: 2.5rem;
@@ -1419,15 +1419,15 @@ p{
   font-size: 4rem;
 }
 
-@media (max-width: 1440.98px){
+@media (max-width: 1920.98px){
   .accordion-header{
     font-size: 2.6rem;
   }
 }
 
-@media (max-width: 1024.98px){
+@media (max-width: 1080.98px){
   .accordion-header{
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
