@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-header" id="heading<%= event["id"] %>">
         <div class="accordion-toggle" data-toggle="collapse" data-target="#collapse<%= event.id %>" aria-expanded="true" aria-controls="collapse<%= event.id %>">
-          <h4 class="event-title"><%= event.title %></h4><h4 class="event-date"><%= l(event.begin_at, format: :short) %></h4>
+          <div class="accordion-header event-title"><%= event.title %></div><div class="accordion-header event-date"><%= l(event.begin_at, format: :short) %></div>
 
           <div style="clear: both;"></div>
         </div>
