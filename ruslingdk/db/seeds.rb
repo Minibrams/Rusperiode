@@ -39,7 +39,7 @@ def create_datsw(domain)
   datswmenu.items = [
     {
       "name" => "Vigtig viden",
-      "description" => "(FAQ)",
+      "description" => "Ligegyldig info",
       "link" => "/faq",
       "image_url" => 'vigtigviden.png'
     },
