@@ -50,6 +50,13 @@ set :nginx_ssl_certificate, '/etc/nginx/ssl/nginx.crt'
 set :nginx_ssl_certificate_key, '/etc/nginx/ssl/nginx.key'
 set :nginx_use_ssl, false
 
+set :slackistrano, {
+  channel: '#ruskode',
+  webhook: 'https://hooks.slack.com/services/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',
+  username: 'Spang Deploybot',
+  icon_emoji: ':svarnu:', # takes precedence over icon_url
+}
+
 # Custom SSH Options
 # ==================
 # You may pass any option but keep in mind that net/ssh understands a
