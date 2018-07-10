@@ -85,9 +85,9 @@ def create_datsw(domain)
   #anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
 
   #Sponsors
-  sponsor1 = Sponsor.create(educational_domain: datswdomain, name: "progras", image: "progras.png")
-  sponsor2 = Sponsor.create(educational_domain: datswdomain, name: "prosa", image: "prosa.png")
-  sponsor3 = Sponsor.create(educational_domain: datswdomain, name: "cego", image: "cego.png")
+  sponsor1 = Sponsor.create(educational_domain: datswdomain, name: "progras", image: "sponsors/progras.png")
+  sponsor2 = Sponsor.create(educational_domain: datswdomain, name: "prosa", image: "sponsors/prosa.png")
+  sponsor3 = Sponsor.create(educational_domain: datswdomain, name: "cego", image: "sponsors/cego.png")
 
   pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
