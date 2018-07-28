@@ -25,6 +25,10 @@
     </div>
   </div%>
 
+  <% if @events.today.any? %>
+    <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionToday", condition: :today  } %>
+  <% end %>
+
   <div id="calendar" class="mb-1"></div>
 
   <script type="text/javascript">
@@ -56,9 +60,6 @@
   });*/
   </script>
   <div id="accordionParent">
-    <% if @events.today.any? %>
-      <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionToday", condition: :today  } %>
-    <% end %>
     <% if @events.upcoming.any? %>
       <%= render partial: "/partials/event_accordion", locals: {accordionID: "accordionNext", condition: :upcoming  } %>
     <% end %>
