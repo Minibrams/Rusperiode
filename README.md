@@ -12,3 +12,6 @@ Se [Rusling.dk README](ruslingdk/README.md)
 
 ## Studego - Ruby ala Spang
 Se [Studego README](studego/README.md)
+
+## FORdeler
+Se [FORdeler README](FORdeler/README.md)
