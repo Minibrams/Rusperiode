@@ -8,7 +8,8 @@ CEGO beskæftiger i dag godt 100 medarbejder, hvoraf de ca. 70 er udviklere, sys
 PROSA er en fagforening af IT-professionelle! Som studerende kan du være gratis medlem, i hele din studietid.
 Vi støtter dit studiemiljø. Hvis du melder dig ind i PROSA giver vi op til 450,- i løbet af din studietid til F-klubben, uden du skal af med en krone. Derudover holder vi relevante IT-faglige arrangementer. Har du en god idé til et arrangement så skriv til Aalborgs lokale Organizer:
 
-Anders Høgh, ahh@prosa.dk
+Anders Høgh, ahh@prosa.dk, eller
+Malene Magnussen, mhm@prosa.dk
 
 
 #### Bankdata
@@ -39,5 +40,5 @@ Du behøver ikke nødvendigvis at kende til Rails på forhånd, da det vigtige e
 
 #### ADSL
 
-Aalborgs datalogiske studenterlaug er det eneste studenter politiske "parti" som rigtig støtter op om og hjælper med de lokale arrangementer ude hos software, datalogi mm. Bordtennis bat, bolde og meget mere, samt selvfølgelig støtter vci op om de mange arrangementer f-klubben holder men det vigtig med interesse og nye medlemmer, ellers kan vi ikke bestå som studenterpolitisk forening. Ligeledes er det vigtigt at vi støtter op om hinanden, og dermed ADSL således vi kan få penge i kassen og blive ved med at støtte det lokale!
+Aalborgs datalogiske studenterlaug er det eneste studenter politiske "parti" som rigtig støtter op om og hjælper med de lokale arrangementer ude hos software, datalogi med blandt andet bordtennis bat, bolde og meget mere. Vi støtter selvfølgelig op om de mange arrangementer f-klubben holder, men det er vigtigt med interesse og nye medlemmer. Ellers kan vi ikke bestå som studenterpolitisk forening. Ligeledes er det vigtigt at vi støtter op om hinanden, og dermed ADSL, således at vi kan få penge i kassen og blive ved med at støtte de lokale!
 
