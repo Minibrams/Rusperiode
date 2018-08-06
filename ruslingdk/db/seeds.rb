@@ -918,7 +918,121 @@ def create_sunddomain(domain)
 
 end
 
+def create_baitixdinf(domain)
+  baitixdinfdomain = EducationalDomain.find_or_initialize_by(domain: domain)
+  baitixdinfdomain.name = 'Informationsteknologi, Interaktionsdesign og Informatik'
+  baitixdinfdomain.educations = ["Informationsteknologi", "Interaktionsdesign", "Informatik"]
+  baitixdinfdomain.colors = {"primary-color" => "#eb7115", "secondary-color" => "#f19c5c"}
+  baitixdinfdomain.locale = "da"
+  baitixdinfdomain.save
 
+  baitixdinfmenu = baitixdinfdomain.menus.find_or_initialize_by(name: "BaitIxdInf Menu")
+  baitixdinfmenu.items = [
+    {
+      "name" => "Information",
+      "description" => "Studiestartsdagen og andet",
+      "link" => "/information",
+      "image_url" => 'menu/vigtigviden.png'
+    },
+    {
+      "name" => "Arrangementer",
+      "description" => "Begivenheder i studiestartsperioden",
+      "link" => "/arrangementer",
+      "image_url" => 'menu/arrangementer.png'
+    },
+    {
+      "name" => "Kontakt",
+      "description" => "Hvem kan du kontakte?",
+      "link" => "/kontakt",
+      "image_url" => ''
+    },
+    {
+      "name" => "Guides",
+      "description" => "Print, WiFi og andet",
+      "link" => "/guides",
+      "image_url" => 'menu/guides.png'
+    },
+    ]
+  baitixdinfmenu.educational_domain = baitixdinfdomain
+  baitixdinfmenu.save
+
+  #Contacts
+  contact1 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Høgh", email: "ahha15@student.aau.dk", number: "31 31 78 28", description: "Anders er jeres overinstruktør. Det er ham som har det overordnede ansvar for jeres studiestartsperiode. Er du i tvivl om noget så kontakt ham gerne!", image: "contacts/baitixdinf/andershogh.jpg")
+  contact2 = Contact.create(educational_domain: baitixdinfdomain, name: "Studiesekretær", description: "Kontaktinformationer kommer", image: "contacts/baitixdinf/placeholder.jpg")
+  contact3 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Brams", email: "studievejl@cs.aau.dk", description: "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade.", image: "contacts/andersbrams.jpg")
+  contact4 = Contact.create(educational_domain: baitixdinfdomain, name: "Pernille Aagaard Madsen", email: "pama16@student.aau.dk", description: "Pernille er én af de 4 tutorinstruktører tilknytte din studiestart. Pernille læser Informatik på 5. semester, og kan svare på diverse spørgsmål ang. uddannelserne BaIT/ INF. ", image: "contacts/placeholder.jpg")
+
+  #Sponsors
+  sponsor1 = Sponsor.create(educational_domain: baitixdinf, name: "prosa", image: "sponsors/prosa.png")
+
+  pa = Page.create(educational_domain: baitixdinf, title: 'Informationsteknologi, Interaktionsdesign og Informatik', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
+
+  faq_page = Page.create(slug: "information", educational_domain: baitixdinf, title: 'Information', content_header: 'Alt (..næsten) der er værd at vide om studiestarten!', content: 'Mangler der noget du vil vide? Skriv til ahha15@student.aau.dk med spørgsmålet', view_file:"accordion")
+  faq_page.accordion = [
+    {
+      "title" => "Studiestartsdagen",
+      "content" => html_parse(File.read(__dir__ + "/seeds/baitixdinf/information/studiestartsdagen.md"), "markdown")
+    },
+    {
+      "title" => "Ruskorpset",
+      "content" => html_parse(File.read(__dir__ + "/seeds/baitixdinf/information/ruskorpset.md"), "markdown")
+    },
+    {
+      "title" => "Samarbejdspartnere",
+      "content" => html_parse(File.read(__dir__ + "/seeds/baitixdinf/information/samarbejdspartnere.md"), "markdown")
+    },
+    {
+      "title" => "Rusturen",
+      "content" => html_parse(File.read(__dir__ + "/seeds/baitixdinf/information/rusturen.md"), "markdown")
+    }
+  ]
+  faq_page.save
+
+  howto_page = Page.create(slug: "guides", educational_domain: baitixdinfdomain, title: 'Guides', content_header: 'Guides til alt!', view_file:"accordion")
+  howto_page.accordion = [
+    {
+      "title" => "LaTeX",
+      "content" => File.read(__dir__ + "/seeds/howto/latex.html")
+    },
+    {
+      "title" => "WiFi",
+      "content" => File.read(__dir__ + "/seeds/howto/wifi.html")
+    },
+    {
+      "title" => "Studiekort",
+      "content" => File.read(__dir__ + "/seeds/howto/studiekort.html")
+    },
+    {
+      "title" => "Print",
+      "content" => File.read(__dir__ + "/seeds/howto/print.html")
+    },
+    {
+      "title" => "Skema",
+      "content" => File.read(__dir__ + "/seeds/howto/skema.html")
+    },
+    {
+      "title" => "Studiemail på telefon",
+      "content" => File.read(__dir__ + "/seeds/howto/studiemail.html")
+    },
+    {
+      "title" => "Moodle",
+      "content" => File.read(__dir__ + "/seeds/howto/moodle.html")
+    },
+    {
+      "title" => "InDesign",
+      "content" => html_parse(File.read(__dir__ + "/seeds/baitixdinf/guides/indesign.md"), "markdown")
+    }
+  ]
+  howto_page.save
+
+  contacts_page = Page.create(slug: "kontakter", educational_domain: baitixdinfdomain, title: 'Kontakt', content_header: 'Hvem skal du have fat i for at få svar på dit spørgsmål?', content:'Hold musen over billedet for at se kontaktoplysninger på personen!', view_file:"contacts")
+
+  ev1baitixdinf = Event.create(title: "Studiestartsdag", educational_domain: baitixdinfdomain, description: "<p>Den store dag! Du starter på dit studie. Husk at vi mødes på Honnørkajen. Se kortet hvis du er i tvivl om hvor det er.</p>", location: "Honnørkajen", lat: 57.0502987, lng: 9.9229435, begin_at: "2018-09-03 08:30:00")
+
+  baitixdinfdomain.update(primary_menu: baitixdinfmenu, default_page: pa)
+
+
+end
 
 if Rails.env.production?
   #Create Frontpage
@@ -926,6 +1040,7 @@ if Rails.env.production?
 
   #Create domains
   create_datsw('datsw.rusling.dk')
+  create_baitixdinf('bait-ixd-inf.rusling.dk')
 
 
 
