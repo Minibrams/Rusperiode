@@ -965,7 +965,7 @@ def create_baitixdinf(domain)
   #Sponsors
   sponsor1 = Sponsor.create(educational_domain: baitixdinf, name: "prosa", image: "sponsors/prosa.png")
 
-  pa = Page.create(educational_domain: baitixdinf, title: 'Informationsteknologi, Interaktionsdesign og Informatik', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
+  pa_baitixdinf = Page.create(educational_domain: baitixdinf, title: 'Informationsteknologi, Interaktionsdesign og Informatik', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
   faq_page = Page.create(slug: "information", educational_domain: baitixdinf, title: 'Information', content_header: 'Alt (..næsten) der er værd at vide om studiestarten!', content: 'Mangler der noget du vil vide? Skriv til ahha15@student.aau.dk med spørgsmålet', view_file:"accordion")
   faq_page.accordion = [
@@ -1029,7 +1029,7 @@ def create_baitixdinf(domain)
 
   ev1baitixdinf = Event.create(title: "Studiestartsdag", educational_domain: baitixdinfdomain, description: "<p>Den store dag! Du starter på dit studie. Husk at vi mødes på Honnørkajen. Se kortet hvis du er i tvivl om hvor det er.</p>", location: "Honnørkajen", lat: 57.0502987, lng: 9.9229435, begin_at: "2018-09-03 08:30:00")
 
-  baitixdinfdomain.update(primary_menu: baitixdinfmenu, default_page: pa)
+  baitixdinfdomain.update(primary_menu: baitixdinfmenu, default_page: pa_baitixdinf)
 
 
 end
@@ -1048,9 +1048,10 @@ end
 
 if Rails.env.development?
 #Forside
-  create_frontpage('fp.localhost')
+  create_frontpage('localhost')
 
 #Domæner
-  create_datsw('localhost')
+  create_baitixdinf('bait-ixd-inf.localhost')
+  create_datsw('datsw.localhost')
 
 end
