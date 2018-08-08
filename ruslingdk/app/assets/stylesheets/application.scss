@@ -727,6 +727,7 @@ z-index: 999;
     justify-content:left;
     z-index: 999;
     visibility: hidden;
+    padding: 10px;
   }
 
   .box:hover .info{
@@ -750,6 +751,7 @@ z-index: 999;
     justify-content:left;
     z-index: 999;
     visibility: visible;
+    padding: 10px;
   }
 
   .box:hover .description{

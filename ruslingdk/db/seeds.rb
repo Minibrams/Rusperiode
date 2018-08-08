@@ -937,37 +937,37 @@ def create_baitixdinf(domain)
     {
       "name" => "Arrangementer",
       "description" => "Begivenheder i studiestartsperioden",
-      "link" => "/arrangementer",
-      "image_url" => 'menu/arrangementer.png'
+      "link" => "/events",
+      "image_url" => ''
     },
     {
       "name" => "Kontakt",
       "description" => "Hvem kan du kontakte?",
-      "link" => "/kontakt",
-      "image_url" => ''
+      "link" => "/kontakter",
+      "image_url" => 'menu/arrangementer.png'
     },
     {
       "name" => "Guides",
       "description" => "Print, WiFi og andet",
       "link" => "/guides",
-      "image_url" => 'menu/guides.png'
+      "image_url" => ''
     },
     ]
   baitixdinfmenu.educational_domain = baitixdinfdomain
   baitixdinfmenu.save
 
   #Contacts
-  contact1 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Høgh", email: "ahha15@student.aau.dk", number: "31 31 78 28", description: "Anders er jeres overinstruktør. Det er ham som har det overordnede ansvar for jeres studiestartsperiode. Er du i tvivl om noget så kontakt ham gerne!", image: "contacts/baitixdinf/andershogh.jpg")
-  contact2 = Contact.create(educational_domain: baitixdinfdomain, name: "Studiesekretær", description: "Kontaktinformationer kommer", image: "contacts/baitixdinf/placeholder.jpg")
+  contact1 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Høgh", email: "ahha15@student.aau.dk", number: "31 31 78 28", description: "Anders er jeres overinstruktør. Det er ham som har det overordnede ansvar for jeres studiestartsperiode. Er du i tvivl om noget så kontakt ham gerne!", image: "contacts/andershogh.jpg")
+  contact2 = Contact.create(educational_domain: baitixdinfdomain, name: "Studiesekretær", description: "Kontaktinformationer kommer", image: "contacts/placeholder.jpg")
   contact3 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Brams", email: "studievejl@cs.aau.dk", description: "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade.", image: "contacts/andersbrams.jpg")
   contact4 = Contact.create(educational_domain: baitixdinfdomain, name: "Pernille Aagaard Madsen", email: "pama16@student.aau.dk", description: "Pernille er én af de 4 tutorinstruktører tilknytte din studiestart. Pernille læser Informatik på 5. semester, og kan svare på diverse spørgsmål ang. uddannelserne BaIT/ INF. ", image: "contacts/placeholder.jpg")
 
   #Sponsors
-  sponsor1 = Sponsor.create(educational_domain: baitixdinf, name: "prosa", image: "sponsors/prosa.png")
+  sponsor1 = Sponsor.create(educational_domain: baitixdinfdomain, name: "prosa", image: "sponsors/prosa.png")
 
-  pa_baitixdinf = Page.create(educational_domain: baitixdinf, title: 'Informationsteknologi, Interaktionsdesign og Informatik', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
+  pa_baitixdinf = Page.create(educational_domain: baitixdinfdomain, title: 'Informationsteknologi, Interaktionsdesign og Informatik', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
-  faq_page = Page.create(slug: "information", educational_domain: baitixdinf, title: 'Information', content_header: 'Alt (..næsten) der er værd at vide om studiestarten!', content: 'Mangler der noget du vil vide? Skriv til ahha15@student.aau.dk med spørgsmålet', view_file:"accordion")
+  faq_page = Page.create(slug: "information", educational_domain: baitixdinfdomain, title: 'Information', content_header: 'Alt (..næsten) der er værd at vide om studiestarten!', content: 'Mangler der noget du vil vide? Skriv til ahha15@student.aau.dk med spørgsmålet', view_file:"accordion")
   faq_page.accordion = [
     {
       "title" => "Studiestartsdagen",

@@ -1,3 +1,3 @@
 Hvis du går på Interaktionsdesign er det en god ting at kunne bruge Adobe InDesign. Dine undervisere vil gerne at du kan levere noget, der ser godt ud! **Du går jo ikke på en design uddannelse for ingenting!**
  
-Du kan læse mere om InDesign her: https://www.adobe.com/dk/products/indesign.html?sdid=KKQLR&mv=search&s_kwcid=AL!3085!3!247662214937!e!!g!!indesign&ef_id=W04J5gAAAHXS8gIT:20180725131459:s
+Du kan læse mere om InDesign [her](https://www.adobe.com/dk/products/indesign.html?sdid=KKQLR&mv=search&s_kwcid=AL!3085!3!247662214937!e!!g!!indesign&ef_id=W04J5gAAAHXS8gIT:20180725131459:s).
