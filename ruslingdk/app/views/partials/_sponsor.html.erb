@@ -1,22 +1,12 @@
-<% if @domain.sponsors.present? %>
+<% if @domain.sponsors.exists? %>
   <div class="sponsor-title">Samarbejdspartnere</div>
   <div class="flexbox">
-    <% if @domain.sponsors.size > 1 %>
-      <% @domain.sponsors.each do |item| %>
-        <div class="col-12 col-sm-6 col-lg-4">
-          <div class="samarbejdspartner-box">
-            <img class="sponsor-img" src="<%= image_path(item.image) %>"/>
-          </div>
+    <% @domain.sponsors.each do |item| %>
+      <div class="col-12 col-sm-6 col-lg-4">
+        <div class="samarbejdspartner-box">
+          <img class="sponsor-img" src="<%= image_path(item.image) %>"/>
         </div>
-      <% end %>
-    <% else %>
-      <% @domain.sponsors.each do |item| %>
-        <div class="col-12">
-          <div class="samarbejdspartner-box">
-            <img class="sponsor-img" src="<%= image_path(item.image) %>"/>
-          </div>
-        </div>
-      <% end %>
+      </div>
     <% end %>
   </div>
 <% end %>
