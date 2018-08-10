@@ -1036,14 +1036,11 @@ end
 
 if Rails.env.production?
   #Create Frontpage
-  create_frontpage('rusling.dk')
+  #create_frontpage('rusling.dk')
 
   #Create domains
-  create_datsw('datsw.rusling.dk')
+  #create_datsw('datsw.rusling.dk')
   create_baitixdinf('bait-ixd-inf.rusling.dk')
-
-
-
 end
 
 if Rails.env.development?
