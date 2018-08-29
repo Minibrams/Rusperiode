@@ -262,7 +262,7 @@ def create_datsw(domain)
   boardgame.lat = 57.0465307
   boardgame.lng = 9.9165076
   boardgame.begin_at = "2018-09-17 16:30:00"
-  boardgame.savedic
+  boardgame.save
 
   knoldbold = Event.find_or_initialize_by(title: "Knoldbold", educational_domain: datswdomain)
   knoldbold.description = "Der bliver spillet 4 hold 2x(5v5) i en cirkulær arena i deciplinen Knoldbold"
@@ -294,7 +294,7 @@ def create_datsw(domain)
   ruslan.lat = 57.0123062
   ruslan.lng = 9.9889782
   ruslan.begin_at = "2018-10-19 17:30:00"
-  ruslan.save
+  ruslan.saved
   
   datswdomain.update(primary_menu: datswmenu, default_page: pa)
 
