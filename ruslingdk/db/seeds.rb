@@ -88,7 +88,7 @@ def create_datsw(domain)
   diana = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Diana Wolff Bie")
   diana.email = "dwb@staff.aau.dk"
   diana.description = "Diana er studiesekretæren, og står for mange af de praktiske ting på jeres uddannelse. I vil høre mere om, hvordan hun kan hjælpe, til studiestarten."
-  diana.image: "contacts/dianawolffbie.jpg"
+  diana.image = "contacts/dianawolffbie.jpg"
   diana.save
 
   brams = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Anders Brams")
