@@ -294,7 +294,7 @@ def create_datsw(domain)
   ruslan.lat = 57.0123062
   ruslan.lng = 9.9889782
   ruslan.begin_at = "2018-10-19 17:30:00"
-  ruslan.saved
+  ruslan.save
   
   datswdomain.update(primary_menu: datswmenu, default_page: pa)
 
