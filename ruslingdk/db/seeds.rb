@@ -78,22 +78,64 @@ def create_datsw(domain)
   datswmenu.save
 
   #Contacts
-  tobias = Contact.create(educational_domain: datswdomain, name: "Tobias Palludan", email: "tpallu16@student.aau.dk", number: "20 58 21 14", description: "Tobias er ansvarlig for studiestartsperioden. Er du i tvivl om noget, kan du starte med at skrive til Tobias - så finder han den rette person til dig.", image: "contacts/tobiaspalludan.jpg")
-  diana = Contact.create(educational_domain: datswdomain, name: "Diana Wolff Bie", email: "dwb@staff.aau.dk", description: "Diana er studiesekretæren, og står for mange af de praktiske ting på jeres uddannelse. I vil høre mere om, hvordan hun kan hjælpe, til studiestarten.", image: "contacts/dianawolffbie.jpg")
-  brams = Contact.create(educational_domain: datswdomain, name: "Anders Brams", email: "studievejl@cs.aau.dk", description: "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade.", image: "contacts/andersbrams.jpg")
-  kurt = Contact.create(educational_domain: datswdomain, name: "Kurt Nørmark", email: "normark@cs.aau.dk", description: "Du kan skrive til Kurt hvis du har spørgsmål vedr. alt der har med studiet, grupper og projekter at gøre.", image: "contacts/kurt.jpg")
+  tobias = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Tobias Palludan")
+  tobias.email = "tpallu16@student.aau.dk"
+  tobias.number = "20 58 21 14"
+  tobias.description = "Tobias er ansvarlig for studiestartsperioden. Er du i tvivl om noget, kan du starte med at skrive til Tobias - så finder han den rette person til dig."
+  tobias.image = "contacts/tobiaspalludan.jpg"
+  tobias.save
+
+  diana = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Diana Wolff Bie")
+  diana.email = "dwb@staff.aau.dk"
+  diana.description = "Diana er studiesekretæren, og står for mange af de praktiske ting på jeres uddannelse. I vil høre mere om, hvordan hun kan hjælpe, til studiestarten."
+  diana.image = "contacts/dianawolffbie.jpg"
+  diana.save
+
+  brams = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Anders Brams")
+  brams.email = "studievejl@cs.aau.dk"
+  brams.description = "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade."
+  brams.image = "contacts/andersbrams.jpg"
+  brams.save
+
+  kurt = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Kurt Nørmark")
+  kurt.email = "normark@cs.aau.dk"
+  kurt.description = "Du kan skrive til Kurt hvis du har spørgsmål vedr. alt der har med studiet, grupper og projekter at gøre."
+  kurt.image = "contacts/kurt.jpg"
+  kurt.save
+
   #anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
 
   #Sponsors
-  sponsor1 = Sponsor.create(educational_domain: datswdomain, name: "progras", image: "sponsors/progras.png")
-  sponsor2 = Sponsor.create(educational_domain: datswdomain, name: "prosa", image: "sponsors/prosa.png")
-  sponsor3 = Sponsor.create(educational_domain: datswdomain, name: "cego", image: "sponsors/cego.png")
-  sponsor4 = Sponsor.create(educational_domain: datswdomain, name: "bankdata", image: "sponsors/bankdata.png")
-  sponsor5 = Sponsor.create(educational_domain: datswdomain, name: "accenture", image: "sponsors/accenture.png")
+  sponsor_progras = Sponsor.find_or_initialize_by(educational_domain: datswdomain, name: "progras")
+  sponsor_progras.image = "sponsors/progras.png"
+  sponsor_progras.save
 
-  pa = Page.create(educational_domain: datswdomain, title: 'Datalogi og Software', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
+  sponsor_prosa = Sponsor.find_or_initialize_by(educational_domain: datswdomain, name: "prosa")
+  sponsor_prosa.image = "sponsors/prosa.png"
+  sponsor_prosa.save
 
-  faq_page = Page.create(slug: "faq", educational_domain: datswdomain, title: 'Vigtig viden (FAQ)', content_header: 'Her er svarene på alle jeres spørgmål!', view_file:"accordion")
+  sponsor_cego = Sponsor.find_or_initialize_by(educational_domain: datswdomain, name: "cego")
+  sponsor_cego.image = "sponsors/cego.png"
+  sponsor_cego.save
+
+  sponsor_bankdata = Sponsor.find_or_initialize_by(educational_domain: datswdomain, name: "bankdata")
+  sponsor_bankdata.image = "sponsors/bankdata.png"
+  sponsor_bankdata.save
+
+  sponsor_accenture = Sponsor.find_or_initialize_by(educational_domain: datswdomain, name: "accenture")
+  sponsor_accenture.image = "sponsors/accenture.png"
+  sponsor_accenture.save
+
+  pa = Page.find_or_initialize_by(educational_domain: datswdomain, title: 'Datalogi og Software')
+  pa.content_header = 'Velkommen til Rusling.dk'
+  pa.content = 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>'
+  pa.view_file =  "index"
+  pa.save
+
+  faq_page = Page.find_or_initialize_by(slug: "faq", educational_domain: datswdomain)
+  faq_page.title = 'Vigtig viden (FAQ)'
+  faq_page.content_header = 'Her er svarene på alle jeres spørgmål!'
+  faq_page.view_file = "accordion"
   faq_page.accordion = [
     {
       "title" => "De første par dage",
@@ -114,7 +156,11 @@ def create_datsw(domain)
   ]
   faq_page.save
 
-  info_page = Page.create(slug: "info", educational_domain: datswdomain, title: 'Information', content_header: 'Vi har samlet så mange informationer som mulig!', content: 'Hvis I synes der mangler noget, må I gerne sige til!', view_file:"accordion")
+  info_page = Page.find_or_initialize_by(slug: "info", educational_domain: datswdomain)
+  info_page.title = 'Information'
+  info_page.content_header = 'Vi har samlet så mange informationer som mulig!'
+  info_page.content = 'Hvis I synes der mangler noget, må I gerne sige til!'
+  info_page.view_file = "accordion"
   info_page.accordion = [
     {
       "title" => "Studiestartsdagen",
@@ -139,7 +185,10 @@ def create_datsw(domain)
   ]
   info_page.save
 
-  howto_page = Page.create(slug: "howto", educational_domain: datswdomain, title: 'Guides', content_header: 'Guides til alt!', view_file:"accordion")
+  howto_page = Page.find_or_initialize_by(slug: "howto", educational_domain: datswdomain)
+  howto_page.title = 'Guides'
+  howto_page.content_header = 'Guides til alt!'
+  howto_page.view_file = "accordion"
   howto_page.accordion = [
     {
       "title" => "LaTeX",
@@ -172,17 +221,76 @@ def create_datsw(domain)
   ]
   howto_page.save
 
-  contacts_page = Page.create(slug: "kontakter", educational_domain: datswdomain, title: 'Kontakt', content_header: 'Her er alle de mennesker der er vigtige!', content:'mouseover(tap) for kontakt information.', view_file:"contacts")
+  contacts_page = Page.find_or_initialize_by(slug: "kontakter", educational_domain: datswdomain)
+  contacts_page.title = 'Kontakt'
+  contacts_page.content_header = 'Her er alle de mennesker der er vigtige!'
+  contacts_page.content = 'mouseover(tap) for kontakt information.'
+  contacts_page.view_file = "contacts"
+  contacts_page.save
 
-  advice_page = Page.create(slug: "advice", educational_domain: datswdomain, title: 'Gode råd', content: File.read(__dir__ + "/seeds/advice.html"), content_header: "Herunder har vi samlet er par gode råd fra ældre studerende på datalogi og software", view_file:"show")
+  advice_page = Page.find_or_initialize_by(slug: "advice", educational_domain: datswdomain)
+  advice_page.title = 'Gode råd'
+  advice_page.content = File.read(__dir__ + "/seeds/advice.html")
+  advice_page.content_header = "Herunder har vi samlet er par gode råd fra ældre studerende på datalogi og software"
+  advice_page.view_file = "show"
+  advice_page.save
 
-  ev1datsw = Event.create(title: "Studiestartsdagen", educational_domain: datswdomain, description: "<h5>Klar, parat, studiestart!</h5><p>Vi glæder os utrolig meget til at tage imod jer!<br />Mere info om dagen kan I finde <a href=\"/info/\">her</a> under overskriften \"Studiestartsdagen\"</p>", location: "Honnørkajen", lat: 57.0502987, lng: 9.9229435, begin_at: "2018-09-03 08:30:00")
-  #ev2datsw = Event.create(title: "PROSA Event", educational_domain: datswdomain, description: "Noget prosa arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-18 14:30:00")
-  #ev3datsw = Event.create(title: "IDA Event", educational_domain: datswdomain, description: "Noget ida arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-20 14:30:00")
-  #ev4datsw = Event.create(title: "Studentersamfundet Event", educational_domain: datswdomain, description: "Noget studentersamfundet arrangerer", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-05-22 14:30:00")
-  #ev4datsw = Event.create(title: "Ruskorps Event2", educational_domain: datswdomain, description: "PUBCRAAAAAWL!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-06-23 14:30:00")
-  #ev4datsw = Event.create(title: "Ruskorps Event3", educational_domain: datswdomain, description: "Ruskorpset holder fedt LAN!", location: "CS!", lat: 57.0123924, lng: 9.991556199999991, begin_at: "2018-08-06 14:30:00")
+  studiestartsdag = Event.find_or_initialize_by(title: "Studiestartsdagen", educational_domain: datswdomain)
+  studiestartsdag.description = "<h5>Klar, parat, studiestart!</h5><p>Vi glæder os utrolig meget til at tage imod jer!<br />Mere info om dagen kan I finde <a href=\"/info/\">her</a> under overskriften \"Studiestartsdagen\"</p>"
+  studiestartsdag.location = "Honnørkajen" 
+  studiestartsdag.lat = 57.0502987
+  studiestartsdag.lng = 9.9229435
+  studiestartsdag.begin_at = "2018-09-03 08:30:00"
+  studiestartsdag.save
 
+  pubcrawl = Event.find_or_initialize_by(title: "Pubcrawl", educational_domain: datswdomain)
+  pubcrawl.description = ""
+  pubcrawl.location = "Honnørkajen" 
+  pubcrawl.lat = 57.0502987
+  pubcrawl.lng = 9.9229435
+  pubcrawl.begin_at = "2018-09-12 17:30:00"
+  pubcrawl.save
+
+  boardgame = Event.find_or_initialize_by(title: "Brætspilsaften", educational_domain: datswdomain)
+  boardgame.description = "Prosa inviterer til brætspilsaften"
+  boardgame.location = "Dice'n'Drinks"
+  boardgame.lat = 57.0465307
+  boardgame.lng = 9.9165076
+  boardgame.begin_at = "2018-09-17 16:30:00"
+  boardgame.savedic
+
+  knoldbold = Event.find_or_initialize_by(title: "Knoldbold", educational_domain: datswdomain)
+  knoldbold.description = "Der bliver spillet 4 hold 2x(5v5) i en cirkulær arena i deciplinen Knoldbold"
+  knoldbold.location = "Fjordmarken" 
+  knoldbold.lat = 57.055934
+  knoldbold.lng = 9.906076
+  knoldbold.begin_at = "2018-09-20 14:30:00"
+  knoldbold.save
+
+  ruskursus = Event.find_or_initialize_by(title: "Ruskursus", educational_domain: datswdomain)
+  ruskursus.description = ""
+  ruskursus.location = "Kvickly Vestbyen" 
+  ruskursus.lat = 57.054528
+  ruskursus.lng = 9.906408
+  ruskursus.begin_at = "2018-10-03 08:30:00"
+  ruskursus.save
+
+  latex = Event.find_or_initialize_by(title: "LaTeX kursus", educational_domain: datswdomain)
+  latex.description = "PROSA inviterer på gratis LaTeX kursus! Kun for jer! Fordi i er nice!"
+  latex.location = "AUD 7" 
+  latex.lat = 57.053007
+  latex.lng = 9.912546
+  latex.begin_at = "2018-10-11 16:30:00"
+  latex.save
+
+  ruslan = Event.find_or_initialize_by(title: "Ruslan", educational_domain: datswdomain)
+  ruslan.description = "Vi skal spille computer... og brætspil... og Beat Saber!"
+  ruslan.location = "Cassiopeia" 
+  ruslan.lat = 57.0123062
+  ruslan.lng = 9.9889782
+  ruslan.begin_at = "2018-10-19 17:30:00"
+  ruslan.save
+  
   datswdomain.update(primary_menu: datswmenu, default_page: pa)
 
 
@@ -957,17 +1065,48 @@ def create_baitixdinf(domain)
   baitixdinfmenu.save
 
   #Contacts
-  contact1 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Høgh", email: "ahha15@student.aau.dk", number: "31 31 78 28", description: "Anders er jeres overinstruktør. Det er ham som har det overordnede ansvar for jeres studiestartsperiode. Er du i tvivl om noget så kontakt ham gerne!", image: "contacts/andershogh.jpg")
-  contact2 = Contact.create(educational_domain: baitixdinfdomain, name: "Studiesekretær", description: "Kontaktinformationer kommer", image: "contacts/placeholder.jpg")
-  contact3 = Contact.create(educational_domain: baitixdinfdomain, name: "Anders Brams", email: "studievejl@cs.aau.dk", description: "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade.", image: "contacts/andersbrams.jpg")
-  contact4 = Contact.create(educational_domain: baitixdinfdomain, name: "Pernille Aagaard Madsen", email: "pama16@student.aau.dk", description: "Pernille er én af de 4 tutorinstruktører tilknytte din studiestart. Pernille læser Informatik på 5. semester, og kan svare på diverse spørgsmål ang. uddannelserne BaIT/ INF. ", image: "contacts/placeholder.jpg")
+  contact1 = Contact.find_or_initialize_by(educational_domain: baitixdinfdomain, name: "Anders Høgh")
+  contact1.email = "ahha15@student.aau.dk"
+  contact1.number = "31 31 78 28" 
+  contact1.description = "Anders er jeres overinstruktør. Det er ham som har det overordnede ansvar for jeres studiestartsperiode. Er du i tvivl om noget så kontakt ham gerne!"
+  contact1.image = "contacts/andershogh.jpg"
+  contact1.save
+
+  contact2 = Contact.find_or_initialize_by(educational_domain: baitixdinfdomain, name: "Studiesekretær")
+  contact2.description = "Kontaktinformationer kommer"
+  contact2.image = "contacts/placeholder.jpg"
+  contact2.save
+
+  contact3 = Contact.find_or_initialize_by(educational_domain: baitixdinfdomain, name: "Anders Brams")
+  contact3.email = "studievejl@cs.aau.dk"
+  contact3.description = "Anders er tutor og studievejleder, og ham og hans kolleger kan hjælpe med dispensationer, eksamensregler, studiemiljø, og andre emner i den boldgade."
+  contact3.image = "contacts/andersbrams.jpg"
+  contact3.save
+
+  contact4 = Contact.find_or_initialize_by(educational_domain: baitixdinfdomain, name: "Pernille Aagaard Madsen")
+  contact4.email = "pama16@student.aau.dk"
+  contact4.description = "Pernille er én af de 4 tutorinstruktører tilknytte din studiestart. Pernille læser Informatik på 5. semester, og kan svare på diverse spørgsmål ang. uddannelserne BaIT/ INF. "
+  contact4.image = "contacts/placeholder.jpg"
+  contact4.save
+
 
   #Sponsors
-  sponsor1 = Sponsor.create(educational_domain: baitixdinfdomain, name: "prosa", image: "sponsors/prosa.png")
+  sponsor1 = Sponsor.find_or_initialize_by(educational_domain: baitixdinfdomain, name: "prosa")
+  sponsor1.image = "sponsors/prosa.png"
+  sponsor1.save
 
-  pa_baitixdinf = Page.create(educational_domain: baitixdinfdomain, title: 'Informationsteknologi, Interaktionsdesign og Informatik', content_header: 'Velkommen til Rusling.dk', content: 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>', view_file: "index")
 
-  faq_page = Page.create(slug: "information", educational_domain: baitixdinfdomain, title: 'Information', content_header: 'Alt (..næsten) der er værd at vide om studiestarten!', content: 'Mangler der noget du vil vide? Skriv til ahha15@student.aau.dk med spørgsmålet', view_file:"accordion")
+  pa_baitixdinf = Page.find_or_initialize_by(educational_domain: baitixdinfdomain, title: 'Informationsteknologi, Interaktionsdesign og Informatik')
+  pa_baitixdinf.content_header = 'Velkommen til Rusling.dk'
+  pa_baitixdinf.content = 'Vi gør alt hvad vi kan for at I kan få en fantastisk start på jeres studie! Her på siden har vi forsøgt at samle alle de informationer I kunne få brug for!<br><em>&ndash; Tutorerne</em>'
+  pa_baitixdinf.view_file = "index"
+  pa_baitixdinf.save
+
+  faq_page = Page.find_or_initialize_by(slug: "information", educational_domain: baitixdinfdomain)
+  faq_page.title = 'Information'
+  faq_page.content_header = 'Alt (..næsten) der er værd at vide om studiestarten!'
+  faq_page.content = 'Mangler der noget du vil vide? Skriv til ahha15@student.aau.dk med spørgsmålet'
+  faq_page.view_file = "accordion"
   faq_page.accordion = [
     {
       "title" => "Studiestartsdagen",
@@ -988,7 +1127,10 @@ def create_baitixdinf(domain)
   ]
   faq_page.save
 
-  howto_page = Page.create(slug: "guides", educational_domain: baitixdinfdomain, title: 'Guides', content_header: 'Guides til alt!', view_file:"accordion")
+  howto_page = Page.find_or_initialize_by(slug: "guides", educational_domain: baitixdinfdomain)
+  howto_page.title = 'Guides'
+  howto_page.content_header = 'Guides til alt!'
+  howto_page.view_file = "accordion"
   howto_page.accordion = [
     {
       "title" => "LaTeX",
@@ -1025,9 +1167,20 @@ def create_baitixdinf(domain)
   ]
   howto_page.save
 
-  contacts_page = Page.create(slug: "kontakter", educational_domain: baitixdinfdomain, title: 'Kontakt', content_header: 'Hvem skal du have fat i for at få svar på dit spørgsmål?', content:'Hold musen over billedet for at se kontaktoplysninger på personen!', view_file:"contacts")
+  contacts_page = Page.find_or_initialize_by(slug: "kontakter", educational_domain: baitixdinfdomain)
+  contacts_page.title = 'Kontakt'
+  contacts_page.content_header = 'Hvem skal du have fat i for at få svar på dit spørgsmål?'
+  contacts_page.content = 'Hold musen over billedet for at se kontaktoplysninger på personen!'
+  contacts_page.view_file = "contacts"
+  contacts_page.save
 
-  ev1baitixdinf = Event.create(title: "Studiestartsdag", educational_domain: baitixdinfdomain, description: "<p>Den store dag! Du starter på dit studie. Husk at vi mødes på Honnørkajen. Se kortet hvis du er i tvivl om hvor det er.</p>", location: "Honnørkajen", lat: 57.0502987, lng: 9.9229435, begin_at: "2018-09-03 08:30:00")
+  ev1baitixdinf = Event.find_or_initialize_by(title: "Studiestartsdag", educational_domain: baitixdinfdomain)
+  ev1baitixdinf.description = "<p>Den store dag! Du starter på dit studie. Husk at vi mødes på Honnørkajen. Se kortet hvis du er i tvivl om hvor det er.</p>"
+  ev1baitixdinf.location = "Honnørkajen"
+  ev1baitixdinf.lat = 57.0502987
+  ev1baitixdinf.lng = 9.9229435
+  ev1baitixdinf.begin_at = "2018-09-03 08:30:00"
+  ev1baitixdinf.save
 
   baitixdinfdomain.update(primary_menu: baitixdinfmenu, default_page: pa_baitixdinf)
 
@@ -1040,7 +1193,7 @@ if Rails.env.production?
 
   #Create domains
   #create_datsw('datsw.rusling.dk')
-  create_baitixdinf('bait-ixd-inf.rusling.dk')
+  #create_baitixdinf('bait-ixd-inf.rusling.dk')
 end
 
 if Rails.env.development?
