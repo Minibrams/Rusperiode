@@ -28,6 +28,7 @@ end
 
 
 def create_datsw(domain)
+  puts "creating datsw"
   datswdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   datswdomain.name = 'Datalogi og Software'
   datswdomain.educations = ["Datalogi", "Software"]
@@ -77,6 +78,7 @@ def create_datsw(domain)
   datswmenu.educational_domain = datswdomain
   datswmenu.save
 
+  puts "creating datsw contacts"
   #Contacts
   tobias = Contact.find_or_initialize_by(educational_domain: datswdomain, name: "Tobias Palludan")
   tobias.email = "tpallu16@student.aau.dk"
@@ -105,6 +107,7 @@ def create_datsw(domain)
 
   #anders = Contact.create(educational_domain: datswdomain, name: "Anders Madsen", email: "amads15@student.aau.dk", number: "31 61 79 58", description: "Anders er toxic af!", image: "http://placekitten.com/1200/500")
 
+  puts "creating datsw sponsors"
   #Sponsors
   sponsor_progras = Sponsor.find_or_initialize_by(educational_domain: datswdomain, name: "progras")
   sponsor_progras.image = "sponsors/progras.png"
@@ -234,6 +237,8 @@ def create_datsw(domain)
   advice_page.content_header = "Herunder har vi samlet er par gode råd fra ældre studerende på datalogi og software"
   advice_page.view_file = "show"
   advice_page.save
+
+  puts "creating datsw events"
 
   studiestartsdag = Event.find_or_initialize_by(title: "Studiestartsdagen", educational_domain: datswdomain)
   studiestartsdag.description = "<h5>Klar, parat, studiestart!</h5><p>Vi glæder os utrolig meget til at tage imod jer!<br />Mere info om dagen kan I finde <a href=\"/info/\">her</a> under overskriften \"Studiestartsdagen\"</p>"
@@ -1027,6 +1032,7 @@ def create_sunddomain(domain)
 end
 
 def create_baitixdinf(domain)
+  puts "creating baitixdinf domain"
   baitixdinfdomain = EducationalDomain.find_or_initialize_by(domain: domain)
   baitixdinfdomain.name = 'Informationsteknologi, Interaktionsdesign og Informatik'
   baitixdinfdomain.educations = ["Informationsteknologi", "Interaktionsdesign", "Informatik"]
@@ -1192,8 +1198,8 @@ if Rails.env.production?
   #create_frontpage('rusling.dk')
 
   #Create domains
-  #create_datsw('datsw.rusling.dk')
-  #create_baitixdinf('bait-ixd-inf.rusling.dk')
+  create_datsw('datsw.rusling.dk')
+  create_baitixdinf('bait-ixd-inf.rusling.dk')
 end
 
 if Rails.env.development?
