@@ -45,14 +45,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TeamConstraint.cs" />
+    <Compile Include="IShuffler.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="CSVStructure\Member.cs" />
-    <Compile Include="RelativePair.cs" />
+    <Compile Include="Analyser\RelativePair.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CSVStructure\Relation.cs" />
     <Compile Include="CSVStructure\Team.cs" />
-    <Compile Include="TeamTester.cs" />
+    <Compile Include="Analyser\TeamTester.cs" />
+    <Compile Include="RandomShuffler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -92,7 +92,25 @@ namespace FORdeler
 
         public static void PrintNumberOfRelativeSameTeams(List<RelativePair> relatedMembers)
         {
-            Console.WriteLine($"There currently exists {relatedMembers.Count} pairs on related teams. ({relatedMembers.Count * 2} members involved)");
+            List<Member> membersFound = new List<Member>();
+            int uniqueMembers = 0;
+
+            foreach (RelativePair pair in relatedMembers)
+            {
+                if (!membersFound.Contains(pair.FirstMember))
+                {
+                    membersFound.Add(pair.FirstMember);
+                    uniqueMembers++;
+                }
+
+                if (!membersFound.Contains(pair.SecondMember))
+                {
+                    membersFound.Add(pair.SecondMember);
+                    uniqueMembers++;
+                }
+            }
+
+            Console.WriteLine($"There currently exists {relatedMembers.Count} pairs on related teams. ({uniqueMembers} members involved)");
         }
     }
 }
