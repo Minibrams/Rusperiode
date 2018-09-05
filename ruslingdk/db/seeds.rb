@@ -242,7 +242,7 @@ def create_datsw(domain)
 
   studiestartsdag = Event.find_or_initialize_by(title: "Studiestartsdagen", educational_domain: datswdomain)
   studiestartsdag.description = "<h5>Klar, parat, studiestart!</h5><p>Vi glæder os utrolig meget til at tage imod jer!<br />Mere info om dagen kan I finde <a href=\"/info/\">her</a> under overskriften \"Studiestartsdagen\"</p>"
-  studiestartsdag.location = "Honnørkajen" 
+  studiestartsdag.location = "Honnørkajen"
   studiestartsdag.lat = 57.0502987
   studiestartsdag.lng = 9.9229435
   studiestartsdag.begin_at = "2018-09-03 08:30:00"
@@ -250,7 +250,7 @@ def create_datsw(domain)
 
   pubcrawl = Event.find_or_initialize_by(title: "Pubcrawl", educational_domain: datswdomain)
   pubcrawl.description = ""
-  pubcrawl.location = "Honnørkajen" 
+  pubcrawl.location = "Honnørkajen"
   pubcrawl.lat = 57.0502987
   pubcrawl.lng = 9.9229435
   pubcrawl.begin_at = "2018-09-12 17:30:00"
@@ -265,8 +265,8 @@ def create_datsw(domain)
   boardgame.save
 
   knoldbold = Event.find_or_initialize_by(title: "Knoldbold", educational_domain: datswdomain)
-  knoldbold.description = "Der bliver spillet 4 hold 2x(5v5) i en cirkulær arena i deciplinen Knoldbold"
-  knoldbold.location = "Fjordmarken" 
+  knoldbold.description = "Der bliver spillet 4 hold 2x(5v5) i en cirkulær arena i diciplinen Knoldbold"
+  knoldbold.location = "Fjordmarken"
   knoldbold.lat = 57.055934
   knoldbold.lng = 9.906076
   knoldbold.begin_at = "2018-09-20 14:30:00"
@@ -274,15 +274,15 @@ def create_datsw(domain)
 
   ruskursus = Event.find_or_initialize_by(title: "Ruskursus", educational_domain: datswdomain)
   ruskursus.description = ""
-  ruskursus.location = "Kvickly Vestbyen" 
+  ruskursus.location = "Kvickly Vestbyen"
   ruskursus.lat = 57.054528
   ruskursus.lng = 9.906408
   ruskursus.begin_at = "2018-10-03 08:30:00"
   ruskursus.save
 
   latex = Event.find_or_initialize_by(title: "LaTeX kursus", educational_domain: datswdomain)
-  latex.description = "PROSA inviterer på gratis LaTeX kursus! Kun for jer! Fordi i er nice!"
-  latex.location = "AUD 7" 
+  latex.description = "PROSA inviterer på gratis LaTeX kursus! Kun for jer! Fordi I er nice!"
+  latex.location = "AUD 7"
   latex.lat = 57.053007
   latex.lng = 9.912546
   latex.begin_at = "2018-10-11 16:30:00"
@@ -290,12 +290,12 @@ def create_datsw(domain)
 
   ruslan = Event.find_or_initialize_by(title: "Ruslan", educational_domain: datswdomain)
   ruslan.description = "Vi skal spille computer... og brætspil... og Beat Saber!"
-  ruslan.location = "Cassiopeia" 
+  ruslan.location = "Cassiopeia"
   ruslan.lat = 57.0123062
   ruslan.lng = 9.9889782
   ruslan.begin_at = "2018-10-19 17:30:00"
   ruslan.save
-  
+
   datswdomain.update(primary_menu: datswmenu, default_page: pa)
 
 
@@ -308,7 +308,7 @@ def create_frontpage(domain)
   dom.locale = 'da'
   dom.save!
 
-  fppage = Page.create!(educational_domain: dom, title: 'rusling.dk', content_header:'Velkommen til rusling.dk', content: 'Find din uddannelse i oversigten nedenunder!', view_file: "frontpage")
+  fppage = Page.create!(educational_domain: dom, title: 'rusling.dk', content_header: 'Velkommen til rusling.dk', content: 'Find din uddannelse i oversigten nedenunder!', view_file: "frontpage")
   dom.update!(default_page: fppage)
 end
 
@@ -1073,7 +1073,7 @@ def create_baitixdinf(domain)
   #Contacts
   contact1 = Contact.find_or_initialize_by(educational_domain: baitixdinfdomain, name: "Anders Høgh")
   contact1.email = "ahha15@student.aau.dk"
-  contact1.number = "31 31 78 28" 
+  contact1.number = "31 31 78 28"
   contact1.description = "Anders er jeres overinstruktør. Det er ham som har det overordnede ansvar for jeres studiestartsperiode. Er du i tvivl om noget så kontakt ham gerne!"
   contact1.image = "contacts/andershogh.jpg"
   contact1.save
