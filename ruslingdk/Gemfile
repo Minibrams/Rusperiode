@@ -11,6 +11,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
+gem 'sentry-raven'
 
 gem 'redis-rails'
 gem 'sass-rails', '~> 5.0'
@@ -31,7 +32,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 
 gem 'non-stupid-digest-assets'
-
 
 gem 'RedCloth'
 gem 'redcarpet'
