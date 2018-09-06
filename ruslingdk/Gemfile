@@ -30,6 +30,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 
+gem 'non-stupid-digest-assets'
+
+
 gem 'RedCloth'
 gem 'redcarpet'
 

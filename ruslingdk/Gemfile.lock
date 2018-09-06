@@ -190,6 +190,8 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    non-stupid-digest-assets (1.0.9)
+      sprockets (>= 2.0)
     oauth2 (1.4.0)
       faraday (>= 0.8, < 0.13)
       jwt (~> 1.0)
@@ -372,6 +374,7 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   momentjs-rails
+  non-stupid-digest-assets
   omniauth
   omniauth-facebook
   omniauth-github
