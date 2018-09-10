@@ -249,7 +249,8 @@ def create_datsw(domain)
   studiestartsdag.save
 
   pubcrawl = Event.find_or_initialize_by(title: "Pubcrawl", educational_domain: datswdomain)
-  pubcrawl.description = ""
+  pubcrawl.description = "Pubcrawl er en sjov og hyggelig aften, hvor I kommer rundt på de forskellige barer i Aalborg. I vil i starten af aftenen blive delt ind i hold, og dyste imod andre hold I møder. Dommerne på stedet vil tildele og fratage points fra de forskellige hold, og aftenens vinder vil modtage en velfortjent præmie, når I alle sammen samles til sidst i byen.
+  Bemærk, at der ikke er nogen af legene, hvor der er nødvendigt at drikke for at deltage."
   pubcrawl.location = "Honnørkajen"
   pubcrawl.lat = 57.0502987
   pubcrawl.lng = 9.9229435
@@ -257,7 +258,7 @@ def create_datsw(domain)
   pubcrawl.save
 
   boardgame = Event.find_or_initialize_by(title: "Brætspilsaften", educational_domain: datswdomain)
-  boardgame.description = "Prosa inviterer til brætspilsaften"
+  boardgame.description = "Prosa inviterer jer til brætspilsaften, hvor I har mulighed for at hygge jer med nogle af jeres tutorer og medstuderende. Prosa har booket cafeen til os, og giver derudover den første omgang. Så tag dine gruppemedlemmer under armen, og kom til en hyggelig aften!"
   boardgame.location = "Dice'n'Drinks"
   boardgame.lat = 57.0465307
   boardgame.lng = 9.9165076
@@ -265,7 +266,8 @@ def create_datsw(domain)
   boardgame.save
 
   knoldbold = Event.find_or_initialize_by(title: "Knoldbold", educational_domain: datswdomain)
-  knoldbold.description = "Der bliver spillet 4 hold 2x(5v5) i en cirkulær arena i diciplinen Knoldbold"
+  knoldbold.description = "Knoldbold er den ædle og oldgamle disciplin i organiseret kaos. Med 4 hold på banen, som kæmper to forskellige kampe, og korrupte, unfair dommere, er det helt garanteret, at der ikke er nogen der forstår hvad der foregår. Det skal nok blive sjovt!
+  Der er mindst 4 på banen fra hvert hold, og I skal derfor lave en gruppe med udklædningstema og bold. Der vil være præmier til vinderen af Knoldbold, og præmier til den bedste udklædning."
   knoldbold.location = "Fjordmarken"
   knoldbold.lat = 57.055934
   knoldbold.lng = 9.906076
@@ -273,7 +275,7 @@ def create_datsw(domain)
   knoldbold.save
 
   ruskursus = Event.find_or_initialize_by(title: "Ruskursus", educational_domain: datswdomain)
-  ruskursus.description = ""
+  ruskursus.description = "Ruskursus er studiestartsperiodens absolutte højdepunkt. Vi tager tidligt afsted onsdag morgen, og vil i løbet af onsdagen og torsdagen gennemgå en blanding af hyggelige, sociale aktiviteter, og spændende faglige arrangementer. Torsdag aften afsluttes med en kæmpe fest, hvor vi blandt andet spiser fantastisk mad, laver sketches i vores grupper, og har en fed aften, hvor vi lærer hinanden at kende, inden vi fredag morgen tager hjem til Aalborg igen."
   ruskursus.location = "Kvickly Vestbyen"
   ruskursus.lat = 57.054528
   ruskursus.lng = 9.906408
@@ -289,7 +291,8 @@ def create_datsw(domain)
   latex.save
 
   ruslan = Event.find_or_initialize_by(title: "Ruslan", educational_domain: datswdomain)
-  ruslan.description = "Vi skal spille computer... og brætspil... og Beat Saber!"
+  ruslan.description = "RusLAN er et alkoholfrit arrangement, hvor der bliver dystet i diverse anerkendte e-sportsgrene. I løbet af en hel weekend vil der blive råbt \"n00b\" og \"360n0sc0pe\" i stride strømme, når der bliver afholdt turneringer i CSGO, Rocket League, LoL/DoTa, og 2 andre turneringer - selvfølgelig alt sammen med mega fede præmier!
+  Fik vi nævnt, at vi giver pizza både fredag og lørdag?"
   ruslan.location = "Cassiopeia"
   ruslan.lat = 57.0123062
   ruslan.lng = 9.9889782

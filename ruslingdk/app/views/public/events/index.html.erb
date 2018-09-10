@@ -11,7 +11,7 @@
       defaultView: 'month',
       locale: 'da',
       events: <%= raw(@events.map do |ev|
-        base = { title: ev.title, start: ev.begin_at, url: "/events/#{ev.id}"}
+        base = { title: ev.title, start: ev.begin_at}
         base.merge!(backgroundColor: @domain.colors["primary-color"]) #if ev.planner == 'ruskorps'
         base
       end.to_json) %>/*,
