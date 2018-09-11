@@ -252,9 +252,9 @@ def create_datsw(domain)
   pubcrawl.description = "Pubcrawl er en sjov og hyggelig aften, hvor I kommer rundt på de forskellige barer i Aalborg. I vil i starten af aftenen blive delt ind i hold, og dyste imod andre hold I møder. Dommerne på stedet vil tildele og fratage points fra de forskellige hold, og aftenens vinder vil modtage en velfortjent præmie, når I alle sammen samles til sidst i byen.
   Bemærk, at der ikke er nogen af legene, hvor der er nødvendigt at drikke for at deltage."
   pubcrawl.location = "Honnørkajen"
-  pubcrawl.lat = 57.0502987
-  pubcrawl.lng = 9.9229435
-  pubcrawl.begin_at = "2018-09-12 17:30:00"
+  pubcrawl.lat = 57.048134
+  pubcrawl.lng = 9.919349
+  pubcrawl.begin_at = "2018-09-12 18:00:00"
   pubcrawl.save
 
   boardgame = Event.find_or_initialize_by(title: "Brætspilsaften", educational_domain: datswdomain)
